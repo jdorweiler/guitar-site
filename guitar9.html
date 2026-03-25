@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build #9 | Black Limba &amp; Turquoise | Dorweiler Guitars</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="detail.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><img src="images/logo.svg" alt="Dorweiler Guitars" class="logo-img"></a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="guitars.html" class="nav-link">Portfolio</a></li>
+                <li><a href="commissions.html" class="nav-link">Commissions</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <section class="detail-section">
+        <div class="container">
+            <a href="guitars.html" class="back-link">← Back to Gallery</a>
+            <div class="detail-grid">
+                <div class="gallery-container">
+                    <div class="main-image">
+                        <img id="mainImg" src="images/guitar9/IMG_2815.jpeg" alt="Black limba build with malachite inlay">
+                    </div>
+                    <div class="thumbnail-gallery">
+                        <div class="thumbnail active" onclick="changeImage('images/guitar9/IMG_2815.jpeg', this)">
+                            <img src="images/guitar9/IMG_2815.jpeg" alt="Front View">
+                        </div>
+                        <div class="thumbnail" onclick="changeImage('images/guitar9/IMG_2816.jpeg', this)">
+                            <img src="images/guitar9/IMG_2816.jpeg" alt="Back View">
+                        </div>
+                        <div class="thumbnail" onclick="changeImage('images/guitar9/IMG_2819.jpeg', this)">
+                            <img src="images/guitar9/IMG_2819.jpeg" alt="Headstock & Inlays">
+                        </div>
+                        <div class="thumbnail" onclick="changeImage('images/guitar9/IMG_2820.jpeg', this)">
+                            <img src="images/guitar9/IMG_2820.jpeg" alt="Headstock Detail">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-info">
+                    <p class="detail-kicker">Dorweiler custom build</p>
+                    <h1 class="detail-title">Build #9</h1>
+                    <p class="detail-description">
+                        A black limba build with a laminated neck of black limba, mahogany, and wenge, plus a 24-fret Macassar ebony fretboard with malachite star inlays. The natural wood tones and green-blue inlay accents give this one an organic, earthy look.
+                    </p>
+
+                    <div class="detail-intro-meta">
+                        <p class="detail-status">Available by enquiry</p>
+                    </div>
+
+                    <div class="specs-container">
+                        <h2 class="specs-title">Body &amp; construction</h2>
+                        <div class="specs-grid">
+                            <div class="spec-item"><span class="spec-label">Body</span><span class="spec-value">Black limba</span></div>
+                            <div class="spec-item"><span class="spec-label">Neck</span><span class="spec-value">Black limba, mahogany, wenge</span></div>
+                            <div class="spec-item"><span class="spec-label">Fretboard</span><span class="spec-value">24-fret Macassar ebony with malachite star inlays</span></div>
+                            <div class="spec-item"><span class="spec-label">Tuners</span><span class="spec-value">Hipshot open gear locking</span></div>
+                        </div>
+                    </div>
+
+                    <div class="story-container">
+                        <h2 class="story-title">Maker's Note</h2>
+                        <p class="story-text">
+                            The black limba body already has a strong natural character, and the malachite star inlays across the 24-fret Macassar ebony board push it further with a raw, almost geological feel. A black limba, mahogany, and wenge neck keeps the rest of the build grounded in dark, rich wood tones.
+                        </p>
+                    </div>
+
+                    <div class="availability-container">
+                        <h3 class="availability-title">Availability</h3>
+                        <p class="availability-text">Get in touch to find out about the current availability of this instrument.</p>
+                        <a href="index.html#contact" class="btn-primary">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container"><p>&copy; 2026 Dorweiler Guitars. All rights reserved.</p></div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function changeImage(src, element) {
+            document.getElementById('mainImg').src = src;
+            document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>

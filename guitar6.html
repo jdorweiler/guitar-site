@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build #6 | Blue Burst Flame | Dorweiler Guitars</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="detail.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><img src="images/logo.svg" alt="Dorweiler Guitars" class="logo-img"></a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="guitars.html" class="nav-link">Portfolio</a></li>
+                <li><a href="commissions.html" class="nav-link">Commissions</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <section class="detail-section">
+        <div class="container">
+            <nav class="breadcrumbs">
+                <a href="index.html" class="breadcrumb-link">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="guitars.html" class="breadcrumb-link">Guitars</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-current">Blue Burst Flame</span>
+            </nav>
+            <a href="guitars.html" class="back-link">← Back to Gallery</a>
+            <div class="detail-grid">
+                <div class="gallery-container">
+                    <div class="main-image">
+                        <img id="mainImg" src="images/guitar6/IMG_2764.jpeg" alt="Blue Burst Flame">
+                    </div>
+                    <div class="thumbnail-gallery">
+                        <div class="thumbnail active" onclick="changeImage('images/guitar6/IMG_2764.jpeg', this)">
+                            <img src="images/guitar6/IMG_2764.jpeg" alt="Front View">
+                        </div>
+                        <div class="thumbnail" onclick="changeImage('images/guitar6/IMG_2765.jpeg', this)">
+                            <img src="images/guitar6/IMG_2765.jpeg" alt="Back View">
+                        </div>
+                        <div class="thumbnail" onclick="changeImage('images/guitar6/IMG_3840.jpeg', this)">
+                            <img src="images/guitar6/IMG_3840.jpeg" alt="Inlay Detail">
+                        </div>
+                        <div class="thumbnail" onclick="changeImage('images/guitar6/IMG_3507.jpeg', this)">
+                            <img src="images/guitar6/IMG_3507.jpeg" alt="Body Detail">
+                        </div>
+                        <div class="thumbnail video-thumbnail" onclick="playVideo()">
+                            <div class="video-play-overlay">▶</div>
+                            <img src="images/guitar6/IMG_2764.jpeg" alt="Video">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-info">
+                    <p class="detail-kicker">Dorweiler custom build</p>
+                    <h1 class="detail-title">Build #6</h1>
+                    <p class="detail-description">
+                        A PRS-style build with a flame maple top in blue burst, a five-piece neck, and ziricote fingerboard. At 25.375&quot; scale it balances Fender-like brightness with Gibson-style bendability. Skywood and Seymour Duncan pickups mix punch at the bridge with P-90 warmth at the neck.
+                    </p>
+
+                    <div class="detail-intro-meta">
+                        <p class="detail-status">Available by enquiry</p>
+                    </div>
+
+                    <div class="specs-container">
+                        <h2 class="specs-title">Body &amp; construction</h2>
+                        <div class="specs-grid">
+                            <div class="spec-item"><span class="spec-label">Top</span><span class="spec-value">Flame maple — blue burst finish</span></div>
+                            <div class="spec-item"><span class="spec-label">Body</span><span class="spec-value">Mahogany</span></div>
+                            <div class="spec-item"><span class="spec-label">Neck</span><span class="spec-value">5-piece laminate (mahogany, wenge, sapele)</span></div>
+                            <div class="spec-item"><span class="spec-label">Fretboard</span><span class="spec-value">Ziricote — 24 frets</span></div>
+                            <div class="spec-item"><span class="spec-label">Binding</span><span class="spec-value">Natural wood binding</span></div>
+                            <div class="spec-item"><span class="spec-label">Inlays</span><span class="spec-value">Star inlays; dyed maple bone fish at 12th fret</span></div>
+                            <div class="spec-item"><span class="spec-label">Tuners</span><span class="spec-value">Hipshot locking tuners</span></div>
+                            <div class="spec-item"><span class="spec-label">Scale length</span><span class="spec-value">25.375&quot; — Fender-like brightness with Gibson-style bendability</span></div>
+                        </div>
+                    </div>
+
+                    <div class="specs-container">
+                        <h2 class="specs-title">Electronics</h2>
+                        <div class="specs-grid">
+                            <div class="spec-item"><span class="spec-label">Bridge pickup</span><span class="spec-value">Skywood Lincoln Ave</span></div>
+                            <div class="spec-item"><span class="spec-label">Neck pickup</span><span class="spec-value">Seymour Duncan Fat Cat P-90</span></div>
+                        </div>
+                    </div>
+
+                    <div class="specs-container">
+                        <h2 class="specs-title">Special features</h2>
+                        <div class="specs-grid">
+                            <div class="spec-item"><span class="spec-label">Knobs</span><span class="spec-value">Milled from solid aluminum</span></div>
+                        </div>
+                    </div>
+
+                    <div class="story-container">
+                        <h2 class="story-title">Maker's Note</h2>
+                        <p class="story-text">
+                            The blue burst finish lets the flame maple show through while the laminated neck, ziricote board, and star-and-fish inlay package give this guitar a strong visual identity. Aluminum knobs and Hipshot tuners round out the premium hardware story.
+                        </p>
+                    </div>
+
+                    <div class="availability-container">
+                        <h3 class="availability-title">Availability</h3>
+                        <p class="availability-text">Get in touch to find out about the current availability of this instrument.</p>
+                        <a href="index.html#contact" class="btn-primary">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="video-modal">
+        <button class="video-modal-close" onclick="closeVideo()">&times;</button>
+        <div class="video-modal-content">
+            <video id="guitarVideo" controls>
+                <source src="images/Guitars/%236/Video%20Oct%2011%202023,%208%2051%2031%20PM.mov" type="video/quicktime">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container"><p>&copy; 2026 Dorweiler Guitars. All rights reserved.</p></div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function changeImage(src, element) {
+            document.getElementById('mainImg').src = src;
+            document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        function playVideo() {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('guitarVideo');
+            modal.style.display = 'flex';
+            video.play();
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeVideo() {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('guitarVideo');
+            modal.style.display = 'none';
+            video.pause();
+            video.currentTime = 0;
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeVideo();
+            }
+        });
+    </script>
+</body>
+</html>

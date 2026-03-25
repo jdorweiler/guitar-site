@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:lichtyguitars.com)",
+      "WebFetch(domain:stringjoy.com)",
+      "Bash(open /Users/jason/guitar-site/index.html)",
+      "Bash(open /Users/jason/guitar-site/guitar5.html)",
+      "Bash(open /Users/jason/guitar-site/guitars.html)",
+      "Bash(open /Users/jason/guitar-site/guitar3.html)",
+      "Bash(open /Users/jason/guitar-site/guitar9.html)",
+      "Bash(for i in {1..10})",
+      "Bash(do echo \"=== Guitar $i ===\")",
+      "Bash(ls /Users/jason/guitar-site/images/guitar$i/)",
+      "Bash(done)",
+      "Bash(open /Users/jason/guitar-site/guitar1.html)",
+      "Bash(open /Users/jason/guitar-site/guitar7.html)",
+      "Bash(open /Users/jason/guitar-site/guitar6.html)",
+      "Bash(open /Users/jason/guitar-site/about.html)",
+      "Bash(find /Users/jason/guitar-site/images -type f ( -name \"*.mp4\" -o -name \"*.mov\" -o -name \"*.webm\" -o -name \"*.avi\" ))",
+      "Bash(find /Users/jason/guitar-site/images/guitar* -type f ( -name \"*.mp4\" -o -name \"*.mov\" -o -name \"*.webm\" ))",
+      "WebFetch(domain:www.unquendor-guitars.nl)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

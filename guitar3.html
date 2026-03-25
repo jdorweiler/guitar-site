@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build #3 | Figured Walnut Tele | Dorweiler Guitars</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="detail.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><img src="images/logo.svg" alt="Dorweiler Guitars" class="logo-img"></a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="guitars.html" class="nav-link">Portfolio</a></li>
+                <li><a href="commissions.html" class="nav-link">Commissions</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="detail-section">
+        <div class="container">
+            <nav class="breadcrumbs">
+                <a href="index.html" class="breadcrumb-link">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="guitars.html" class="breadcrumb-link">Guitars</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-current">Figured Walnut Tele</span>
+            </nav>
+            <a href="guitars.html" class="back-link">← Back to Gallery</a>
+            <div class="detail-grid">
+                <div class="gallery-container">
+                    <div class="main-image">
+                        <img id="mainImg" src="images/guitar3/front.jpg" alt="Figured Walnut Tele">
+                    </div>
+                    <div class="thumbnail-gallery">
+                        <div class="thumbnail active" onclick="changeImage('images/guitar3/front.jpg', this)">
+                            <img src="images/guitar3/front.jpg" alt="Front View">
+                        </div>
+                        <div class="thumbnail" onclick="changeImage('images/guitar3/back.jpg', this)">
+                            <img src="images/guitar3/back.jpg" alt="Back View">
+                        </div>
+                        <div class="thumbnail" onclick="changeImage('images/guitar3/fretboard.jpg', this)">
+                            <img src="images/guitar3/fretboard.jpg" alt="Fretboard Detail">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-info">
+                    <p class="detail-kicker">Dorweiler custom build</p>
+                    <h1 class="detail-title">Build #3</h1>
+                    <p class="detail-description">
+                        A unique take on the classic Telecaster design featuring beautiful figured walnut. The natural grain and warm tones of the walnut create a distinctive look while maintaining that iconic Tele playability.
+                    </p>
+
+                    <div class="detail-intro-meta">
+                        <p class="detail-status">Commission a similar build</p>
+                        <a href="commissions.html" class="detail-cta">Learn About Commissions</a>
+                    </div>
+
+                    <div class="specs-container">
+                        <h2 class="specs-title">Specifications</h2>
+                        <div class="specs-grid">
+                            <div class="spec-item"><span class="spec-label">Body Wood</span><span class="spec-value">Figured Walnut</span></div>
+                            <div class="spec-item"><span class="spec-label">Neck Wood</span><span class="spec-value">Maple</span></div>
+                            <div class="spec-item"><span class="spec-label">Fretboard</span><span class="spec-value">Ebony</span></div>
+                            <div class="spec-item"><span class="spec-label">Scale Length</span><span class="spec-value">25.5"</span></div>
+                            <div class="spec-item"><span class="spec-label">Frets</span><span class="spec-value">22 Medium</span></div>
+                            <div class="spec-item"><span class="spec-label">Pickups</span><span class="spec-value">Single Coil + Humbucker</span></div>
+                            <div class="spec-item"><span class="spec-label">Bridge</span><span class="spec-value">Hardtail</span></div>
+                            <div class="spec-item"><span class="spec-label">Hardware</span><span class="spec-value">Chrome</span></div>
+                            <div class="spec-item"><span class="spec-label">Finish</span><span class="spec-value">Natural Satin</span></div>
+                        </div>
+                    </div>
+
+                    <div class="story-container">
+                        <h2 class="story-title">Maker's Note</h2>
+                        <p class="story-text">
+                            This Telecaster-style build features premium figured walnut with stunning grain patterns. The natural finish lets the wood's character shine through. A versatile pickup configuration provides classic Tele twang with added modern versatility.
+                        </p>
+                    </div>
+
+                    <div class="availability-container">
+                        <h3 class="availability-title">Interested in a Tele-Style Build?</h3>
+                        <p class="availability-text">I can create a Dorweiler telecaster-style build with figured woods and your choice of hardware. Let's discuss your vision.</p>
+                        <a href="commissions.html" class="btn-primary">Learn About Commissions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <img id="lightboxImg" class="lightbox-content" src="" alt="Guitar Detail">
+    </div>
+
+    <footer class="footer">
+        <div class="container"><p>&copy; 2026 Dorweiler Guitars. All rights reserved.</p></div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function changeImage(src, element) {
+            document.getElementById('mainImg').src = src;
+            document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        // Lightbox functionality
+        function openLightbox(imgSrc) {
+            document.getElementById('lightbox').classList.add('active');
+            document.getElementById('lightboxImg').src = imgSrc;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Add click handler to main image
+        document.querySelector('.main-image').addEventListener('click', function() {
+            const mainImg = document.getElementById('mainImg');
+            openLightbox(mainImg.src);
+        });
+
+        // Close on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>

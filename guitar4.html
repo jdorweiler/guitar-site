@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build #4 | Quilted Amber Burst | Dorweiler Guitars</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="detail.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><img src="images/logo.svg" alt="Dorweiler Guitars" class="logo-img"></a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="guitars.html" class="nav-link">Portfolio</a></li>
+                <li><a href="commissions.html" class="nav-link">Commissions</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <section class="detail-section">
+        <div class="container">
+            <a href="guitars.html" class="back-link">← Back to Gallery</a>
+            <div class="detail-grid">
+                <div class="gallery-container">
+                    <div class="main-image">
+                        <img id="mainImg" src="images/guitar4/main.jpg" alt="Quilted Amber Burst">
+                    </div>
+                    <div class="thumbnail-gallery">
+                        <div class="thumbnail active" onclick="changeImage('images/guitar4/main.jpg', this)">
+                            <img src="images/guitar4/main.jpg" alt="Front">
+                        </div>
+                        <div class="thumbnail" onclick="changeImage('images/guitar4/angle2.jpg', this)">
+                            <img src="images/guitar4/angle2.jpg" alt="Angle">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-info">
+                    <p class="detail-kicker">Dorweiler custom build</p>
+                    <h1 class="detail-title">Build #4</h1>
+                    <p class="detail-description">
+                        Featuring AAA-grade quilted maple with a warm amber burst finish that brings out the incredible depth and three-dimensional quality of the quilting. A classic PRS-inspired design with premium tonewoods throughout.
+                    </p>
+
+                    <div class="detail-intro-meta">
+                        <p class="detail-status">Available by enquiry</p>
+                    </div>
+
+                    <div class="specs-container">
+                        <h2 class="specs-title">Specifications</h2>
+                        <div class="specs-grid">
+                            <div class="spec-item"><span class="spec-label">Body Wood</span><span class="spec-value">Mahogany</span></div>
+                            <div class="spec-item"><span class="spec-label">Top Wood</span><span class="spec-value">AAA Quilted Maple</span></div>
+                            <div class="spec-item"><span class="spec-label">Neck Wood</span><span class="spec-value">Maple</span></div>
+                            <div class="spec-item"><span class="spec-label">Fretboard</span><span class="spec-value">Rosewood</span></div>
+                            <div class="spec-item"><span class="spec-label">Scale Length</span><span class="spec-value">25"</span></div>
+                            <div class="spec-item"><span class="spec-label">Frets</span><span class="spec-value">24 Medium Jumbo</span></div>
+                            <div class="spec-item"><span class="spec-label">Pickups</span><span class="spec-value">Dual Humbuckers</span></div>
+                            <div class="spec-item"><span class="spec-label">Bridge</span><span class="spec-value">PRS-Style Tremolo</span></div>
+                            <div class="spec-item"><span class="spec-label">Hardware</span><span class="spec-value">Gold</span></div>
+                            <div class="spec-item"><span class="spec-label">Finish</span><span class="spec-value">Amber Burst Gloss</span></div>
+                        </div>
+                    </div>
+
+                    <div class="story-container">
+                        <h2 class="story-title">Maker's Note</h2>
+                        <p class="story-text">
+                            This guitar showcases premium quilted maple with consistent figure across the entire top. The warm amber burst finish was applied in multiple thin layers to enhance the natural depth of the quilting, creating that sought-after 3D effect that makes the wood appear to move in the light.
+                        </p>
+                    </div>
+
+                    <div class="availability-container">
+                        <h3 class="availability-title">Availability</h3>
+                        <p class="availability-text">Get in touch to find out about the current availability of this instrument.</p>
+                        <a href="index.html#contact" class="btn-primary">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container"><p>&copy; 2026 Dorweiler Guitars. All rights reserved.</p></div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function changeImage(src, element) {
+            document.getElementById('mainImg').src = src;
+            document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>

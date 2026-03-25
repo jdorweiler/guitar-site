@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build #8 | Black Limba Multiscale | Dorweiler Guitars</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="detail.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><img src="images/logo.svg" alt="Dorweiler Guitars" class="logo-img"></a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="guitars.html" class="nav-link">Portfolio</a></li>
+                <li><a href="commissions.html" class="nav-link">Commissions</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <section class="detail-section">
+        <div class="container">
+            <a href="guitars.html" class="back-link">← Back to Gallery</a>
+            <div class="detail-grid">
+                <div class="gallery-container">
+                    <div class="main-image">
+                        <img id="mainImg" src="images/guitar8/IMG_3137.jpeg" alt="Build #8 front view">
+                    </div>
+                    <div class="thumbnail-gallery">
+                        <div class="thumbnail active" onclick="changeImage('images/guitar8/IMG_3137.jpeg', this)">
+                            <img src="images/guitar8/IMG_3137.jpeg" alt="Front view">
+                        </div>
+                        <div class="thumbnail" onclick="changeImage('images/guitar8/IMG_3111.jpeg', this)">
+                            <img src="images/guitar8/IMG_3111.jpeg" alt="Back view">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-info">
+                    <p class="detail-kicker">Dorweiler custom build</p>
+                    <h1 class="detail-title">Build #8</h1>
+                    <p class="detail-description">
+                        Black limba back with a spalted/flame maple top, a five-piece laminated neck, and wenge fingerboard. A 25.5&quot;–25&quot; fanned-fret multiscale layout pairs with a matched set of Fishman Tim Henson signature pickups and Hipshot bridge and tuners.
+                    </p>
+
+                    <div class="detail-intro-meta">
+                        <p class="detail-status">Available by enquiry</p>
+                    </div>
+
+                    <div class="specs-container">
+                        <h2 class="specs-title">Body &amp; construction</h2>
+                        <div class="specs-grid">
+                            <div class="spec-item"><span class="spec-label">Body</span><span class="spec-value">Black limba back, spalted/flame maple top</span></div>
+                            <div class="spec-item"><span class="spec-label">Neck</span><span class="spec-value">5-piece maple / wenge / purpleheart laminate</span></div>
+                            <div class="spec-item"><span class="spec-label">Fretboard</span><span class="spec-value">Wenge</span></div>
+                            <div class="spec-item"><span class="spec-label">Scale length</span><span class="spec-value">25.5&quot;–25&quot; multiscale (fanned fret)</span></div>
+                            <div class="spec-item"><span class="spec-label">Bridge</span><span class="spec-value">Hipshot</span></div>
+                            <div class="spec-item"><span class="spec-label">Tuners</span><span class="spec-value">Hipshot</span></div>
+                        </div>
+                    </div>
+
+                    <div class="specs-container">
+                        <h2 class="specs-title">Electronics</h2>
+                        <div class="specs-grid">
+                            <div class="spec-item"><span class="spec-label">Bridge pickup</span><span class="spec-value">Fishman Tim Henson Signature</span></div>
+                            <div class="spec-item"><span class="spec-label">Neck pickup</span><span class="spec-value">Fishman Tim Henson Signature</span></div>
+                            <div class="spec-item"><span class="spec-label">Controls</span><span class="spec-value">5-way selector, push/pull volume &amp; tone</span></div>
+                        </div>
+                    </div>
+
+                    <div class="story-container">
+                        <h2 class="story-title">Maker's Note</h2>
+                        <p class="story-text">
+                            This build brings together a dramatic figured top on black limba, a multiscale fingerboard for even tension and intonation, and Tim Henson signature Fishmans voiced for modern playing. Push/pull pots and a 5-way switch open up a wide range of tones alongside the Hipshot hardware.
+                        </p>
+                    </div>
+
+                    <div class="availability-container">
+                        <h3 class="availability-title">Availability</h3>
+                        <p class="availability-text">Get in touch to find out about the current availability of this instrument.</p>
+                        <a href="index.html#contact" class="btn-primary">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container"><p>&copy; 2026 Dorweiler Guitars. All rights reserved.</p></div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function changeImage(src, element) {
+            document.getElementById('mainImg').src = src;
+            document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>

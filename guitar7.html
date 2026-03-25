@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build #7 | Flame Maple &amp; Ash | Dorweiler Guitars</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="detail.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><img src="images/logo.svg" alt="Dorweiler Guitars" class="logo-img"></a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="guitars.html" class="nav-link">Portfolio</a></li>
+                <li><a href="commissions.html" class="nav-link">Commissions</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <section class="detail-section">
+        <div class="container">
+            <a href="guitars.html" class="back-link">← Back to Gallery</a>
+            <div class="detail-grid">
+                <div class="gallery-container">
+                    <div class="main-image">
+                        <img id="mainImg" src="images/guitar7/52EF45A6-397E-4612-9315-9C128275D6C6_1_105_c.jpeg" alt="Build #7 full view">
+                    </div>
+                    <div class="thumbnail-gallery">
+                        <div class="thumbnail active" onclick="changeImage('images/guitar7/52EF45A6-397E-4612-9315-9C128275D6C6_1_105_c.jpeg', this)">
+                            <img src="images/guitar7/52EF45A6-397E-4612-9315-9C128275D6C6_1_105_c.jpeg" alt="Full view">
+                        </div>
+                        <div class="thumbnail" onclick="changeImage('images/guitar7/23DB1AE0-19E6-4F78-8303-173FDFF19D9D_1_105_c.jpeg', this)">
+                            <img src="images/guitar7/23DB1AE0-19E6-4F78-8303-173FDFF19D9D_1_105_c.jpeg" alt="Body close-up">
+                        </div>
+                        <div class="thumbnail" onclick="changeImage('images/guitar7/8E9B0C9A-E2D1-4035-9B15-41223A70DAD0_1_105_c.jpeg', this)">
+                            <img src="images/guitar7/8E9B0C9A-E2D1-4035-9B15-41223A70DAD0_1_105_c.jpeg" alt="Rear neck detail">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-info">
+                    <p class="detail-kicker">Dorweiler custom build</p>
+                    <h1 class="detail-title">Build #7</h1>
+                    <p class="detail-description">
+                        Flame maple and ash body in a tobacco burst finish with a thirteen-piece laminated neck in roasted maple, maple, wenge, walnut, and mahogany, plus a birdseye maple fretboard. Lollar Dirty Blond single-coils in an S-S-S layout, a Wilkinson floating trem, and Hipshot open-gear locking tuners round out the package.
+                    </p>
+
+                    <div class="detail-intro-meta">
+                        <p class="detail-status">Available by enquiry</p>
+                    </div>
+
+                    <div class="specs-container">
+                        <h2 class="specs-title">Body &amp; construction</h2>
+                        <div class="specs-grid">
+                            <div class="spec-item"><span class="spec-label">Body</span><span class="spec-value">Flame maple &amp; ash</span></div>
+                            <div class="spec-item"><span class="spec-label">Neck</span><span class="spec-value">13-piece laminate: roasted maple, maple, wenge, walnut, mahogany</span></div>
+                            <div class="spec-item"><span class="spec-label">Fretboard</span><span class="spec-value">Birdseye maple</span></div>
+                            <div class="spec-item"><span class="spec-label">Finish</span><span class="spec-value">Tobacco burst</span></div>
+                        </div>
+                    </div>
+
+                    <div class="specs-container">
+                        <h2 class="specs-title">Electronics &amp; hardware</h2>
+                        <div class="specs-grid">
+                            <div class="spec-item"><span class="spec-label">Pickups</span><span class="spec-value">Lollar Dirty Blond (S-S-S)</span></div>
+                            <div class="spec-item"><span class="spec-label">Bridge</span><span class="spec-value">Wilkinson floating trem</span></div>
+                            <div class="spec-item"><span class="spec-label">Tuners</span><span class="spec-value">Hipshot open gear locking</span></div>
+                        </div>
+                    </div>
+
+                    <div class="story-container">
+                        <h2 class="story-title">Maker's Note</h2>
+                        <p class="story-text">
+                            This double-cut build leans into classic S-style tone and feel with a dramatic laminated neck, a birdseye maple fretboard, a flame maple and ash body, and a rich tobacco burst that shows off the figure. The Dirty Blond set keeps things vintage-voiced while the Wilkinson trem and Hipshot tuners stay stable under heavy use.
+                        </p>
+                    </div>
+
+                    <div class="availability-container">
+                        <h3 class="availability-title">Availability</h3>
+                        <p class="availability-text">Get in touch to find out about the current availability of this instrument.</p>
+                        <a href="index.html#contact" class="btn-primary">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container"><p>&copy; 2026 Dorweiler Guitars. All rights reserved.</p></div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function changeImage(src, element) {
+            document.getElementById('mainImg').src = src;
+            document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>
