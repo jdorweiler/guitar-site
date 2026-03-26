@@ -547,6 +547,13 @@ h1, h2, h3, h4, h5, h6,
 .logo-img {
     height: 36px;
     width: auto;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.navbar.hero-visible .logo-img {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .nav-menu {

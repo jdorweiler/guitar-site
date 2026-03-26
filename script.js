@@ -37,15 +37,34 @@ document.querySelectorAll('.nav-link').forEach(link => {
     }
 });
 
-// Navbar background on scroll
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (navbar && window.scrollY > 50) {
+// Navbar background on scroll + hero logo hide/show
+const navbar = document.querySelector('.navbar');
+const heroSection = document.querySelector('.fullscreen-hero');
+
+function updateNavbar() {
+    if (!navbar) return;
+
+    // Existing scrolled style
+    if (window.scrollY > 50) {
         navbar.classList.add('scrolled');
-    } else if (navbar) {
+    } else {
         navbar.classList.remove('scrolled');
     }
-});
+
+    // Hide navbar logo while hero logo is in view
+    if (heroSection) {
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight * 0.75;
+        if (window.scrollY < heroBottom) {
+            navbar.classList.add('hero-visible');
+        } else {
+            navbar.classList.remove('hero-visible');
+        }
+    }
+}
+
+// Set initial state without waiting for a scroll event
+updateNavbar();
+window.addEventListener('scroll', updateNavbar, { passive: true });
 
 // Hero Slideshow
 if (document.querySelector('.hero-slideshow')) {
