@@ -957,6 +957,62 @@ h1, h2, h3, h4, h5, h6,
     }
 }
 
+/* Workshop Section */
+.workshop-section {
+    padding: 8rem 20px;
+    background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(26, 26, 26, 0.4) 100%);
+    position: relative;
+}
+
+.workshop-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background: var(--accent);
+}
+
+.workshop-section .section-title {
+    margin-bottom: 3.5rem;
+}
+
+.workshop-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem;
+    background-color: rgba(26, 26, 26, 0.6);
+    border: 1px solid rgba(200, 121, 65, 0.15);
+    border-radius: 4px;
+}
+
+.workshop-text {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: var(--text-primary);
+    margin-bottom: 1.75rem;
+}
+
+.workshop-text:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .workshop-section {
+        padding: 5rem 20px;
+    }
+
+    .workshop-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .workshop-text {
+        font-size: 1.05rem;
+    }
+}
+
 /* Social Proof Section */
 .social-proof-section {
     padding: 6rem 20px;
