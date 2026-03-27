@@ -40,13 +40,23 @@
             <div class="detail-grid">
                 <div class="gallery-container">
                     <div class="main-image">
+                        <button class="gallery-nav gallery-nav--prev" type="button" aria-label="Previous image" onclick="stepImage(-1)">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M14.5 5.5L8 12l6.5 6.5" />
+                            </svg>
+                        </button>
                         <img id="mainImg" src="images/guitar3/front.jpg" alt="Figured Walnut Tele">
+                        <button class="gallery-nav gallery-nav--next" type="button" aria-label="Next image" onclick="stepImage(1)">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M9.5 5.5L16 12l-6.5 6.5" />
+                            </svg>
+                        </button>
                     </div>
                     <div class="thumbnail-gallery">
-                        <div class="thumbnail active" onclick="changeImage('images/guitar3/front.jpg', this)">
+                        <div class="thumbnail active" data-full-src="images/guitar3/front.jpg" onclick="changeImage('images/guitar3/front.jpg', this)">
                             <img src="images/guitar3/front.jpg" alt="Front View">
                         </div>
-                        <div class="thumbnail" onclick="changeImage('images/guitar3/back.jpg', this)">
+                        <div class="thumbnail" data-full-src="images/guitar3/back.jpg" onclick="changeImage('images/guitar3/back.jpg', this)">
                             <img src="images/guitar3/back.jpg" alt="Back View">
                         </div>
                         <div class="thumbnail" onclick="changeImage('images/guitar3/fretboard.jpg', this)">
@@ -111,10 +121,25 @@
 
     <script src="script.js"></script>
     <script>
+        const galleryThumbnails = Array.from(document.querySelectorAll('.thumbnail[data-full-src]'));
+        let currentImageIndex = galleryThumbnails.findIndex(thumb => thumb.classList.contains('active'));
+
+        if (currentImageIndex === -1) {
+            currentImageIndex = 0;
+        }
+
         function changeImage(src, element) {
             document.getElementById('mainImg').src = src;
-            document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
+            galleryThumbnails.forEach(thumb => thumb.classList.remove('active'));
             element.classList.add('active');
+            currentImageIndex = galleryThumbnails.indexOf(element);
+        }
+
+        function stepImage(direction) {
+            if (!galleryThumbnails.length) return;
+            currentImageIndex = (currentImageIndex + direction + galleryThumbnails.length) % galleryThumbnails.length;
+            const nextThumbnail = galleryThumbnails[currentImageIndex];
+            changeImage(nextThumbnail.dataset.fullSrc, nextThumbnail);
         }
 
         // Lightbox functionality
@@ -130,7 +155,10 @@
         }
 
         // Add click handler to main image
-        document.querySelector('.main-image').addEventListener('click', function() {
+        document.querySelector('.main-image').addEventListener('click', function(e) {
+            if (e.target.closest('.gallery-nav')) {
+                return;
+            }
             const mainImg = document.getElementById('mainImg');
             openLightbox(mainImg.src);
         });

@@ -37,22 +37,32 @@
                 <!-- Image Gallery -->
                 <div class="gallery-container">
                     <div class="main-image">
+                        <button class="gallery-nav gallery-nav--prev" type="button" aria-label="Previous image" onclick="stepImage(-1)">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M14.5 5.5L8 12l6.5 6.5" />
+                            </svg>
+                        </button>
                         <img id="mainImg" src="images/guitar11/IMG_5233.jpeg" alt="Buckeye Burl Multiscale Build in progress">
+                        <button class="gallery-nav gallery-nav--next" type="button" aria-label="Next image" onclick="stepImage(1)">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M9.5 5.5L16 12l-6.5 6.5" />
+                            </svg>
+                        </button>
                     </div>
                     <div class="thumbnail-gallery">
-                        <div class="thumbnail active" onclick="changeImage('images/guitar11/IMG_5233.jpeg', this)">
+                        <div class="thumbnail active" data-full-src="images/guitar11/IMG_5233.jpeg" onclick="changeImage('images/guitar11/IMG_5233.jpeg', this)">
                             <img src="images/guitar11/IMG_5233.jpeg" alt="Front view in progress">
                         </div>
-                        <div class="thumbnail" onclick="changeImage('images/guitar11/IMG_5234.jpeg', this)">
+                        <div class="thumbnail" data-full-src="images/guitar11/IMG_5234.jpeg" onclick="changeImage('images/guitar11/IMG_5234.jpeg', this)">
                             <img src="images/guitar11/IMG_5234.jpeg" alt="Back view in progress">
                         </div>
-                        <div class="thumbnail" onclick="changeImage('images/guitar11/IMG_5236.jpeg', this)">
+                        <div class="thumbnail" data-full-src="images/guitar11/IMG_5236.jpeg" onclick="changeImage('images/guitar11/IMG_5236.jpeg', this)">
                             <img src="images/guitar11/IMG_5236.jpeg" alt="Pearl inlay detail">
                         </div>
-                        <div class="thumbnail" onclick="changeImage('images/guitar11/IMG_5237.jpeg', this)">
+                        <div class="thumbnail" data-full-src="images/guitar11/IMG_5237.jpeg" onclick="changeImage('images/guitar11/IMG_5237.jpeg', this)">
                             <img src="images/guitar11/IMG_5237.jpeg" alt="Back carve detail">
                         </div>
-                        <div class="thumbnail" onclick="changeImage('images/guitar11/IMG_5239.jpeg', this)">
+                        <div class="thumbnail" data-full-src="images/guitar11/IMG_5239.jpeg" onclick="changeImage('images/guitar11/IMG_5239.jpeg', this)">
                             <img src="images/guitar11/IMG_5239.jpeg" alt="Top and fretboard angle">
                         </div>
                     </div>
@@ -128,6 +138,11 @@
         </div>
     </section>
 
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <img id="lightboxImg" class="lightbox-content" src="" alt="Guitar Detail">
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -137,11 +152,51 @@
 
     <script src="script.js"></script>
     <script>
+        const galleryThumbnails = Array.from(document.querySelectorAll('.thumbnail[data-full-src]'));
+        let currentImageIndex = galleryThumbnails.findIndex(thumb => thumb.classList.contains('active'));
+
+        if (currentImageIndex === -1) {
+            currentImageIndex = 0;
+        }
+
         function changeImage(src, element) {
             document.getElementById('mainImg').src = src;
-            document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
+            galleryThumbnails.forEach(thumb => thumb.classList.remove('active'));
             element.classList.add('active');
+            currentImageIndex = galleryThumbnails.indexOf(element);
         }
+
+        function stepImage(direction) {
+            if (!galleryThumbnails.length) return;
+            currentImageIndex = (currentImageIndex + direction + galleryThumbnails.length) % galleryThumbnails.length;
+            const nextThumbnail = galleryThumbnails[currentImageIndex];
+            changeImage(nextThumbnail.dataset.fullSrc, nextThumbnail);
+        }
+
+        function openLightbox(imgSrc) {
+            document.getElementById('lightbox').classList.add('active');
+            document.getElementById('lightboxImg').src = imgSrc;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.querySelector('.main-image').addEventListener('click', function(e) {
+            if (e.target.closest('.gallery-nav')) {
+                return;
+            }
+            const mainImg = document.getElementById('mainImg');
+            openLightbox(mainImg.src);
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
     </script>
 </body>
 </html>
