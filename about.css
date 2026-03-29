@@ -3,6 +3,7 @@
 .about-section {
     margin-top: 80px;
     padding: 4rem 20px;
+    background-color: var(--bg-warm);
 }
 
 .about-header {
@@ -81,6 +82,10 @@
     color: var(--accent);
 }
 
+.about-story {
+    background-color: var(--bg-warm);
+}
+
 .story-paragraph {
     font-size: 1.1rem;
     line-height: 1.8;
@@ -91,6 +96,9 @@
 /* Philosophy Section */
 .philosophy-section {
     margin-bottom: 6rem;
+    background-color: var(--bg-warm);
+    padding: 3rem 2rem;
+    border-radius: 4px;
 }
 
 .section-heading {
@@ -107,7 +115,7 @@
 }
 
 .philosophy-card {
-    background-color: var(--bg-card);
+    background-color: rgba(20, 18, 15, 0.6);
     padding: 2.5rem;
     border-radius: 8px;
     text-align: center;
@@ -123,6 +131,13 @@
 .philosophy-icon {
     font-size: 3rem;
     margin-bottom: 1rem;
+    color: var(--accent);
+}
+
+.philosophy-icon svg {
+    width: 48px;
+    height: 48px;
+    stroke: var(--accent);
 }
 
 .philosophy-title {
@@ -137,9 +152,45 @@
     color: var(--text-secondary);
 }
 
+/* Quote Section */
+.quote-section {
+    margin-bottom: 6rem;
+    background-color: var(--bg-warm);
+    padding: 3rem 2rem;
+    border-radius: 4px;
+}
+
+.builder-quote {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 3rem;
+    background: linear-gradient(135deg, rgba(200, 121, 65, 0.08) 0%, rgba(15, 13, 9, 0.4) 100%);
+    border-left: 4px solid var(--accent);
+    border-radius: 4px;
+}
+
+.quote-text {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.quote-author {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--accent);
+    font-style: normal;
+    font-weight: 600;
+}
+
 /* Process Section */
 .process-section {
     margin-bottom: 6rem;
+    background-color: var(--bg-warm);
+    padding: 3rem 2rem;
+    border-radius: 4px;
 }
 
 .process-timeline {
@@ -152,7 +203,7 @@
     gap: 2rem;
     margin-bottom: 3rem;
     padding-bottom: 3rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .process-step:last-child {
@@ -188,7 +239,7 @@
 /* CTA Section */
 .about-cta {
     text-align: center;
-    background-color: var(--bg-card);
+    background-color: rgba(20, 18, 15, 0.6);
     padding: 4rem 2rem;
     border-radius: 8px;
     border: 1px solid rgba(212, 175, 55, 0.2);
@@ -202,10 +253,16 @@
 
 .commissions-intro {
     margin-bottom: 4rem;
+    background-color: var(--bg-warm);
+    padding: 2rem;
+    border-radius: 4px;
 }
 
 .commissions-woods {
     margin-top: 4rem;
+    background-color: var(--bg-warm);
+    padding: 2rem;
+    border-radius: 4px;
 }
 
 .commissions-wood-list {
@@ -267,6 +324,25 @@
 
     .about-cta {
         padding: 3rem 1.5rem;
+    }
+
+    .builder-quote {
+        padding: 3rem 2rem;
+    }
+
+    .quote-text {
+        font-size: 1.2rem;
+    }
+
+    .philosophy-section,
+    .process-section,
+    .quote-section {
+        padding: 2rem 1.5rem;
+    }
+
+    .commissions-intro,
+    .commissions-woods {
+        padding: 1.5rem;
     }
 }
 

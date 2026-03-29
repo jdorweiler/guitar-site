@@ -66,6 +66,29 @@ function updateNavbar() {
 updateNavbar();
 window.addEventListener('scroll', updateNavbar, { passive: true });
 
+// Scroll Indicator
+const scrollIndicator = document.querySelector('.scroll-indicator');
+if (scrollIndicator) {
+    scrollIndicator.addEventListener('click', () => {
+        const featuresSection = document.querySelector('.features-section');
+        if (featuresSection) {
+            featuresSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+
+    // Hide scroll indicator when user starts scrolling
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100 && scrollIndicator) {
+            scrollIndicator.style.opacity = '0';
+            scrollIndicator.style.pointerEvents = 'none';
+        } else if (window.scrollY <= 100 && scrollIndicator) {
+            scrollIndicator.style.opacity = '0.7';
+            scrollIndicator.style.pointerEvents = 'auto';
+        }
+    }, { passive: true });
+}
+
 // Hero Slideshow
 if (document.querySelector('.hero-slideshow')) {
     const slides = document.querySelectorAll('.hero-slide');
