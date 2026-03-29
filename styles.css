@@ -545,7 +545,7 @@ h1, h2, h3, h4, h5, h6,
     transition: transform 0.5s ease;
 }
 
-.feature-block:hover .feature-image img {
+.feature-block:hover .feature-image:not(.no-zoom) img {
     transform: scale(1.05);
 }
 

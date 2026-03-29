@@ -64,10 +64,6 @@
                         <div class="thumbnail" data-full-src="images/guitar6/IMG_3507.jpeg" onclick="changeImage('images/guitar6/IMG_3507.jpeg', this)">
                             <img src="images/guitar6/IMG_3507.jpeg" alt="Body Detail">
                         </div>
-                        <div class="thumbnail video-thumbnail" onclick="playVideo()">
-                            <div class="video-play-overlay">▶</div>
-                            <img src="images/guitar6/IMG_2764.jpeg" alt="Video">
-                        </div>
                     </div>
                 </div>
 
@@ -138,17 +134,6 @@
         <img id="lightboxImg" class="lightbox-content" src="" alt="Guitar Detail">
     </div>
 
-    <!-- Video Modal -->
-    <div id="videoModal" class="video-modal">
-        <button class="video-modal-close" onclick="closeVideo()">&times;</button>
-        <div class="video-modal-content">
-            <video id="guitarVideo" controls>
-                <source src="images/Guitars/%236/Video%20Oct%2011%202023,%208%2051%2031%20PM.mov" type="video/quicktime">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </div>
-
     <footer class="footer">
         <div class="container"><p>&copy; 2026 Dorweiler Guitars. All rights reserved.</p></div>
     </footer>
@@ -195,28 +180,10 @@
             openLightbox(mainImg.src);
         });
 
-        function playVideo() {
-            const modal = document.getElementById('videoModal');
-            const video = document.getElementById('guitarVideo');
-            modal.style.display = 'flex';
-            video.play();
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeVideo() {
-            const modal = document.getElementById('videoModal');
-            const video = document.getElementById('guitarVideo');
-            modal.style.display = 'none';
-            video.pause();
-            video.currentTime = 0;
-            document.body.style.overflow = 'auto';
-        }
-
         // Close on escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeLightbox();
-                closeVideo();
             }
         });
     </script>
