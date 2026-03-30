@@ -44,7 +44,7 @@
                                 <path d="M14.5 5.5L8 12l6.5 6.5" />
                             </svg>
                         </button>
-                        <img id="mainImg" src="images/guitar6/IMG_2764.jpeg" alt="Blue Burst Flame">
+                        <img id="mainImg" src="images/guitar6/display/IMG_2764.jpg" alt="Blue Burst Flame" decoding="async">
                         <button class="gallery-nav gallery-nav--next" type="button" aria-label="Next image" onclick="stepImage(1)">
                             <svg viewBox="0 0 24 24" aria-hidden="true">
                                 <path d="M9.5 5.5L16 12l-6.5 6.5" />
@@ -52,17 +52,17 @@
                         </button>
                     </div>
                     <div class="thumbnail-gallery">
-                        <div class="thumbnail active" data-full-src="images/guitar6/IMG_2764.jpeg" onclick="changeImage('images/guitar6/IMG_2764.jpeg', this)">
-                            <img src="images/guitar6/IMG_2764.jpeg" alt="Front View">
+                        <div class="thumbnail active" data-full-src="images/guitar6/IMG_2764.jpeg" data-display-src="images/guitar6/display/IMG_2764.jpg" onclick="changeImage(this)">
+                            <img src="images/guitar6/thumbs/IMG_2764.jpg" alt="Front View" loading="lazy" decoding="async">
                         </div>
-                        <div class="thumbnail" data-full-src="images/guitar6/IMG_2765.jpeg" onclick="changeImage('images/guitar6/IMG_2765.jpeg', this)">
-                            <img src="images/guitar6/IMG_2765.jpeg" alt="Back View">
+                        <div class="thumbnail" data-full-src="images/guitar6/IMG_2765.jpeg" data-display-src="images/guitar6/display/IMG_2765.jpg" onclick="changeImage(this)">
+                            <img src="images/guitar6/thumbs/IMG_2765.jpg" alt="Back View" loading="lazy" decoding="async">
                         </div>
-                        <div class="thumbnail" data-full-src="images/guitar6/IMG_3840.jpeg" onclick="changeImage('images/guitar6/IMG_3840.jpeg', this)">
-                            <img src="images/guitar6/IMG_3840.jpeg" alt="Inlay Detail">
+                        <div class="thumbnail" data-full-src="images/guitar6/IMG_3840.jpeg" data-display-src="images/guitar6/display/IMG_3840.jpg" onclick="changeImage(this)">
+                            <img src="images/guitar6/thumbs/IMG_3840.jpg" alt="Inlay Detail" loading="lazy" decoding="async">
                         </div>
-                        <div class="thumbnail" data-full-src="images/guitar6/IMG_3507.jpeg" onclick="changeImage('images/guitar6/IMG_3507.jpeg', this)">
-                            <img src="images/guitar6/IMG_3507.jpeg" alt="Body Detail">
+                        <div class="thumbnail" data-full-src="images/guitar6/IMG_3507.jpeg" data-display-src="images/guitar6/display/IMG_3507.jpg" onclick="changeImage(this)">
+                            <img src="images/guitar6/thumbs/IMG_3507.jpg" alt="Body Detail" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -141,14 +141,19 @@
     <script src="script.js"></script>
     <script>
         const galleryThumbnails = Array.from(document.querySelectorAll('.thumbnail[data-full-src]'));
+        const mainImg = document.getElementById('mainImg');
         let currentImageIndex = galleryThumbnails.findIndex(thumb => thumb.classList.contains('active'));
+        let currentFullSrc = '';
 
         if (currentImageIndex === -1) {
             currentImageIndex = 0;
         }
 
-        function changeImage(src, element) {
-            document.getElementById('mainImg').src = src;
+        function changeImage(element) {
+            if (!element) return;
+            const displaySrc = element.dataset.displaySrc || element.dataset.fullSrc;
+            mainImg.src = displaySrc;
+            currentFullSrc = element.dataset.fullSrc || displaySrc;
             galleryThumbnails.forEach(thumb => thumb.classList.remove('active'));
             element.classList.add('active');
             currentImageIndex = galleryThumbnails.indexOf(element);
@@ -158,7 +163,7 @@
             if (!galleryThumbnails.length) return;
             currentImageIndex = (currentImageIndex + direction + galleryThumbnails.length) % galleryThumbnails.length;
             const nextThumbnail = galleryThumbnails[currentImageIndex];
-            changeImage(nextThumbnail.dataset.fullSrc, nextThumbnail);
+            changeImage(nextThumbnail);
         }
 
         function openLightbox(imgSrc) {
@@ -176,8 +181,7 @@
             if (e.target.closest('.gallery-nav')) {
                 return;
             }
-            const mainImg = document.getElementById('mainImg');
-            openLightbox(mainImg.src);
+            openLightbox(currentFullSrc || mainImg.src);
         });
 
         // Close on escape key
@@ -186,6 +190,10 @@
                 closeLightbox();
             }
         });
+
+        if (galleryThumbnails.length) {
+            changeImage(galleryThumbnails[currentImageIndex] || galleryThumbnails[0]);
+        }
     </script>
 </body>
 </html>

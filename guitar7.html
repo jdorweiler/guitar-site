@@ -34,7 +34,7 @@
                                 <path d="M14.5 5.5L8 12l6.5 6.5" />
                             </svg>
                         </button>
-                        <img id="mainImg" src="images/guitar7/IMG_5333.png" alt="Build #7 body close-up">
+                        <img id="mainImg" src="images/guitar7/display/IMG_5333.jpg" alt="Build #7 body close-up" decoding="async">
                         <button class="gallery-nav gallery-nav--next" type="button" aria-label="Next image" onclick="stepImage(1)">
                             <svg viewBox="0 0 24 24" aria-hidden="true">
                                 <path d="M9.5 5.5L16 12l-6.5 6.5" />
@@ -42,14 +42,14 @@
                         </button>
                     </div>
                     <div class="thumbnail-gallery">
-                        <div class="thumbnail active" data-full-src="images/guitar7/IMG_5333.png" onclick="changeImage('images/guitar7/IMG_5333.png', this)">
-                            <img src="images/guitar7/IMG_5333.png" alt="Body close-up">
+                        <div class="thumbnail active" data-full-src="images/guitar7/IMG_5333.png" data-display-src="images/guitar7/display/IMG_5333.jpg" onclick="changeImage(this)">
+                            <img src="images/guitar7/thumbs/IMG_5333.jpg" alt="Body close-up" loading="lazy" decoding="async">
                         </div>
-                        <div class="thumbnail" data-full-src="images/guitar7/IMG_5336.png" onclick="changeImage('images/guitar7/IMG_5336.png', this)">
-                            <img src="images/guitar7/IMG_5336.png" alt="Full body front view">
+                        <div class="thumbnail" data-full-src="images/guitar7/IMG_5336.png" data-display-src="images/guitar7/display/IMG_5336.jpg" onclick="changeImage(this)">
+                            <img src="images/guitar7/thumbs/IMG_5336.jpg" alt="Full body front view" loading="lazy" decoding="async">
                         </div>
-                        <div class="thumbnail" data-full-src="images/guitar7/IMG_5337.png" onclick="changeImage('images/guitar7/IMG_5337.png', this)">
-                            <img src="images/guitar7/IMG_5337.png" alt="Front view">
+                        <div class="thumbnail" data-full-src="images/guitar7/IMG_5337.png" data-display-src="images/guitar7/display/IMG_5337.jpg" onclick="changeImage(this)">
+                            <img src="images/guitar7/thumbs/IMG_5337.jpg" alt="Front view" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -118,14 +118,19 @@
     <script src="script.js"></script>
     <script>
         const galleryThumbnails = Array.from(document.querySelectorAll('.thumbnail[data-full-src]'));
+        const mainImg = document.getElementById('mainImg');
         let currentImageIndex = galleryThumbnails.findIndex(thumb => thumb.classList.contains('active'));
+        let currentFullSrc = '';
 
         if (currentImageIndex === -1) {
             currentImageIndex = 0;
         }
 
-        function changeImage(src, element) {
-            document.getElementById('mainImg').src = src;
+        function changeImage(element) {
+            if (!element) return;
+            const displaySrc = element.dataset.displaySrc || element.dataset.fullSrc;
+            mainImg.src = displaySrc;
+            currentFullSrc = element.dataset.fullSrc || displaySrc;
             galleryThumbnails.forEach(thumb => thumb.classList.remove('active'));
             element.classList.add('active');
             currentImageIndex = galleryThumbnails.indexOf(element);
@@ -135,7 +140,7 @@
             if (!galleryThumbnails.length) return;
             currentImageIndex = (currentImageIndex + direction + galleryThumbnails.length) % galleryThumbnails.length;
             const nextThumbnail = galleryThumbnails[currentImageIndex];
-            changeImage(nextThumbnail.dataset.fullSrc, nextThumbnail);
+            changeImage(nextThumbnail);
         }
 
         function openLightbox(imgSrc) {
@@ -153,8 +158,7 @@
             if (e.target.closest('.gallery-nav')) {
                 return;
             }
-            const mainImg = document.getElementById('mainImg');
-            openLightbox(mainImg.src);
+            openLightbox(currentFullSrc || mainImg.src);
         });
 
         document.addEventListener('keydown', function(e) {
@@ -162,6 +166,10 @@
                 closeLightbox();
             }
         });
+
+        if (galleryThumbnails.length) {
+            changeImage(galleryThumbnails[currentImageIndex] || galleryThumbnails[0]);
+        }
     </script>
 </body>
 </html>
