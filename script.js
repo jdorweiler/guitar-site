@@ -53,7 +53,9 @@ function updateNavbar() {
 
     // Hide navbar logo while hero logo is in view
     if (heroSection) {
-        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight * 0.75;
+        // Start fading in navbar logo immediately when scrolling begins
+        // Logo will be fully visible by the time user scrolls ~30% down the hero
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight * 0.3;
         if (window.scrollY < heroBottom) {
             navbar.classList.add('hero-visible');
         } else {
