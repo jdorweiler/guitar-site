@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "Bash(sips -r 180 IMG_5391.png)",
-      "Bash(git add .)"
+      "Bash(git add .)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nUpdate guitars 7-11 with new images and comprehensive site improvements\n\nGuitar Updates:\n- Guitar 7: Replace 7 images with 3 new photos (IMG_5333, IMG_5336, IMG_5337)\n- Guitar 8: Rename to \"Spalted Maple Multiscale\", add 6 new images (IMG_5393-5398), update specs to separate top/body\n- Guitar 9: Add all 12 images to gallery (IMG_5338-5352)\n- Guitar 10: Add all 16 images to gallery (IMG_5367-5383), update Selected Works to IMG_5382\n- Guitar 11: Add all 14 images to gallery (IMG_5353-5366), swap to featured spot in Selected Works\n\nSite-wide Changes:\n- Update Dorweiler Experience section image to IMG_5367 with no-zoom class\n- Remove broken video player from guitar 6 detail page\n- Replace Build #2 with Build #8 in Selected Works grid\n- Swap Build #7 and Build #11 positions (Build #11 now featured)\n- Update all portfolio thumbnails across index.html and guitars.html\n- Update hero slideshow backgrounds for guitars 7 and 11\n- Archive old images to old/ directories for all updated guitars\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git commit -m \"$(cat <<''EOF''\nUpdate Portfolio section image to guitar 8 spalted maple detail\n\n- Replace guitar 7 image with IMG_5389.png from guitar 8\n- Shows spalted maple multiscale detail in Portfolio feature section\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git add script.js)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nImprove navbar logo fade-in timing on index page\n\n- Change hero visibility threshold from 75% to 30% of hero section height\n- Navbar logo now starts fading in immediately when scrolling begins\n- Logo fully visible by the time hero logo leaves center of viewport\n- Creates smoother transition between hero logo and navbar logo\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")"
     ],
     "deny": [],
     "ask": []
