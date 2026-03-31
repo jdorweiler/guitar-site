@@ -92,10 +92,19 @@ h1, h2, h3, h4, h5, h6,
 .hero-slide-media {
     position: absolute;
     inset: -4%;
-    background-size: cover;
-    background-position: center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
     transform: scale(1.08);
     will-change: transform;
+}
+
+.hero-slide picture {
+    position: absolute;
+    inset: -4%;
+    width: calc(100% + 8%);
+    height: calc(100% + 8%);
 }
 
 .hero-slide-media.hero-rotate-left {
@@ -125,8 +134,7 @@ h1, h2, h3, h4, h5, h6,
 
 .hero-slide-media.hero-focus-inlay {
     inset: -8%;
-    background-size: contain;
-    background-repeat: no-repeat;
+    object-fit: contain;
     transform: scale(1);
 }
 

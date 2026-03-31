@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <!-- Preload critical hero images -->
+    <link rel="preload" as="image" href="images/hero/hero-1.webp" type="image/webp">
+    <link rel="preload" as="image" href="images/hero/hero-1.jpg" type="image/jpeg">
 </head>
 <body>
     <!-- Navigation -->
@@ -35,13 +38,22 @@
         <!-- Background Slideshow -->
         <div class="hero-slideshow">
             <div class="hero-slide active">
-                <div class="hero-slide-media hero-rotate-right hero-pan-fretboard" style="background-image: url('images/hero/hero-1.jpg'); background-position: center 52%;"></div>
+                <picture>
+                    <source srcset="images/hero/hero-1.webp" type="image/webp">
+                    <img src="images/hero/hero-1.jpg" alt="" class="hero-slide-media hero-rotate-right hero-pan-fretboard" style="object-position: center 52%;">
+                </picture>
             </div>
             <div class="hero-slide">
-                <div class="hero-slide-media hero-pan-down hero-wide-start" style="background-image: url('images/hero/hero-2.jpg'); background-position: center 62%;"></div>
+                <picture>
+                    <source srcset="images/hero/hero-2.webp" type="image/webp">
+                    <img src="images/hero/hero-2.jpg" alt="" class="hero-slide-media hero-pan-down hero-wide-start" style="object-position: center 62%;">
+                </picture>
             </div>
             <div class="hero-slide">
-                <div class="hero-slide-media hero-rotate-left hero-pan-left-rotate" style="background-image: url('images/hero/hero-3.jpg'); background-position: center 60%;"></div>
+                <picture>
+                    <source srcset="images/hero/hero-3.webp" type="image/webp">
+                    <img src="images/hero/hero-3.jpg" alt="" class="hero-slide-media hero-rotate-left hero-pan-left-rotate" style="object-position: center 60%;">
+                </picture>
             </div>
         </div>
 
@@ -89,7 +101,10 @@
         <div class="features-grid">
             <div class="feature-block">
                 <div class="feature-image no-zoom">
-                    <img src="images/guitar10/display/IMG_5367.jpg" alt="Burl resin laminate Dorweiler guitar" loading="lazy" decoding="async">
+                    <picture>
+                        <source srcset="images/guitar10/display/IMG_5367.webp" type="image/webp">
+                        <img src="images/guitar10/display/IMG_5367.jpg" alt="Burl resin laminate Dorweiler guitar" loading="lazy" decoding="async">
+                    </picture>
                 </div>
                 <h3 class="feature-title">Craftsmanship</h3>
                 <p class="feature-text">
@@ -99,7 +114,10 @@
 
             <div class="feature-block">
                 <div class="feature-image">
-                    <img src="images/guitar8/display/IMG_5389.jpg" alt="Spalted maple multiscale guitar" loading="lazy" decoding="async">
+                    <picture>
+                        <source srcset="images/guitar8/display/IMG_5389.webp" type="image/webp">
+                        <img src="images/guitar8/display/IMG_5389.jpg" alt="Spalted maple multiscale guitar" loading="lazy" decoding="async">
+                    </picture>
                 </div>
                 <h3 class="feature-title">Portfolio</h3>
                 <p class="feature-text">
@@ -111,7 +129,10 @@
 
             <div class="feature-block">
                 <div class="feature-image">
-                    <img src="images/guitar11/display/IMG_5357.jpg" alt="Flame maple multiscale build detail" loading="lazy" decoding="async">
+                    <picture>
+                        <source srcset="images/guitar11/display/IMG_5357.webp" type="image/webp">
+                        <img src="images/guitar11/display/IMG_5357.jpg" alt="Flame maple multiscale build detail" loading="lazy" decoding="async">
+                    </picture>
                 </div>
                 <h3 class="feature-title">Commission a Build</h3>
                 <p class="feature-text">
@@ -131,7 +152,10 @@
         </div>
         <div class="portfolio-grid">
             <a href="guitar11.html" class="portfolio-item portfolio-item--featured">
-                <img src="images/guitar11/display/IMG_5355.jpg" alt="Flame maple multiscale build in progress" loading="lazy" decoding="async">
+                <picture>
+                    <source srcset="images/guitar11/display/IMG_5355.webp" type="image/webp">
+                    <img src="images/guitar11/display/IMG_5355.jpg" alt="Flame maple multiscale build in progress" loading="lazy" decoding="async">
+                </picture>
                 <div class="portfolio-overlay">
                     <span class="portfolio-badge">In Progress</span>
                     <h3 class="portfolio-name">Build #11</h3>
@@ -139,28 +163,40 @@
                 </div>
             </a>
             <a href="guitar10.html" class="portfolio-item">
-                <img src="images/guitar10/display/IMG_5382.jpg" alt="Burl resin laminate" loading="lazy" decoding="async">
+                <picture>
+                    <source srcset="images/guitar10/display/IMG_5382.webp" type="image/webp">
+                    <img src="images/guitar10/display/IMG_5382.jpg" alt="Burl resin laminate" loading="lazy" decoding="async">
+                </picture>
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-name">Build #10</h3>
                     <span class="portfolio-link">View build →</span>
                 </div>
             </a>
             <a href="guitar7.html" class="portfolio-item">
-                <img src="images/guitar7/display/IMG_5337.jpg" alt="Flame maple and ash with tobacco burst" loading="lazy" decoding="async">
+                <picture>
+                    <source srcset="images/guitar7/display/IMG_5337.webp" type="image/webp">
+                    <img src="images/guitar7/display/IMG_5337.jpg" alt="Flame maple and ash with tobacco burst" loading="lazy" decoding="async">
+                </picture>
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-name">Build #7</h3>
                     <span class="portfolio-link">View build →</span>
                 </div>
             </a>
             <a href="guitar8.html" class="portfolio-item">
-                <img src="images/guitar8/display/IMG_5388.jpg" alt="Spalted maple multiscale" loading="lazy" decoding="async">
+                <picture>
+                    <source srcset="images/guitar8/display/IMG_5388.webp" type="image/webp">
+                    <img src="images/guitar8/display/IMG_5388.jpg" alt="Spalted maple multiscale" loading="lazy" decoding="async">
+                </picture>
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-name">Build #8</h3>
                     <span class="portfolio-link">View build →</span>
                 </div>
             </a>
             <a href="guitar9.html" class="portfolio-item">
-                <img src="images/guitar9/display/IMG_5340.jpg" alt="Black limba body with malachite star inlays" loading="lazy" decoding="async">
+                <picture>
+                    <source srcset="images/guitar9/display/IMG_5340.webp" type="image/webp">
+                    <img src="images/guitar9/display/IMG_5340.jpg" alt="Black limba body with malachite star inlays" loading="lazy" decoding="async">
+                </picture>
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-name">Build #9</h3>
                     <span class="portfolio-link">View build →</span>
