@@ -1,3 +1,18 @@
+// Contact form return from FormSubmit (strip ?thanks= from URL, show note)
+(function () {
+    if (new URLSearchParams(location.search).get('thanks') !== '1') return;
+    const intro = document.querySelector('.contact-intro');
+    if (!intro) return;
+    const note = document.createElement('p');
+    note.className = 'contact-thanks';
+    note.textContent = 'Thanks — your message was sent. I will get back to you soon.';
+    intro.insertBefore(note, intro.firstChild);
+    const url = new URL(location.href);
+    url.searchParams.delete('thanks');
+    const clean = url.pathname + (url.search || '') + (url.hash || '');
+    history.replaceState(null, '', clean);
+})();
+
 // Mobile menu toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');

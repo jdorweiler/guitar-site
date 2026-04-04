@@ -1208,6 +1208,23 @@ h1, h2, h3, h4, h5, h6,
     margin: 0 auto;
 }
 
+.contact-thanks {
+    text-align: center;
+    font-size: 1.05rem;
+    color: var(--accent);
+    max-width: 700px;
+    margin: 0 auto 1.25rem;
+}
+
+.contact-form-honey {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
 .contact-grid {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
