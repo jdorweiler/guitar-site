@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="/guitar-site/">
     <meta charset="UTF-8">
+    <script>
+    (function () {
+        var b = document.createElement("base");
+        var h = location.hostname;
+        b.href = (h === "dorweilerguitars.com" || h === "www.dorweilerguitars.com") ? "/" : "/guitar-site/";
+        document.currentScript.insertAdjacentElement("afterend", b);
+    })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Build #2 | Blue Resin River | Dorweiler Guitars</title>
+    <title>Quilted Maple Resin River | Dorweiler Guitars</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="detail.css">
 </head>
@@ -69,7 +76,7 @@
                 <!-- Guitar Info -->
                 <div class="detail-info">
                     <p class="detail-kicker">Dorweiler custom build</p>
-                    <h1 class="detail-title">Build #2 <span class="sold-inline">(SOLD)</span></h1>
+                    <h1 class="detail-title">Quilted Maple Resin River <span class="sold-inline">(SOLD)</span></h1>
                     <p class="detail-description">
                         A double-cutaway guitar with quilted maple body featuring a blue epoxy resin river inlay running through the center.
                     </p>
@@ -126,19 +133,6 @@
                         </div>
                     </div>
 
-                    <!-- Story Section -->
-                    <div class="story-container">
-                        <h2 class="story-title">Maker's Note</h2>
-                        <p class="story-text">
-                            This was an experimental build where I wanted to push beyond traditional lutherie and incorporate
-                            resin art techniques. I carefully cut the quilted maple body to accommodate a flowing blue resin
-                            river through the center. The transparent blue epoxy lets light pass through, creating an almost
-                            ethereal quality when you hold it up. The technical challenge was marrying two very different
-                            materials - organic wood and synthetic resin - while maintaining structural integrity and tonal
-                            properties. This piece found its home quickly, and it represents the kind of artistic, one-off
-                            builds I really enjoy taking on.
-                        </p>
-                    </div>
 
                     <!-- Availability -->
                     <div class="availability-container availability-sold">

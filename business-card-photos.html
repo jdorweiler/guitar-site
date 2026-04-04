@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dorweiler Guitars - Photo Business Cards</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            color: #c9a880;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .card-wrapper {
+            margin-bottom: 60px;
+        }
+
+        .option-label {
+            color: #c9a880;
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        /* Standard US business card: 3.5" x 2" at 300dpi = 1050px x 600px */
+        .business-card {
+            width: 1050px;
+            height: 600px;
+            position: relative;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* APPROACH 1: Photo on left, info on right */
+        .card-split-photo {
+            display: flex;
+            background: #000000;
+        }
+
+        .photo-left {
+            width: 50%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .photo-right {
+            width: 50%;
+            background: #000000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+        }
+
+        .right-logo {
+            width: 280px;
+            margin-bottom: 20px;
+        }
+
+        .right-logo img {
+            width: 100%;
+        }
+
+        .right-tagline {
+            font-size: 13px;
+            color: #888;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        /* APPROACH 2: Small photo accent in corner */
+        .card-corner-photo {
+            background: #000000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .corner-photo-bg {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            clip-path: circle(50% at 100% 100%);
+        }
+
+        .corner-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .corner-logo {
+            width: 380px;
+            margin-bottom: 15px;
+        }
+
+        .corner-logo img {
+            width: 100%;
+        }
+
+        .corner-tagline {
+            font-size: 14px;
+            color: #888;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* APPROACH 3: Photo strip on bottom */
+        .card-strip-photo {
+            background: #000000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .strip-top {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+        }
+
+        .strip-logo {
+            width: 350px;
+            margin-bottom: 15px;
+        }
+
+        .strip-logo img {
+            width: 100%;
+        }
+
+        .strip-tagline {
+            font-size: 14px;
+            color: #888;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .strip-bottom {
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .strip-bottom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, #000000 0%, transparent 100%);
+        }
+
+        /* APPROACH 4: Diagonal split with photo */
+        .card-diagonal {
+            position: relative;
+            background: #000000;
+            overflow: hidden;
+        }
+
+        .diagonal-photo {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        .diagonal-photo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .diagonal-content {
+            position: relative;
+            z-index: 1;
+            padding: 80px;
+            width: 50%;
+        }
+
+        .diagonal-logo {
+            width: 320px;
+            margin-bottom: 15px;
+        }
+
+        .diagonal-logo img {
+            width: 100%;
+        }
+
+        .diagonal-tagline {
+            font-size: 13px;
+            color: #888;
+            letter-spacing: 2px;
+        }
+
+        /* APPROACH 5: Full bleed photo with overlay box */
+        .card-fullbleed {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fullbleed-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+        }
+
+        .fullbleed-box {
+            position: relative;
+            z-index: 1;
+            background: rgba(0,0,0,0.85);
+            border: 2px solid #c9a880;
+            padding: 60px;
+            text-align: center;
+        }
+
+        .fullbleed-logo {
+            width: 320px;
+            margin-bottom: 15px;
+        }
+
+        .fullbleed-logo img {
+            width: 100%;
+        }
+
+        .fullbleed-tagline {
+            font-size: 13px;
+            color: #c9a880;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* APPROACH 6: Photo as watermark behind everything */
+        .card-watermark {
+            position: relative;
+            background: #000000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .watermark-photo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70%;
+            height: 70%;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.08;
+        }
+
+        .watermark-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .watermark-logo {
+            width: 380px;
+            margin-bottom: 15px;
+        }
+
+        .watermark-logo img {
+            width: 100%;
+        }
+
+        .watermark-tagline {
+            font-size: 14px;
+            color: #888;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .notes {
+            color: #888;
+            max-width: 1050px;
+            margin: 40px auto 0;
+            padding: 40px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            line-height: 1.8;
+        }
+
+        .notes h2 {
+            color: #c9a880;
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .notes ul {
+            margin-left: 20px;
+        }
+
+        .notes li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>DORWEILER GUITARS - PHOTO CARD CONCEPTS</h1>
+
+    <!-- Approach 1: Split left/right -->
+    <div class="option-label">APPROACH 1 - Photo Left / Logo Right (50/50 Split)</div>
+    <div class="card-wrapper">
+        <div class="business-card card-split-photo">
+            <div class="photo-left" style="background-image: url('images/guitar8/IMG_5389.png');"></div>
+            <div class="photo-right">
+                <div class="right-logo">
+                    <img src="images/logo.svg" alt="Dorweiler Guitars">
+                </div>
+                <div class="right-tagline">Handcrafted Custom Guitars</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Approach 2: Corner accent -->
+    <div class="option-label">APPROACH 2 - Subtle Photo Accent in Corner (Very Faded)</div>
+    <div class="card-wrapper">
+        <div class="business-card card-corner-photo">
+            <div class="corner-photo-bg" style="background-image: url('images/guitar10/IMG_5382.png');"></div>
+            <div class="corner-content">
+                <div class="corner-logo">
+                    <img src="images/logo.svg" alt="Dorweiler Guitars">
+                </div>
+                <div class="corner-tagline">Handcrafted Custom Guitars</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Approach 3: Photo strip bottom -->
+    <div class="option-label">APPROACH 3 - Photo Strip on Bottom Third</div>
+    <div class="card-wrapper">
+        <div class="business-card card-strip-photo">
+            <div class="strip-top">
+                <div class="strip-logo">
+                    <img src="images/logo.svg" alt="Dorweiler Guitars">
+                </div>
+                <div class="strip-tagline">Handcrafted Custom Guitars</div>
+            </div>
+            <div class="strip-bottom" style="background-image: url('images/guitar11/IMG_5318.png');"></div>
+        </div>
+    </div>
+
+    <!-- Approach 4: Diagonal split -->
+    <div class="option-label">APPROACH 4 - Diagonal Photo on Right Side</div>
+    <div class="card-wrapper">
+        <div class="business-card card-diagonal">
+            <div class="diagonal-photo" style="background-image: url('images/guitar6/IMG_5391.png');"></div>
+            <div class="diagonal-content">
+                <div class="diagonal-logo">
+                    <img src="images/logo.svg" alt="Dorweiler Guitars">
+                </div>
+                <div class="diagonal-tagline">Handcrafted Custom Guitars</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Approach 5: Full bleed with box -->
+    <div class="option-label">APPROACH 5 - Full Bleed Photo with Centered Info Box</div>
+    <div class="card-wrapper">
+        <div class="business-card card-fullbleed" style="background-image: url('images/guitar2/main.jpg');">
+            <div class="fullbleed-overlay"></div>
+            <div class="fullbleed-box">
+                <div class="fullbleed-logo">
+                    <img src="images/logo.svg" alt="Dorweiler Guitars">
+                </div>
+                <div class="fullbleed-tagline">Handcrafted Custom Guitars</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Approach 6: Watermark -->
+    <div class="option-label">APPROACH 6 - Guitar as Subtle Watermark (Very Light)</div>
+    <div class="card-wrapper">
+        <div class="business-card card-watermark">
+            <div class="watermark-photo" style="background-image: url('images/guitar11/IMG_5318.png');"></div>
+            <div class="watermark-content">
+                <div class="watermark-logo">
+                    <img src="images/logo.svg" alt="Dorweiler Guitars">
+                </div>
+                <div class="watermark-tagline">Handcrafted Custom Guitars</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="notes">
+        <h2>PHOTO APPROACHES THAT ACTUALLY WORK</h2>
+        <ul>
+            <li><strong>Approach 1:</strong> 50/50 split - photo gets half the card, info gets the other half. Clean and balanced.</li>
+            <li><strong>Approach 2:</strong> Subtle corner accent - photo is super faded in corner, doesn't compete with logo.</li>
+            <li><strong>Approach 3:</strong> Photo strip on bottom - like a footer band showing your work.</li>
+            <li><strong>Approach 4:</strong> Diagonal split - modern, dynamic, photo doesn't overpower.</li>
+            <li><strong>Approach 5:</strong> Full bleed with info box - photo fills entire card but info sits in frame on top.</li>
+            <li><strong>Approach 6:</strong> Ultra-subtle watermark - guitar barely visible, just adds texture.</li>
+        </ul>
+
+        <h2 style="margin-top: 30px;">WHY THESE WORK BETTER</h2>
+        <ul>
+            <li>Photos are composed for horizontal format (not rotated vertical guitars)</li>
+            <li>Logo and info always readable (proper contrast)</li>
+            <li>Photos support the design rather than fighting with it</li>
+            <li>Can easily swap in different guitar photos</li>
+        </ul>
+
+        <h2 style="margin-top: 30px;">NEXT STEP</h2>
+        <p>Pick which approach(es) you like and I can show you variations with different guitars from your portfolio.</p>
+    </div>
+</body>
+</html>

@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="/guitar-site/">
     <meta charset="UTF-8">
+    <script>
+    (function () {
+        var b = document.createElement("base");
+        var h = location.hostname;
+        b.href = (h === "dorweilerguitars.com" || h === "www.dorweilerguitars.com") ? "/" : "/guitar-site/";
+        document.currentScript.insertAdjacentElement("afterend", b);
+    })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Build #8 | Spalted Maple Multiscale | Dorweiler Guitars</title>
+    <title>Spalted Maple Multiscale | Dorweiler Guitars</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="detail.css">
 </head>
@@ -34,7 +41,7 @@
                                 <path d="M14.5 5.5L8 12l6.5 6.5" />
                             </svg>
                         </button>
-                        <img id="mainImg" src="images/guitar8/display/IMG_5385.jpg" alt="Build #8 full body front view" decoding="async">
+                        <img id="mainImg" src="images/guitar8/display/IMG_5385.jpg" alt="Spalted Maple Multiscale full body front view" decoding="async">
                         <button class="gallery-nav gallery-nav--next" type="button" aria-label="Next image" onclick="stepImage(1)">
                             <svg viewBox="0 0 24 24" aria-hidden="true">
                                 <path d="M9.5 5.5L16 12l-6.5 6.5" />
@@ -80,7 +87,7 @@
 
                 <div class="detail-info">
                     <p class="detail-kicker">Dorweiler custom build</p>
-                    <h1 class="detail-title">Build #8</h1>
+                    <h1 class="detail-title">Spalted Maple Multiscale</h1>
                     <p class="detail-description">
                         A multiscale (fanned-fret) guitar with spalted and flamed maple top over black limba, 5-piece laminated neck, and wenge fretboard. Features Fishman Tim Henson signature pickups and 25.5"–25" scale length.
                     </p>
@@ -111,19 +118,6 @@
                         </div>
                     </div>
 
-                    <div class="story-container">
-                        <h2 class="story-title">Maker's Note</h2>
-                        <p class="story-text">
-                            This was my first multiscale build, and it required rethinking a lot of the fretwork and bridge positioning.
-                            The fanned-fret layout (25.5" on the bass side, 25" on the treble) evens out string tension and improves
-                            intonation across the board. I paired black limba with a spalted/flame maple top for that organic-meets-refined
-                            aesthetic. The Tim Henson signature Fishmans are voiced for modern playing styles: crisp, articulate, great
-                            for clean tones and high-gain work. Both the volume and tone pots are push/pull, each activating coil-split
-                            on its respective pickup, so you can run either pickup in single-coil mode or both split simultaneously.
-                            Combined with the 3-way selector, this wiring scheme opens up a wide palette of tonal options. Hipshot
-                            hardware keeps everything stable despite the unconventional scale.
-                        </p>
-                    </div>
 
                     <div class="availability-container">
                         <h3 class="availability-title">Availability</h3>

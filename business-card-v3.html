@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dorweiler Guitars - Radical New Concepts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            color: #c9a880;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .card-wrapper {
+            margin-bottom: 60px;
+        }
+
+        .option-label {
+            color: #c9a880;
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        /* Standard US business card: 3.5" x 2" at 300dpi = 1050px x 600px */
+        .business-card {
+            width: 1050px;
+            height: 600px;
+            position: relative;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* CONCEPT 1: Blueprint/Technical Drawing */
+        .card-blueprint {
+            background: #0a1929;
+            position: relative;
+            padding: 60px;
+        }
+
+        .blueprint-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(100, 180, 255, 0.1) 49px, rgba(100, 180, 255, 0.1) 50px),
+                repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(100, 180, 255, 0.1) 49px, rgba(100, 180, 255, 0.1) 50px);
+        }
+
+        .blueprint-content {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .blueprint-left {
+            flex: 1;
+        }
+
+        .blueprint-title {
+            font-size: 48px;
+            color: #64b4ff;
+            font-weight: 300;
+            margin-bottom: 10px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .blueprint-subtitle {
+            font-size: 16px;
+            color: #64b4ff;
+            opacity: 0.7;
+            margin-bottom: 40px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .blueprint-specs {
+            font-size: 13px;
+            color: #64b4ff;
+            line-height: 2;
+            font-family: 'Courier New', monospace;
+        }
+
+        .blueprint-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .blueprint-number {
+            font-size: 24px;
+            color: #64b4ff;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* CONCEPT 2: Ticket/Stamp Style */
+        .card-ticket {
+            background: #f5f0e8;
+            position: relative;
+            display: flex;
+            border: 3px dashed #c9a880;
+        }
+
+        .ticket-left {
+            width: 35%;
+            background: #c9a880;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            padding: 40px 0;
+        }
+
+        .ticket-serial {
+            font-size: 72px;
+            font-weight: 700;
+            color: #000;
+            letter-spacing: 10px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .ticket-right {
+            flex: 1;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .ticket-brand {
+            font-size: 56px;
+            color: #000;
+            font-weight: 300;
+            margin-bottom: 10px;
+            letter-spacing: 4px;
+        }
+
+        .ticket-tagline {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .ticket-info {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        /* CONCEPT 3: Brutalist/Bold Typography */
+        .card-brutal {
+            background: #000;
+            padding: 0;
+            position: relative;
+        }
+
+        .brutal-bg {
+            position: absolute;
+            font-size: 420px;
+            font-weight: 900;
+            color: rgba(201, 168, 128, 0.05);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            line-height: 1;
+        }
+
+        .brutal-content {
+            position: relative;
+            z-index: 1;
+            padding: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .brutal-top {
+            font-size: 84px;
+            font-weight: 900;
+            color: #c9a880;
+            line-height: 0.9;
+            letter-spacing: -2px;
+        }
+
+        .brutal-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .brutal-tagline {
+            font-size: 14px;
+            color: #666;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .brutal-contact {
+            font-size: 12px;
+            color: #888;
+            text-align: right;
+            line-height: 1.6;
+        }
+
+        /* CONCEPT 4: Magazine Layout */
+        .card-magazine {
+            background: #fff;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 0;
+        }
+
+        .mag-block {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .mag-1 {
+            background: #c9a880;
+            grid-column: 1;
+            grid-row: 1 / 3;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mag-1-text {
+            font-size: 96px;
+            font-weight: 900;
+            color: #000;
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            letter-spacing: -4px;
+        }
+
+        .mag-2 {
+            background: #000;
+            border-bottom: 2px solid #c9a880;
+        }
+
+        .mag-2-name {
+            font-size: 32px;
+            color: #c9a880;
+            font-weight: 300;
+            margin-bottom: 5px;
+        }
+
+        .mag-2-title {
+            font-size: 14px;
+            color: #888;
+            letter-spacing: 2px;
+        }
+
+        .mag-3 {
+            background: #000;
+        }
+
+        .mag-3-contact {
+            font-size: 13px;
+            color: #fff;
+            line-height: 1.8;
+        }
+
+        /* CONCEPT 5: Embossed/Debossed Simulation */
+        .card-emboss {
+            background: #1a1a1a;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .emboss-content {
+            text-align: center;
+        }
+
+        .emboss-logo {
+            font-size: 96px;
+            font-weight: 100;
+            color: transparent;
+            background: linear-gradient(145deg, #2a2a2a 0%, #0a0a0a 50%, #2a2a2a 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            text-shadow:
+                2px 2px 4px rgba(0,0,0,0.8),
+                -2px -2px 4px rgba(60,60,60,0.3);
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+        }
+
+        .emboss-line {
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #333, transparent);
+            margin: 20px auto;
+        }
+
+        .emboss-tagline {
+            font-size: 14px;
+            color: #666;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        /* CONCEPT 6: Polaroid/Snapshot */
+        .card-polaroid {
+            background: #f8f8f8;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .polaroid-frame {
+            background: #fff;
+            padding: 20px 20px 60px 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transform: rotate(-2deg);
+        }
+
+        .polaroid-image {
+            width: 440px;
+            height: 330px;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 15px;
+        }
+
+        .polaroid-caption {
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+        }
+
+        .polaroid-info {
+            position: absolute;
+            bottom: 60px;
+            right: 60px;
+            background: rgba(255,255,255,0.95);
+            padding: 20px 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .polaroid-name {
+            font-size: 20px;
+            color: #000;
+            margin-bottom: 5px;
+        }
+
+        .polaroid-contact {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* CONCEPT 7: Vinyl Record Style */
+        .card-vinyl {
+            background: #000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vinyl-grooves {
+            position: absolute;
+            top: 50%;
+            left: -200px;
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            background:
+                repeating-radial-gradient(circle,
+                    transparent 0px,
+                    transparent 8px,
+                    rgba(201, 168, 128, 0.03) 8px,
+                    rgba(201, 168, 128, 0.03) 10px
+                );
+            transform: translateY(-50%);
+        }
+
+        .vinyl-label {
+            position: absolute;
+            top: 50%;
+            left: 200px;
+            width: 280px;
+            height: 280px;
+            background: #c9a880;
+            border-radius: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .vinyl-label-inner {
+            text-align: center;
+        }
+
+        .vinyl-brand {
+            font-size: 42px;
+            color: #000;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .vinyl-subtitle {
+            font-size: 13px;
+            color: #000;
+            letter-spacing: 2px;
+        }
+
+        .vinyl-info {
+            position: absolute;
+            right: 80px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .vinyl-track {
+            font-size: 16px;
+            color: #c9a880;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .vinyl-details {
+            font-size: 13px;
+            color: #888;
+            line-height: 2;
+        }
+
+        .notes {
+            color: #888;
+            max-width: 1050px;
+            margin: 40px auto 0;
+            padding: 40px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            line-height: 1.8;
+        }
+
+        .notes h2 {
+            color: #c9a880;
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .notes ul {
+            margin-left: 20px;
+        }
+
+        .notes li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>COMPLETELY NEW CONCEPTS</h1>
+
+    <!-- Blueprint -->
+    <div class="option-label">CONCEPT 1 - Blueprint/Technical Drawing</div>
+    <div class="card-wrapper">
+        <div class="business-card card-blueprint">
+            <div class="blueprint-grid"></div>
+            <div class="blueprint-content">
+                <div class="blueprint-left">
+                    <div class="blueprint-title">DORWEILER</div>
+                    <div class="blueprint-subtitle">CUSTOM GUITAR DESIGN</div>
+                    <div class="blueprint-specs">
+                        BUILDER: Jason Dorweiler<br>
+                        LOCATION: Colorado, USA<br>
+                        WEB: dorweilerguitars.com<br>
+                        EMAIL: jason@dorweilerguitars.com<br>
+                        INSTAGRAM: @dorweiler_guitars
+                    </div>
+                </div>
+                <div class="blueprint-right">
+                    <div class="blueprint-number">DWG-001</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ticket -->
+    <div class="option-label">CONCEPT 2 - Ticket/Admission Style</div>
+    <div class="card-wrapper">
+        <div class="business-card card-ticket">
+            <div class="ticket-left">
+                <div class="ticket-serial">001</div>
+            </div>
+            <div class="ticket-right">
+                <div class="ticket-brand">DORWEILER</div>
+                <div class="ticket-tagline">Handcrafted Custom Guitars</div>
+                <div class="ticket-info">
+                    Jason Dorweiler<br>
+                    dorweilerguitars.com<br>
+                    jason@dorweilerguitars.com
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Brutalist -->
+    <div class="option-label">CONCEPT 3 - Brutalist Typography</div>
+    <div class="card-wrapper">
+        <div class="business-card card-brutal">
+            <div class="brutal-bg">D</div>
+            <div class="brutal-content">
+                <div class="brutal-top">DORWEILER</div>
+                <div class="brutal-bottom">
+                    <div class="brutal-tagline">Handcrafted<br>Custom Guitars</div>
+                    <div class="brutal-contact">
+                        Jason Dorweiler<br>
+                        dorweilerguitars.com<br>
+                        @dorweiler_guitars
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Magazine -->
+    <div class="option-label">CONCEPT 4 - Magazine Grid Layout</div>
+    <div class="card-wrapper">
+        <div class="business-card card-magazine">
+            <div class="mag-block mag-1">
+                <div class="mag-1-text">DORWEILER</div>
+            </div>
+            <div class="mag-block mag-2">
+                <div class="mag-2-name">Jason Dorweiler</div>
+                <div class="mag-2-title">LUTHIER</div>
+            </div>
+            <div class="mag-block mag-3">
+                <div class="mag-3-contact">
+                    dorweilerguitars.com<br>
+                    jason@dorweilerguitars.com<br>
+                    @dorweiler_guitars
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Embossed -->
+    <div class="option-label">CONCEPT 5 - Embossed/Debossed Effect</div>
+    <div class="card-wrapper">
+        <div class="business-card card-emboss">
+            <div class="emboss-content">
+                <div class="emboss-logo">DORWEILER</div>
+                <div class="emboss-line"></div>
+                <div class="emboss-tagline">Handcrafted Custom Guitars</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Polaroid -->
+    <div class="option-label">CONCEPT 6 - Polaroid Snapshot</div>
+    <div class="card-wrapper">
+        <div class="business-card card-polaroid">
+            <div class="polaroid-frame">
+                <div class="polaroid-image" style="background-image: url('images/guitar8/IMG_5389.png');"></div>
+                <div class="polaroid-caption">Dorweiler Guitars</div>
+            </div>
+            <div class="polaroid-info">
+                <div class="polaroid-name">Jason Dorweiler</div>
+                <div class="polaroid-contact">
+                    dorweilerguitars.com<br>
+                    jason@dorweilerguitars.com<br>
+                    @dorweiler_guitars
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vinyl -->
+    <div class="option-label">CONCEPT 7 - Vinyl Record</div>
+    <div class="card-wrapper">
+        <div class="business-card card-vinyl">
+            <div class="vinyl-grooves"></div>
+            <div class="vinyl-label">
+                <div class="vinyl-label-inner">
+                    <div class="vinyl-brand">DORWEILER</div>
+                    <div class="vinyl-subtitle">GUITARS</div>
+                </div>
+            </div>
+            <div class="vinyl-info">
+                <div class="vinyl-track">Handcrafted Custom Guitars</div>
+                <div class="vinyl-details">
+                    Jason Dorweiler<br>
+                    dorweilerguitars.com<br>
+                    jason@dorweilerguitars.com<br>
+                    @dorweiler_guitars
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="notes">
+        <h2>RADICALLY DIFFERENT IDEAS</h2>
+        <ul>
+            <li><strong>Blueprint:</strong> Technical drawing aesthetic - grid background, monospace font, looks like guitar plans</li>
+            <li><strong>Ticket:</strong> Perforated edge, serial number, collectible feel - each card is numbered</li>
+            <li><strong>Brutalist:</strong> Massive bold typography, minimal colors, very modern/edgy</li>
+            <li><strong>Magazine:</strong> Editorial grid layout - vertical text, asymmetric blocks</li>
+            <li><strong>Embossed:</strong> Simulates pressed/raised letters - subtle and tactile-looking</li>
+            <li><strong>Polaroid:</strong> Vintage photo frame with your guitar - nostalgic, personal</li>
+            <li><strong>Vinyl:</strong> Record grooves and center label - music connection, unique shape concept</li>
+        </ul>
+
+        <h2 style="margin-top: 30px;">WHAT MAKES THESE DIFFERENT?</h2>
+        <ul>
+            <li>Not traditional layouts at all</li>
+            <li>Reference different design worlds (music, architecture, print)</li>
+            <li>Some could be die-cut shapes (vinyl record card)</li>
+            <li>Mix of vintage and ultra-modern</li>
+            <li>Conceptual rather than just "logo + contact info"</li>
+        </ul>
+    </div>
+</body>
+</html>

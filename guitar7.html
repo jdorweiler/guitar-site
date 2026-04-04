@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="/guitar-site/">
     <meta charset="UTF-8">
+    <script>
+    (function () {
+        var b = document.createElement("base");
+        var h = location.hostname;
+        b.href = (h === "dorweilerguitars.com" || h === "www.dorweilerguitars.com") ? "/" : "/guitar-site/";
+        document.currentScript.insertAdjacentElement("afterend", b);
+    })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Build #7 | Flame Maple &amp; Ash | Dorweiler Guitars</title>
+    <title>Tobacco Burst Flame Maple | Dorweiler Guitars</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="detail.css">
 </head>
@@ -34,7 +41,7 @@
                                 <path d="M14.5 5.5L8 12l6.5 6.5" />
                             </svg>
                         </button>
-                        <img id="mainImg" src="images/guitar7/display/IMG_5333.jpg" alt="Build #7 body close-up" decoding="async">
+                        <img id="mainImg" src="images/guitar7/display/IMG_5333.jpg" alt="Tobacco Burst Flame Maple body close-up" decoding="async">
                         <button class="gallery-nav gallery-nav--next" type="button" aria-label="Next image" onclick="stepImage(1)">
                             <svg viewBox="0 0 24 24" aria-hidden="true">
                                 <path d="M9.5 5.5L16 12l-6.5 6.5" />
@@ -56,7 +63,7 @@
 
                 <div class="detail-info">
                     <p class="detail-kicker">Dorweiler custom build</p>
-                    <h1 class="detail-title">Build #7</h1>
+                    <h1 class="detail-title">Tobacco Burst Flame Maple</h1>
                     <p class="detail-description">
                         A double-cutaway with flame maple and ash body, 13-piece laminated neck, and birdseye maple fretboard. Features Lollar Dirty Blond single-coils (S-S-S), Wilkinson floating trem, and tobacco burst finish.
                     </p>
@@ -82,18 +89,6 @@
                             <div class="spec-item"><span class="spec-label">Bridge</span><span class="spec-value">Wilkinson floating trem</span></div>
                             <div class="spec-item"><span class="spec-label">Tuners</span><span class="spec-value">Hipshot open gear locking</span></div>
                         </div>
-                    </div>
-
-                    <div class="story-container">
-                        <h2 class="story-title">Maker's Note</h2>
-                        <p class="story-text">
-                            This build leans hard into classic S-style territory - three single coils, vintage voicing, double-cutaway
-                            contours - but with some serious wood choices. That 13-piece neck (roasted maple, maple, wenge, walnut,
-                            mahogany) is as much about stability as it is visual drama. Birdseye maple for the fretboard adds another
-                            layer of figure, while the tobacco burst over flame maple and ash brings out all the grain movement. The
-                            Lollar Dirty Blond set keeps it vintage-correct tonally, while the Wilkinson trem and Hipshot locking tuners
-                            handle stability and tuning under heavy use.
-                        </p>
                     </div>
 
                     <div class="availability-container">

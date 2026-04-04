@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dorweiler Guitars - Hang Tag Set</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #1a1a1a;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            padding: 60px 20px 80px;
+            color: #ccc;
+        }
+
+        h1 {
+            color: #c9a880;
+            text-align: center;
+            margin-bottom: 14px;
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 3px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #888;
+            font-size: 13px;
+            max-width: 680px;
+            margin: 0 auto 48px;
+            line-height: 1.6;
+        }
+
+        .tag-gallery {
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        .tag-section {
+            margin-bottom: 72px;
+        }
+
+        .guitar-label {
+            text-align: center;
+            color: #c9a880;
+            font-size: 16px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .tag-pair {
+            display: flex;
+            justify-content: center;
+            gap: 36px;
+            flex-wrap: wrap;
+        }
+
+        .tag-side-label {
+            text-align: center;
+            color: #666;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            width: 360px;
+            height: 576px;
+            position: relative;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+            background: #0a0a0a;
+            border: 1px solid #222;
+        }
+
+        .tag-hole {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            z-index: 10;
+            border: 2px solid #333;
+            background: #0a0a0a;
+        }
+
+        .tag-front {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 30px 40px;
+            text-align: center;
+        }
+
+        .tag-logo {
+            width: 220px;
+            max-width: 88%;
+            margin-bottom: 8px;
+        }
+
+        .tag-logo img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .tag-brand-line {
+            font-size: 10px;
+            color: #c9a880;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .tag-accent {
+            width: 40px;
+            height: 2px;
+            background: #c9a880;
+            margin-bottom: 24px;
+        }
+
+        .tag-model {
+            font-size: 18px;
+            color: #fff;
+            font-weight: 400;
+            margin-bottom: 28px;
+            letter-spacing: 0.4px;
+            line-height: 1.3;
+            padding: 0 12px;
+        }
+
+        .tag-footer {
+            position: absolute;
+            bottom: 26px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 9px;
+            color: #444;
+            letter-spacing: 2px;
+        }
+
+        .tag-back {
+            height: 100%;
+            padding: 55px 28px 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tag-back-title {
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: #c9a880;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .tag-sec {
+            margin-bottom: 13px;
+        }
+
+        .tag-sec-title {
+            font-size: 9px;
+            letter-spacing: 2px;
+            color: #555;
+            margin-bottom: 6px;
+            border-bottom: 1px solid #1a1a1a;
+            padding-bottom: 3px;
+        }
+
+        .tag-spec-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            font-size: 11px;
+            line-height: 1.8;
+        }
+
+        .tag-spec-label {
+            color: #666;
+            flex-shrink: 0;
+        }
+
+        .tag-spec-val {
+            color: #ccc;
+            text-align: right;
+            max-width: 185px;
+        }
+
+        .tag-back-footer {
+            margin-top: auto;
+            text-align: center;
+            font-size: 9px;
+            color: #333;
+            letter-spacing: 1px;
+        }
+
+        .notes {
+            max-width: 760px;
+            margin: 32px auto 0;
+            padding: 28px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            line-height: 1.75;
+            color: #888;
+            font-size: 13px;
+        }
+
+        .notes strong {
+            color: #c9a880;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <h1>GUITAR HANG TAG SET</h1>
+    <p class="subtitle">Chosen direction: black minimal front with logo plus brand name. Each instrument has its own front and back, with specs from the guitar pages.</p>
+
+    <div id="tagGallery" class="tag-gallery"></div>
+
+    <div class="notes">
+        <strong>Iteration notes:</strong> This is set up as one tag pair per guitar so you can judge consistency across the whole lineup. If you want, next I can tighten the back hierarchy, add a QR code, change the size to a true print ratio, or create a print sheet layout.
+    </div>
+
+    <script>
+        const guitars = [
+            {
+                model: "Flame Maple Multiscale",
+                specs: [
+                    ["Top", "Flame maple"],
+                    ["Back", "Black limba"],
+                    ["Core", "Walnut / mahogany / oak"],
+                    ["Scale", "25.5-25 multiscale"],
+                    ["Neck", "Rosewood + carbon fiber"],
+                    ["Inlays", "Pearl"]
+                ]
+            },
+            {
+                model: "Burl Resin Laminate",
+                specs: [
+                    ["Body", "Burl resin top, walnut/wenge/maple back"],
+                    ["Neck", "Walnut / maple / wenge"],
+                    ["Fretboard", "Macassar ebony with brass + burl inlays"],
+                    ["Scale", "24.75"],
+                    ["Bridge PU", "Seymour Duncan JB"],
+                    ["Neck PU", "Seymour Duncan Jazz"],
+                    ["Bridge", "Schaller wraparound"]
+                ]
+            },
+            {
+                model: "Black Limba & Malachite",
+                specs: [
+                    ["Body", "Black limba"],
+                    ["Neck", "Black limba / mahogany / wenge"],
+                    ["Fretboard", "Macassar ebony, 24 frets"],
+                    ["Inlays", "Malachite stars"],
+                    ["Bridge PU", "Seymour Duncan humbucker"],
+                    ["Middle", "Fender single coil"],
+                    ["Neck PU", "Skywood Baxter humbucker"]
+                ]
+            },
+            {
+                model: "Spalted Maple Multiscale",
+                specs: [
+                    ["Top", "Spalted and flamed maple"],
+                    ["Body", "Black limba"],
+                    ["Neck", "5-pc maple / wenge / purpleheart"],
+                    ["Fretboard", "Wenge"],
+                    ["Scale", "25.5-25 multiscale"],
+                    ["Bridge PU", "Fishman Tim Henson"],
+                    ["Neck PU", "Fishman Tim Henson"]
+                ]
+            },
+            {
+                model: "Tobacco Burst Flame Maple",
+                specs: [
+                    ["Body", "Flame maple and ash"],
+                    ["Neck", "13-pc roasted maple / wenge / walnut / mahogany"],
+                    ["Fretboard", "Birdseye maple"],
+                    ["Finish", "Tobacco burst"],
+                    ["Pickups", "Lollar Dirty Blond S-S-S"],
+                    ["Bridge", "Wilkinson floating trem"],
+                    ["Tuners", "Hipshot open gear locking"]
+                ]
+            },
+            {
+                model: "Blue Burst Flame Maple",
+                specs: [
+                    ["Top", "Flame maple, blue burst"],
+                    ["Body", "Mahogany"],
+                    ["Neck", "5-pc mahogany / wenge / sapele"],
+                    ["Fretboard", "Ziricote, 24 frets"],
+                    ["Inlays", "Stars + maple fish"],
+                    ["Bridge PU", "Skywood Lincoln Ave"],
+                    ["Neck PU", "SD Fat Cat P-90"]
+                ]
+            },
+            {
+                model: "Curly Maple",
+                specs: [
+                    ["Top", "Curly maple"],
+                    ["Body", "Black limba"],
+                    ["Neck", "Maple"],
+                    ["Fretboard", "Ebony with bird inlays"],
+                    ["Scale", "25"],
+                    ["Pickups", "Humbucker set"],
+                    ["Bridge", "Schaller wrap around"]
+                ]
+            },
+            {
+                model: "Walnut T-Style",
+                specs: [
+                    ["Body", "Walnut"],
+                    ["Neck", "Maple"],
+                    ["Fretboard", "Ebony"],
+                    ["Scale", "25.5"],
+                    ["Frets", "22 medium jumbo"],
+                    ["Pickups", "Hand-wound Skywood"],
+                    ["Finish", "Nitro"]
+                ]
+            },
+            {
+                model: "Figured Walnut Tele",
+                specs: [
+                    ["Body", "Figured walnut"],
+                    ["Neck", "Maple"],
+                    ["Fretboard", "Ebony"],
+                    ["Scale", "25.5"],
+                    ["Frets", "22 medium"],
+                    ["Pickups", "Single coil + humbucker"],
+                    ["Finish", "Natural satin"]
+                ]
+            },
+            {
+                model: "Quilted Maple Resin River",
+                specs: [
+                    ["Body", "Quilted maple"],
+                    ["Feature", "Blue epoxy resin inlay"],
+                    ["Neck", "Maple"],
+                    ["Fretboard", "Maple"],
+                    ["Scale", "25.5"],
+                    ["Pickups", "Dual humbuckers"],
+                    ["Finish", "Natural / transparent blue resin"]
+                ]
+            },
+            {
+                model: "Flame Maple Burst",
+                specs: [
+                    ["Top", "AAA flame maple"],
+                    ["Body", "Mahogany"],
+                    ["Neck", "Mahogany"],
+                    ["Fretboard", "Rosewood"],
+                    ["Scale", "25"],
+                    ["Pickups", "Dual humbuckers"],
+                    ["Bridge", "Tune-o-matic"]
+                ]
+            }
+        ];
+
+        function escapeHtml(value) {
+            return String(value)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#39;");
+        }
+
+        function renderSpecs(specs) {
+            return specs.map(([label, value]) => `
+                <div class="tag-spec-row">
+                    <span class="tag-spec-label">${escapeHtml(label)}</span>
+                    <span class="tag-spec-val">${escapeHtml(value)}</span>
+                </div>
+            `).join("");
+        }
+
+        function renderTagSection(guitar) {
+            return `
+                <section class="tag-section">
+                    <div class="guitar-label">${escapeHtml(guitar.model)}</div>
+                    <div class="tag-pair">
+                        <div>
+                            <div class="tag-side-label">Front</div>
+                            <div class="tag">
+                                <div class="tag-hole"></div>
+                                <div class="tag-front">
+                                    <div class="tag-logo">
+                                        <img src="images/logo.svg" alt="Dorweiler Guitars">
+                                    </div>
+                                    <div class="tag-brand-line">Dorweiler Guitars</div>
+                                    <div class="tag-accent"></div>
+                                    <div class="tag-model">${escapeHtml(guitar.model)}</div>
+                                    <div class="tag-footer">dorweilerguitars.com</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="tag-side-label">Back</div>
+                            <div class="tag">
+                                <div class="tag-hole"></div>
+                                <div class="tag-back">
+                                    <div class="tag-back-title">SPECIFICATIONS</div>
+                                    <div class="tag-sec">
+                                        <div class="tag-sec-title">DETAILS</div>
+                                        ${renderSpecs(guitar.specs)}
+                                    </div>
+                                    <div class="tag-back-footer">HANDCRAFTED IN COLORADO</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `;
+        }
+
+        document.getElementById("tagGallery").innerHTML = guitars.map(renderTagSection).join("");
+    </script>
+</body>
+</html>

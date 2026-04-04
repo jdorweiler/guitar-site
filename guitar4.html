@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="/guitar-site/">
     <meta charset="UTF-8">
+    <script>
+    (function () {
+        var b = document.createElement("base");
+        var h = location.hostname;
+        b.href = (h === "dorweilerguitars.com" || h === "www.dorweilerguitars.com") ? "/" : "/guitar-site/";
+        document.currentScript.insertAdjacentElement("afterend", b);
+    })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Build #4 | Walnut T-Style | Dorweiler Guitars</title>
+    <title>Walnut T-Style | Dorweiler Guitars</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="detail.css">
 </head>
@@ -48,14 +55,23 @@
                         <div class="thumbnail" data-full-src="images/guitar4/angle2.jpg" data-display-src="images/guitar4/display/angle2.jpg" onclick="changeImage(this)">
                             <img src="images/guitar4/thumbs/angle2.jpg" alt="Angle" loading="lazy" decoding="async">
                         </div>
+                        <div class="thumbnail" data-full-src="images/guitar4/IMG_5439.jpeg" data-display-src="images/guitar4/display/IMG_5439.jpg" onclick="changeImage(this)">
+                            <img src="images/guitar4/thumbs/IMG_5439.jpg" alt="Detail" loading="lazy" decoding="async">
+                        </div>
+                        <div class="thumbnail" data-full-src="images/guitar4/IMG_5442.jpeg" data-display-src="images/guitar4/display/IMG_5442.jpg" onclick="changeImage(this)">
+                            <img src="images/guitar4/thumbs/IMG_5442.jpg" alt="Alternate view" loading="lazy" decoding="async">
+                        </div>
+                        <div class="thumbnail" data-full-src="images/guitar4/IMG_5443.jpeg" data-display-src="images/guitar4/display/IMG_5443.jpg" onclick="changeImage(this)">
+                            <img src="images/guitar4/thumbs/IMG_5443.jpg" alt="Close-up" loading="lazy" decoding="async">
+                        </div>
                     </div>
                 </div>
 
                 <div class="detail-info">
                     <p class="detail-kicker">Dorweiler custom build</p>
-                    <h1 class="detail-title">Build #4</h1>
+                    <h1 class="detail-title">Walnut T-Style</h1>
                     <p class="detail-description">
-                        A classic T-style guitar crafted from walnut with ebony fretboard, combining traditional design with premium tonewoods.
+                        A walnut T-style build with a Strat-style arm contour, reverse headstock, nitro finish, and hand-wound Skywood pickups. A familiar platform with a few custom touches that make it feel distinctly its own.
                     </p>
 
                     <div class="detail-intro-meta">
@@ -70,23 +86,12 @@
                             <div class="spec-item"><span class="spec-label">Fretboard</span><span class="spec-value">Ebony</span></div>
                             <div class="spec-item"><span class="spec-label">Scale Length</span><span class="spec-value">25.5"</span></div>
                             <div class="spec-item"><span class="spec-label">Frets</span><span class="spec-value">22 Medium Jumbo</span></div>
-                            <div class="spec-item"><span class="spec-label">Pickups</span><span class="spec-value">Dual Single Coils</span></div>
+                            <div class="spec-item"><span class="spec-label">Pickups</span><span class="spec-value">Hand-wound Skywood</span></div>
                             <div class="spec-item"><span class="spec-label">Bridge</span><span class="spec-value">Fixed Bridge</span></div>
                             <div class="spec-item"><span class="spec-label">Hardware</span><span class="spec-value">Chrome</span></div>
-                            <div class="spec-item"><span class="spec-label">Finish</span><span class="spec-value">Natural Satin</span></div>
+                            <div class="spec-item"><span class="spec-label">Tuners</span><span class="spec-value">Hipshot Locking</span></div>
+                            <div class="spec-item"><span class="spec-label">Finish</span><span class="spec-value">Nitro</span></div>
                         </div>
-                    </div>
-
-                    <div class="story-container">
-                        <h2 class="story-title">Maker's Note</h2>
-                        <p class="story-text">
-                            This T-style build showcases the natural beauty of walnut - a tonewood that's often overlooked but
-                            offers exceptional resonance and a rich, warm character. The ebony fretboard provides a smooth,
-                            fast playing surface with a tight grain structure that enhances note clarity. I kept the design
-                            true to the classic T-style template while elevating the material choices beyond what you'd find
-                            in production instruments. The natural satin finish lets the walnut's deep brown tones and subtle
-                            grain patterns speak for themselves.
-                        </p>
                     </div>
 
                     <div class="availability-container">

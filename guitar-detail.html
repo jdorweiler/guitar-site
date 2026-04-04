@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="/guitar-site/">
     <meta charset="UTF-8">
+    <script>
+    (function () {
+        var b = document.createElement("base");
+        var h = location.hostname;
+        b.href = (h === "dorweilerguitars.com" || h === "www.dorweilerguitars.com") ? "/" : "/guitar-site/";
+        document.currentScript.insertAdjacentElement("afterend", b);
+    })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Build Detail Template | Dorweiler Guitars</title>
     <link rel="stylesheet" href="styles.css">
@@ -115,17 +122,6 @@
                                 <span class="spec-value">Trans Blue Burst</span>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Story Section -->
-                    <div class="story-container">
-                        <h2 class="story-title">Maker's Note</h2>
-                        <p class="story-text">
-                            This guitar was inspired by classic PRS aesthetics with a unique twist.
-                            The quilted maple top was hand-selected for its dramatic figure and depth.
-                            The blue burst finish was applied in multiple layers to enhance the 3D
-                            effect of the quilting. Available for viewing at [Store Name].
-                        </p>
                     </div>
 
                     <!-- Availability -->

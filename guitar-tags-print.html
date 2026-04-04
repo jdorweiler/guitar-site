@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dorweiler Guitars - Hang Tags Print Sheet</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        @media print {
+            @page {
+                size: letter;
+                margin: 0;
+            }
+            body { margin: 0; }
+            .no-print { display: none !important; }
+            .page-break { page-break-after: always; }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #f5f5f5;
+        }
+
+        /* Print controls */
+        .controls {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #1a1a1a;
+            padding: 16px;
+            z-index: 1000;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .controls button {
+            background: #c9a880;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .controls button:hover {
+            background: #d4b88f;
+        }
+
+        .controls select {
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid #444;
+            background: #2a2a2a;
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .controls label {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .preview-area {
+            margin-top: 70px;
+            padding: 20px;
+        }
+
+        /* Print sheet - exact US Letter dimensions at 96 DPI */
+        .print-sheet {
+            width: 8.5in;
+            height: 11in;
+            background: white;
+            margin: 0 auto 20px;
+            position: relative;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+        }
+
+        /* Registration marks - laser cutter alignment points */
+        .reg-mark {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border: 1px solid #000;
+        }
+
+        .reg-mark::before,
+        .reg-mark::after {
+            content: '';
+            position: absolute;
+            background: #000;
+        }
+
+        .reg-mark::before {
+            width: 20px;
+            height: 1px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .reg-mark::after {
+            width: 1px;
+            height: 20px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .reg-mark.top-left { top: 0.25in; left: 0.25in; }
+        .reg-mark.top-right { top: 0.25in; right: 0.25in; }
+        .reg-mark.bottom-left { bottom: 0.25in; left: 0.25in; }
+        .reg-mark.bottom-right { bottom: 0.25in; right: 0.25in; }
+
+        /* Tag grid - 3 columns × 3 rows */
+        .tag-grid {
+            position: absolute;
+            top: 0.25in;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8in;
+            height: 10.5in;
+            display: grid;
+            grid-template-columns: repeat(3, 2in);
+            grid-template-rows: repeat(3, 3.5in);
+            gap: 0.125in 1in;
+        }
+
+        /* Individual tag cell with crop marks */
+        .tag-cell {
+            position: relative;
+            width: 2in;
+            height: 3.5in;
+        }
+
+        /* Crop marks around each tag */
+        .crop-mark {
+            position: absolute;
+            background: #000;
+        }
+
+        .crop-mark.h { width: 0.15in; height: 0.5pt; }
+        .crop-mark.v { width: 0.5pt; height: 0.15in; }
+
+        .crop-mark.tl-h { top: -0.08in; left: -0.08in; }
+        .crop-mark.tl-v { top: -0.08in; left: -0.08in; }
+        .crop-mark.tr-h { top: -0.08in; right: -0.08in; }
+        .crop-mark.tr-v { top: -0.08in; right: -0.08in; }
+        .crop-mark.bl-h { bottom: -0.08in; left: -0.08in; }
+        .crop-mark.bl-v { bottom: -0.08in; left: -0.08in; }
+        .crop-mark.br-h { bottom: -0.08in; right: -0.08in; }
+        .crop-mark.br-v { bottom: -0.08in; right: -0.08in; }
+
+        /* Tag content container */
+        .tag {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background: #0a0a0a;
+            border: 0.5pt solid #222;
+            border-radius: 3pt;
+            overflow: hidden;
+        }
+
+        /* Hole punch guide */
+        .tag-hole {
+            position: absolute;
+            top: 0.15in;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0.15in;
+            height: 0.15in;
+            border-radius: 50%;
+            border: 1pt solid #333;
+            background: #0a0a0a;
+            z-index: 10;
+        }
+
+        /* FRONT SIDE STYLES */
+        .tag-front {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0.45in 0.2in 0.3in;
+            text-align: center;
+        }
+
+        .tag-logo {
+            width: 1.5in;
+            margin-bottom: 0.05in;
+        }
+
+        .tag-logo img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .tag-brand-line {
+            font-size: 6.5pt;
+            color: #c9a880;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.15in;
+        }
+
+        .tag-accent {
+            width: 0.3in;
+            height: 1pt;
+            background: #c9a880;
+            margin-bottom: 0.15in;
+        }
+
+        .tag-model {
+            font-size: 13pt;
+            color: #fff;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            line-height: 1.3;
+            padding: 0 0.08in;
+            margin-bottom: 0.18in;
+        }
+
+        .tag-footer {
+            position: absolute;
+            bottom: 0.18in;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 6pt;
+            color: #444;
+            letter-spacing: 0.05em;
+        }
+
+        /* BACK SIDE STYLES */
+        .tag-back {
+            height: 100%;
+            padding: 0.4in 0.18in 0.2in;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tag-back-title {
+            font-size: 6.5pt;
+            letter-spacing: 0.08em;
+            color: #c9a880;
+            text-align: center;
+            margin-bottom: 0.14in;
+        }
+
+        .tag-sec {
+            margin-bottom: 0.1in;
+        }
+
+        .tag-sec-title {
+            font-size: 6pt;
+            letter-spacing: 0.05em;
+            color: #555;
+            margin-bottom: 0.04in;
+            border-bottom: 0.5pt solid #1a1a1a;
+            padding-bottom: 0.02in;
+        }
+
+        .tag-spec-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 0.08in;
+            font-size: 7pt;
+            line-height: 1.65;
+        }
+
+        .tag-spec-label {
+            color: #666;
+            flex-shrink: 0;
+        }
+
+        .tag-spec-val {
+            color: #ccc;
+            text-align: right;
+            max-width: 1.2in;
+        }
+
+        .tag-back-footer {
+            margin-top: auto;
+            text-align: center;
+            font-size: 6pt;
+            color: #333;
+            letter-spacing: 0.03em;
+        }
+
+        /* Sheet label */
+        .sheet-label {
+            position: absolute;
+            top: 0.35in;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 8pt;
+            color: #999;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls no-print">
+        <label for="sheetSelect">Sheet:</label>
+        <select id="sheetSelect">
+            <option value="all">All Sheets (Print Preview)</option>
+        </select>
+        <button onclick="window.print()">Print All Sheets</button>
+        <button onclick="printFrontsOnly()">Print Fronts Only</button>
+        <button onclick="printBacksOnly()">Print Backs Only</button>
+    </div>
+
+    <div class="preview-area" id="printArea"></div>
+
+    <script>
+        const guitars = [
+            {
+                model: "Walnut T-Style", // Guitar 4
+                specs: [
+                    ["Body", "Walnut"],
+                    ["Neck", "Maple"],
+                    ["Fretboard", "Ebony"],
+                    ["Scale", "25.5"],
+                    ["Frets", "22 medium jumbo"],
+                    ["Pickups", "Hand-wound Skywood"],
+                    ["Finish", "Nitro"]
+                ]
+            },
+            {
+                model: "Blue Burst Flame Maple", // Guitar 6
+                specs: [
+                    ["Top", "Flame maple, blue burst"],
+                    ["Body", "Mahogany"],
+                    ["Neck", "5-pc mahogany / wenge / sapele"],
+                    ["Fretboard", "Ziricote, 24 frets"],
+                    ["Inlays", "Stars + maple fish"],
+                    ["Bridge PU", "Skywood Lincoln Ave"],
+                    ["Neck PU", "SD Fat Cat P-90"]
+                ]
+            },
+            {
+                model: "Curly Maple", // Guitar 7
+                specs: [
+                    ["Top", "Curly maple"],
+                    ["Body", "Black limba"],
+                    ["Neck", "Maple"],
+                    ["Fretboard", "Ebony with bird inlays"],
+                    ["Scale", "25"],
+                    ["Pickups", "Humbucker set"],
+                    ["Bridge", "Schaller wrap around"]
+                ]
+            },
+            {
+                model: "Spalted Maple Multiscale", // Guitar 8
+                specs: [
+                    ["Top", "Spalted and flamed maple"],
+                    ["Body", "Black limba"],
+                    ["Neck", "5-pc maple / wenge / purpleheart"],
+                    ["Fretboard", "Wenge"],
+                    ["Scale", "25.5-25 multiscale"],
+                    ["Bridge PU", "Fishman Tim Henson"],
+                    ["Neck PU", "Fishman Tim Henson"]
+                ]
+            },
+            {
+                model: "Figured Walnut Tele", // Guitar 9
+                specs: [
+                    ["Body", "Figured walnut"],
+                    ["Neck", "Maple"],
+                    ["Fretboard", "Ebony"],
+                    ["Scale", "25.5"],
+                    ["Frets", "22 medium"],
+                    ["Pickups", "Single coil + humbucker"],
+                    ["Finish", "Natural satin"]
+                ]
+            },
+            {
+                model: "Quilted Maple Resin River", // Guitar 10
+                specs: [
+                    ["Body", "Quilted maple"],
+                    ["Feature", "Blue epoxy resin inlay"],
+                    ["Neck", "Maple"],
+                    ["Fretboard", "Maple"],
+                    ["Scale", "25.5"],
+                    ["Pickups", "Dual humbuckers"],
+                    ["Finish", "Natural / transparent blue resin"]
+                ]
+            },
+            {
+                model: "Flame Maple Burst", // Guitar 11
+                specs: [
+                    ["Top", "AAA flame maple"],
+                    ["Body", "Mahogany"],
+                    ["Neck", "Mahogany"],
+                    ["Fretboard", "Rosewood"],
+                    ["Scale", "25"],
+                    ["Pickups", "Dual humbuckers"],
+                    ["Bridge", "Tune-o-matic"]
+                ]
+            }
+        ];
+
+        function escapeHtml(value) {
+            return String(value)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#39;");
+        }
+
+        function renderSpecs(specs) {
+            return specs.map(([label, value]) => `
+                <div class="tag-spec-row">
+                    <span class="tag-spec-label">${escapeHtml(label)}</span>
+                    <span class="tag-spec-val">${escapeHtml(value)}</span>
+                </div>
+            `).join("");
+        }
+
+        function renderCropMarks() {
+            return `
+                <div class="crop-mark h tl-h"></div>
+                <div class="crop-mark v tl-v"></div>
+                <div class="crop-mark h tr-h"></div>
+                <div class="crop-mark v tr-v"></div>
+                <div class="crop-mark h bl-h"></div>
+                <div class="crop-mark v bl-v"></div>
+                <div class="crop-mark h br-h"></div>
+                <div class="crop-mark v br-v"></div>
+            `;
+        }
+
+        function renderTagFront(guitar) {
+            return `
+                <div class="tag-cell">
+                    ${renderCropMarks()}
+                    <div class="tag">
+                        <div class="tag-hole"></div>
+                        <div class="tag-front">
+                            <div class="tag-logo">
+                                <img src="images/logo.svg" alt="Dorweiler Guitars">
+                            </div>
+                            <div class="tag-brand-line">Dorweiler Guitars</div>
+                            <div class="tag-accent"></div>
+                            <div class="tag-footer">dorweilerguitars.com</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderTagBack(guitar) {
+            return `
+                <div class="tag-cell">
+                    ${renderCropMarks()}
+                    <div class="tag">
+                        <div class="tag-hole"></div>
+                        <div class="tag-back">
+                            <div class="tag-model">${escapeHtml(guitar.model)}</div>
+                            <div class="tag-back-title">SPECIFICATIONS</div>
+                            <div class="tag-sec">
+                                <div class="tag-sec-title">DETAILS</div>
+                                ${renderSpecs(guitar.specs)}
+                            </div>
+                            <div class="tag-back-footer">HANDCRAFTED IN COLORADO</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderSheet(guitars, isFront, sheetNum) {
+            const side = isFront ? 'FRONT' : 'BACK';
+            const tags = guitars.map(g => isFront ? renderTagFront(g) : renderTagBack(g)).join('');
+
+            return `
+                <div class="print-sheet">
+                    <div class="reg-mark top-left"></div>
+                    <div class="reg-mark top-right"></div>
+                    <div class="reg-mark bottom-left"></div>
+                    <div class="reg-mark bottom-right"></div>
+                    <div class="sheet-label">Sheet ${sheetNum} ${side} — Flip on Short Edge</div>
+                    <div class="tag-grid">
+                        ${tags}
+                    </div>
+                </div>
+            `;
+        }
+
+        function generateAllSheets() {
+            const printArea = document.getElementById('printArea');
+            const select = document.getElementById('sheetSelect');
+            let html = '';
+            let sheetNum = 1;
+
+            // 9 tags per sheet (3×3 grid)
+            for (let i = 0; i < guitars.length; i += 9) {
+                const batch = guitars.slice(i, i + 9);
+
+                // Front side
+                html += renderSheet(batch, true, sheetNum);
+                html += '<div class="page-break"></div>';
+
+                // Back side (for duplex printing)
+                html += renderSheet(batch, false, sheetNum);
+
+                // Only add page break after the back if there are more sheets
+                if (i + 9 < guitars.length) {
+                    html += '<div class="page-break"></div>';
+                }
+
+                // Add to selector
+                select.innerHTML += `<option value="${sheetNum}">Sheet ${sheetNum} (${batch.map(g => g.model.split(' ')[0]).join(', ')})</option>`;
+                sheetNum++;
+            }
+
+            printArea.innerHTML = html;
+        }
+
+        function printFrontsOnly() {
+            const sheets = document.querySelectorAll('.print-sheet');
+            sheets.forEach((sheet, i) => {
+                sheet.style.display = i % 2 === 0 ? 'block' : 'none';
+            });
+            window.print();
+            sheets.forEach(sheet => sheet.style.display = 'block');
+        }
+
+        function printBacksOnly() {
+            const sheets = document.querySelectorAll('.print-sheet');
+            sheets.forEach((sheet, i) => {
+                sheet.style.display = i % 2 === 1 ? 'block' : 'none';
+            });
+            window.print();
+            sheets.forEach(sheet => sheet.style.display = 'block');
+        }
+
+        generateAllSheets();
+    </script>
+</body>
+</html>

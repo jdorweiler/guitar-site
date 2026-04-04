@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="/guitar-site/">
     <meta charset="UTF-8">
+    <script>
+    (function () {
+        var b = document.createElement("base");
+        var h = location.hostname;
+        b.href = (h === "dorweilerguitars.com" || h === "www.dorweilerguitars.com") ? "/" : "/guitar-site/";
+        document.currentScript.insertAdjacentElement("afterend", b);
+    })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Build #1 | Flame Maple Burst | Dorweiler Guitars</title>
+    <title>Flame Maple Burst | Dorweiler Guitars</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -72,7 +79,7 @@
                 <!-- Guitar Info -->
                 <div class="detail-info">
                     <p class="detail-kicker">Dorweiler custom build</p>
-                    <h1 class="detail-title">Build #1</h1>
+                    <h1 class="detail-title">Flame Maple Burst</h1>
                     <p class="detail-description">
                         A carved-top single-cutaway with AAA flame maple top and mahogany body, finished in a deep red burst.
                     </p>
@@ -127,19 +134,6 @@
                                 <span class="spec-value">Red Burst Gloss</span>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Story Section -->
-                    <div class="story-container">
-                        <h2 class="story-title">Maker's Note</h2>
-                        <p class="story-text">
-                            Build #1 was where I learned what properly selected flame maple looks like. The piece I used has
-                            continuous movement across the entire body - no dead spots, no gaps in the figure. I applied the
-                            red burst in stages, starting deep burgundy at the edges and working toward warm amber at the center.
-                            It was the first time I felt like the finish was working with the wood rather than just covering it.
-                            The way the flame catches light and appears to shift as you move around the guitar is exactly what I
-                            was chasing with that multi-layer approach.
-                        </p>
                     </div>
 
                     <!-- Commission CTA -->

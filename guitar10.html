@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="/guitar-site/">
     <meta charset="UTF-8">
+    <script>
+    (function () {
+        var b = document.createElement("base");
+        var h = location.hostname;
+        b.href = (h === "dorweilerguitars.com" || h === "www.dorweilerguitars.com") ? "/" : "/guitar-site/";
+        document.currentScript.insertAdjacentElement("afterend", b);
+    })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Build #10 | Burl Resin Laminate | Dorweiler Guitars</title>
+    <title>Burl Resin Laminate | Dorweiler Guitars</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="detail.css">
 </head>
@@ -104,7 +111,7 @@
                 <!-- Guitar Info -->
                 <div class="detail-info">
                     <p class="detail-kicker">Dorweiler custom build</p>
-                    <h1 class="detail-title">Build #10</h1>
+                    <h1 class="detail-title">Burl Resin Laminate</h1>
                     <p class="detail-description">
                         Features a burl resin top with laminated walnut/wenge/maple back, Macassar ebony fretboard with brass and burl inlays, and Seymour Duncan JB/Jazz pickups. 24.75" scale with Schaller wraparound bridge.
                     </p>
@@ -162,19 +169,6 @@
                         </div>
                     </div>
 
-                    <!-- Story Section -->
-                    <div class="story-container">
-                        <h2 class="story-title">Maker's Note</h2>
-                        <p class="story-text">
-                            This build started with a piece of burl that was too wild and figured to use as solid wood - it would have
-                            been structurally unstable. So I stabilized it in resin and used it as the top, creating this almost
-                            sculptural surface. The contrast with the laminated walnut/wenge/maple back is deliberate: organic chaos
-                            on top, precise geometry on the back. I carried that theme through with brass-and-burl fretboard inlays,
-                            and even cut the knobs from body offcuts to maintain material continuity. The Seymour Duncan JB/Jazz pairing
-                            is classic for a reason - versatile, balanced, and perfect for the 24.75" scale. This one feels like half
-                            natural artwork, half precision instrument.
-                        </p>
-                    </div>
 
                     <!-- Availability -->
                     <div class="availability-container">

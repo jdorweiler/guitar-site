@@ -130,7 +130,7 @@ document.querySelectorAll('.specs-container').forEach(container => {
 
     const toggle = document.createElement('button');
     toggle.className = 'specs-toggle';
-    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-expanded', 'true');
 
     const label = document.createElement('span');
     label.className = 'specs-toggle-label';
@@ -152,7 +152,7 @@ document.querySelectorAll('.specs-container').forEach(container => {
     toggle.appendChild(chevron);
 
     const body = document.createElement('div');
-    body.className = 'specs-body';
+    body.className = 'specs-body open';
     Array.from(container.children).forEach(child => {
         if (child !== title) body.appendChild(child);
     });

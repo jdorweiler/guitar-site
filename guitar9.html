@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="/guitar-site/">
     <meta charset="UTF-8">
+    <script>
+    (function () {
+        var b = document.createElement("base");
+        var h = location.hostname;
+        b.href = (h === "dorweilerguitars.com" || h === "www.dorweilerguitars.com") ? "/" : "/guitar-site/";
+        document.currentScript.insertAdjacentElement("afterend", b);
+    })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Build #9 | Black Limba &amp; Malachite | Dorweiler Guitars</title>
+    <title>Black Limba &amp; Malachite | Dorweiler Guitars</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="detail.css">
 </head>
@@ -83,7 +90,7 @@
 
                 <div class="detail-info">
                     <p class="detail-kicker">Dorweiler custom build</p>
-                    <h1 class="detail-title">Build #9</h1>
+                    <h1 class="detail-title">Black Limba &amp; Malachite</h1>
                     <p class="detail-description">
                         Black limba body with a laminated neck of black limba, mahogany, and wenge. Features a 24-fret Macassar ebony fretboard with malachite star inlays and HSS pickup configuration.
                     </p>
@@ -110,18 +117,6 @@
                             <div class="spec-item"><span class="spec-label">Neck pickup</span><span class="spec-value">Skywood Baxter humbucker</span></div>
                             <div class="spec-item"><span class="spec-label">Switching</span><span class="spec-value">6-position switch with full humbucker and split-coil voicings</span></div>
                         </div>
-                    </div>
-
-                    <div class="story-container">
-                        <h2 class="story-title">Maker's Note</h2>
-                        <p class="story-text">
-                            Black limba has this incredible natural warmth and texture that I wanted to preserve, so I kept
-                            the finish minimal. The malachite star inlays against the dark Macassar ebony create an almost
-                            geological contrast - those green-blue mineral accents against raw wood grain. The laminated neck
-                            construction with black limba, mahogany, and wenge isn't just for looks; it adds torsional stability
-                            while keeping the aesthetic grounded in rich, dark tones. This build has an organic, earthy character
-                            that feels rooted and natural.
-                        </p>
                     </div>
 
                     <div class="availability-container">

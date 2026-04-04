@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="/guitar-site/">
     <meta charset="UTF-8">
+    <script>
+    (function () {
+        var b = document.createElement("base");
+        var h = location.hostname;
+        b.href = (h === "dorweilerguitars.com" || h === "www.dorweilerguitars.com") ? "/" : "/guitar-site/";
+        document.currentScript.insertAdjacentElement("afterend", b);
+    })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Build #6 | Blue Burst Flame | Dorweiler Guitars</title>
+    <title>Blue Burst Flame Maple | Dorweiler Guitars</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -44,7 +51,7 @@
                                 <path d="M14.5 5.5L8 12l6.5 6.5" />
                             </svg>
                         </button>
-                        <img id="mainImg" src="images/guitar6/display/IMG_2764.jpg" alt="Blue Burst Flame" decoding="async">
+                        <img id="mainImg" src="images/guitar6/display/IMG_2770.jpg" alt="Blue Burst Flame" decoding="async">
                         <button class="gallery-nav gallery-nav--next" type="button" aria-label="Next image" onclick="stepImage(1)">
                             <svg viewBox="0 0 24 24" aria-hidden="true">
                                 <path d="M9.5 5.5L16 12l-6.5 6.5" />
@@ -52,11 +59,8 @@
                         </button>
                     </div>
                     <div class="thumbnail-gallery">
-                        <div class="thumbnail active" data-full-src="images/guitar6/IMG_2764.jpeg" data-display-src="images/guitar6/display/IMG_2764.jpg" onclick="changeImage(this)">
-                            <img src="images/guitar6/thumbs/IMG_2764.jpg" alt="Front View" loading="lazy" decoding="async">
-                        </div>
-                        <div class="thumbnail" data-full-src="images/guitar6/IMG_2765.jpeg" data-display-src="images/guitar6/display/IMG_2765.jpg" onclick="changeImage(this)">
-                            <img src="images/guitar6/thumbs/IMG_2765.jpg" alt="Back View" loading="lazy" decoding="async">
+                        <div class="thumbnail active" data-full-src="images/guitar6/IMG_2770.jpeg" data-display-src="images/guitar6/display/IMG_2770.jpg" onclick="changeImage(this)">
+                            <img src="images/guitar6/thumbs/IMG_2770.jpg" alt="Front View" loading="lazy" decoding="async">
                         </div>
                         <div class="thumbnail" data-full-src="images/guitar6/IMG_3840.jpeg" data-display-src="images/guitar6/display/IMG_3840.jpg" onclick="changeImage(this)">
                             <img src="images/guitar6/thumbs/IMG_3840.jpg" alt="Inlay Detail" loading="lazy" decoding="async">
@@ -64,12 +68,27 @@
                         <div class="thumbnail" data-full-src="images/guitar6/IMG_3507.jpeg" data-display-src="images/guitar6/display/IMG_3507.jpg" onclick="changeImage(this)">
                             <img src="images/guitar6/thumbs/IMG_3507.jpg" alt="Body Detail" loading="lazy" decoding="async">
                         </div>
+                        <div class="thumbnail" data-full-src="images/guitar6/IMG_5414.jpeg" data-display-src="images/guitar6/display/IMG_5414.jpg" onclick="changeImage(this)">
+                            <img src="images/guitar6/thumbs/IMG_5414.jpg" alt="Three-quarter view" loading="lazy" decoding="async">
+                        </div>
+                        <div class="thumbnail" data-full-src="images/guitar6/IMG_5416.jpeg" data-display-src="images/guitar6/display/IMG_5416.jpg" onclick="changeImage(this)">
+                            <img src="images/guitar6/thumbs/IMG_5416.jpg" alt="Top and fretboard" loading="lazy" decoding="async">
+                        </div>
+                        <div class="thumbnail" data-full-src="images/guitar6/IMG_5417.jpeg" data-display-src="images/guitar6/display/IMG_5417.jpg" onclick="changeImage(this)">
+                            <img src="images/guitar6/thumbs/IMG_5417.jpg" alt="Control layout" loading="lazy" decoding="async">
+                        </div>
+                        <div class="thumbnail" data-full-src="images/guitar6/IMG_5423.jpeg" data-display-src="images/guitar6/display/IMG_5423.jpg" onclick="changeImage(this)">
+                            <img src="images/guitar6/thumbs/IMG_5423.jpg" alt="Full front" loading="lazy" decoding="async">
+                        </div>
+                        <div class="thumbnail" data-full-src="images/guitar6/IMG_5427.jpeg" data-display-src="images/guitar6/display/IMG_5427.jpg" onclick="changeImage(this)">
+                            <img src="images/guitar6/thumbs/IMG_5427.jpg" alt="Angle view" loading="lazy" decoding="async">
+                        </div>
                     </div>
                 </div>
 
                 <div class="detail-info">
                     <p class="detail-kicker">Dorweiler custom build</p>
-                    <h1 class="detail-title">Build #6</h1>
+                    <h1 class="detail-title">Blue Burst Flame Maple</h1>
                     <p class="detail-description">
                         A PRS-style build featuring blue burst flame maple top, 5-piece laminated neck, and 24-fret ziricote fretboard with star and fish inlays. 25.375" scale with Skywood and Seymour Duncan pickups.
                     </p>
@@ -105,18 +124,6 @@
                         <div class="specs-grid">
                             <div class="spec-item"><span class="spec-label">Knobs</span><span class="spec-value">Milled from solid aluminum</span></div>
                         </div>
-                    </div>
-
-                    <div class="story-container">
-                        <h2 class="story-title">Maker's Note</h2>
-                        <p class="story-text">
-                            The blue burst finish on this build lets the flame maple figure shine through while adding color
-                            depth. The 5-piece neck (mahogany, wenge, sapele) isn't just aesthetic - it adds torsional stability
-                            and prevents warping over time. I chose ziricote for the fretboard because of its incredible grain
-                            and density, and the star inlays with that dyed maple bone fish at the 12th fret give it personality.
-                            The 25.375" scale is my compromise length: brighter than a Gibson, more bendable than a Fender. Milled
-                            aluminum knobs and Hipshot locking tuners complete the premium hardware package.
-                        </p>
                     </div>
 
                     <div class="availability-container">

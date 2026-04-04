@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="/guitar-site/">
     <meta charset="UTF-8">
+    <script>
+    (function () {
+        var b = document.createElement("base");
+        var h = location.hostname;
+        b.href = (h === "dorweilerguitars.com" || h === "www.dorweilerguitars.com") ? "/" : "/guitar-site/";
+        document.currentScript.insertAdjacentElement("afterend", b);
+    })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Build #11 | Flame Maple Multiscale | Dorweiler Guitars</title>
+    <title>Flame Maple Multiscale | Dorweiler Guitars</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="detail.css">
 </head>
@@ -98,7 +105,7 @@
                 <!-- Guitar Info -->
                 <div class="detail-info">
                     <p class="detail-kicker">Dorweiler custom build</p>
-                    <h1 class="detail-title">Build #11</h1>
+                    <h1 class="detail-title">Flame Maple Multiscale</h1>
                     <p class="detail-description">
                         A multiscale build featuring flame maple top over black limba back, with a walnut core and
                         mahogany/oak laminate stripes. 25.5"-25" fanned fret layout with rosewood fretboard and pearl inlays.
@@ -147,18 +154,6 @@
                                 <span class="spec-value">TBD</span>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Story Section -->
-                    <div class="story-container">
-                        <h2 class="story-title">Maker's Note</h2>
-                        <p class="story-text">
-                            Build #11 takes the multiscale concept from #8 and refines it with a laminated body construction - flame
-                            maple top over black limba back, with a walnut core running mahogany and oak laminate stripes for visual
-                            contrast. The 25.5"-25" fanned fret layout improves string tension and intonation, while the pearl fretboard
-                            inlays add a refined touch. Currently working through assembly and detail stages before finishing begins.
-                            This page will evolve as the guitar moves closer to completion.
-                        </p>
                     </div>
 
                     <!-- Availability -->

@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="/guitar-site/">
     <meta charset="UTF-8">
+    <script>
+    (function () {
+        var b = document.createElement("base");
+        var h = location.hostname;
+        b.href = (h === "dorweilerguitars.com" || h === "www.dorweilerguitars.com") ? "/" : "/guitar-site/";
+        document.currentScript.insertAdjacentElement("afterend", b);
+    })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guitar Gallery | Dorweiler Guitars</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,7 +57,7 @@
                         <img src="images/guitar11/thumbs/IMG_5357.jpg" alt="Flame Maple Multiscale build in progress" class="thumb-main" loading="lazy" decoding="async">
                     </div>
                     <div class="portfolio-info">
-                        <span class="portfolio-num">Build #11 &mdash; In Progress</span>
+                        <span class="portfolio-num">In Progress</span>
                         <h3 class="portfolio-name">Flame Maple Multiscale</h3>
                         <p class="portfolio-desc">Flame maple over black limba with laminated walnut/mahogany/oak core and 25.5&quot;&ndash;25&quot; multiscale layout</p>
                         <a href="guitar11.html" class="btn-secondary">View Build</a>
@@ -64,7 +71,7 @@
                         <img src="images/guitar10/thumbs/IMG_5367.jpg" alt="Burl resin laminate" class="thumb-main" loading="lazy" decoding="async">
                     </div>
                     <div class="portfolio-info">
-                        <span class="portfolio-num">Build #10</span>
+                        <span class="portfolio-num"></span>
                         <h3 class="portfolio-name">Burl Resin Laminate</h3>
                         <p class="portfolio-desc">Burl resin top, JB/Jazz pickup set, Schaller wraparound bridge</p>
                         <a href="guitar10.html" class="btn-secondary">View Gallery</a>
@@ -78,7 +85,7 @@
                         <img src="images/guitar9/thumbs/IMG_5340.jpg" alt="Black limba with malachite inlay" class="thumb-main" loading="lazy" decoding="async">
                     </div>
                     <div class="portfolio-info">
-                        <span class="portfolio-num">Build #9</span>
+                        <span class="portfolio-num"></span>
                         <h3 class="portfolio-name">Black Limba &amp; Malachite</h3>
                         <p class="portfolio-desc">Black limba body with malachite inlay and Macassar ebony fretboard</p>
                         <a href="guitar9.html" class="btn-secondary">View Gallery</a>
@@ -92,7 +99,7 @@
                         <img src="images/guitar8/thumbs/IMG_5388.jpg" alt="Spalted maple multiscale front view" class="thumb-main" loading="lazy" decoding="async">
                     </div>
                     <div class="portfolio-info">
-                        <span class="portfolio-num">Build #8</span>
+                        <span class="portfolio-num"></span>
                         <h3 class="portfolio-name">Spalted Maple Multiscale</h3>
                         <p class="portfolio-desc">Multiscale spalted &amp; flamed maple over black limba with Fishman Tim Henson pickup set</p>
                         <a href="guitar8.html" class="btn-secondary">View Gallery</a>
@@ -106,7 +113,7 @@
                         <img src="images/guitar7/thumbs/IMG_5333.jpg" alt="Flame maple and ash SSS" class="thumb-main" loading="lazy" decoding="async">
                     </div>
                     <div class="portfolio-info">
-                        <span class="portfolio-num">Build #7</span>
+                        <span class="portfolio-num"></span>
                         <h3 class="portfolio-name">Tobacco Burst Flame Maple</h3>
                         <p class="portfolio-desc">Flame maple &amp; ash body, tobacco burst, Lollar Dirty Blond S-S-S</p>
                         <a href="guitar7.html" class="btn-secondary">View Gallery</a>
@@ -116,26 +123,14 @@
                 <!-- Build #6 -->
                 <div class="portfolio-row">
                     <div class="portfolio-thumb">
-                        <img src="images/site-cards/build6.jpg" alt="Blue burst flame maple">
+                        <img src="images/guitar6/thumbs/IMG_3507.jpg" alt="" aria-hidden="true" class="thumb-blur" loading="lazy" decoding="async">
+                        <img src="images/guitar6/thumbs/IMG_3507.jpg" alt="Blue burst flame maple" class="thumb-main" loading="lazy" decoding="async">
                     </div>
                     <div class="portfolio-info">
-                        <span class="portfolio-num">Build #6</span>
+                        <span class="portfolio-num"></span>
                         <h3 class="portfolio-name">Blue Burst Flame Maple</h3>
                         <p class="portfolio-desc">Blue burst flame maple top, mahogany body, Skywood/Duncan P-90 pickups</p>
                         <a href="guitar6.html" class="btn-secondary">View Gallery</a>
-                    </div>
-                </div>
-
-                <!-- Build #5 -->
-                <div class="portfolio-row">
-                    <div class="portfolio-thumb">
-                        <img src="images/site-cards/build5.jpg" alt="Spalted Maple">
-                    </div>
-                    <div class="portfolio-info">
-                        <span class="portfolio-num">Build #5</span>
-                        <h3 class="portfolio-name">Curly Maple</h3>
-                        <p class="portfolio-desc">Curly maple top over black limba, ebony fretboard with bird inlays</p>
-                        <a href="guitar5.html" class="btn-secondary">View Gallery</a>
                     </div>
                 </div>
 
@@ -145,9 +140,9 @@
                         <img src="images/site-cards/build4.jpg" alt="Quilted Amber">
                     </div>
                     <div class="portfolio-info">
-                        <span class="portfolio-num">Build #4</span>
+                        <span class="portfolio-num"></span>
                         <h3 class="portfolio-name">Walnut T-Style</h3>
-                        <p class="portfolio-desc">Walnut body, ebony fretboard, dual single coils</p>
+                        <p class="portfolio-desc">Walnut Tele-style build with reverse headstock, nitro finish, and hand-wound Skywood pickups</p>
                         <a href="guitar4.html" class="btn-secondary">View Gallery</a>
                     </div>
                 </div>
@@ -158,7 +153,7 @@
                         <img src="images/site-cards/build3.jpg" alt="Walnut Telecaster">
                     </div>
                     <div class="portfolio-info">
-                        <span class="portfolio-num">Build #3</span>
+                        <span class="portfolio-num"></span>
                         <h3 class="portfolio-name">Figured Walnut Tele</h3>
                         <p class="portfolio-desc">Figured walnut body, ebony fretboard, single coil/humbucker configuration</p>
                         <a href="guitar3.html" class="btn-secondary">View Gallery</a>
@@ -171,7 +166,7 @@
                         <img src="images/site-cards/build2.jpg" alt="Blue Resin River">
                     </div>
                     <div class="portfolio-info">
-                        <span class="portfolio-num">Build #2</span>
+                        <span class="portfolio-num"></span>
                         <h3 class="portfolio-name">Quilted Maple Resin River</h3>
                         <p class="portfolio-desc">Quilted maple with a transparent blue resin river inlay</p>
                         <a href="guitar2.html" class="btn-secondary">View Gallery</a>
@@ -184,7 +179,7 @@
                         <img src="images/site-cards/build1.jpg" alt="Flame Maple Burst">
                     </div>
                     <div class="portfolio-info">
-                        <span class="portfolio-num">Build #1</span>
+                        <span class="portfolio-num"></span>
                         <h3 class="portfolio-name">Flame Maple Burst</h3>
                         <p class="portfolio-desc">Flame maple top with deep red burst finish</p>
                         <a href="guitar1.html" class="btn-secondary">View Gallery</a>

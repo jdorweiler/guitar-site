@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="/guitar-site/">
     <meta charset="UTF-8">
+    <script>
+    (function () {
+        var b = document.createElement("base");
+        var h = location.hostname;
+        b.href = (h === "dorweilerguitars.com" || h === "www.dorweilerguitars.com") ? "/" : "/guitar-site/";
+        document.currentScript.insertAdjacentElement("afterend", b);
+    })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Build #3 | Figured Walnut Tele | Dorweiler Guitars</title>
+    <title>Figured Walnut Tele | Dorweiler Guitars</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="detail.css">
 </head>
@@ -67,7 +74,7 @@
 
                 <div class="detail-info">
                     <p class="detail-kicker">Dorweiler custom build</p>
-                    <h1 class="detail-title">Build #3</h1>
+                    <h1 class="detail-title">Figured Walnut Tele</h1>
                     <p class="detail-description">
                         A Telecaster-style build with figured walnut body, ebony fretboard, and a single coil/humbucker pickup configuration.
                     </p>
@@ -90,17 +97,6 @@
                             <div class="spec-item"><span class="spec-label">Hardware</span><span class="spec-value">Chrome</span></div>
                             <div class="spec-item"><span class="spec-label">Finish</span><span class="spec-value">Natural Satin</span></div>
                         </div>
-                    </div>
-
-                    <div class="story-container">
-                        <h2 class="story-title">Maker's Note</h2>
-                        <p class="story-text">
-                            I love working with walnut - it has these rich, warm brown tones with natural grain patterns that
-                            don't need much help to look incredible. This figured piece had particularly striking movement, so
-                            I kept the finish natural and satin to let it breathe. The pickup configuration is a twist on the
-                            classic Tele setup: single coil at the bridge for that signature twang, but a humbucker at the neck
-                            for added versatility and modern tones. It keeps the Tele DNA while opening up more sonic territory.
-                        </p>
                     </div>
 
                     <div class="availability-container">

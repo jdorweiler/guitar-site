@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dorweiler Guitars - Business Card Designs V2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            color: #c9a880;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .card-wrapper {
+            margin-bottom: 60px;
+        }
+
+        .option-label {
+            color: #c9a880;
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        /* Standard US business card: 3.5" x 2" at 300dpi = 1050px x 600px */
+        .business-card {
+            width: 1050px;
+            height: 600px;
+            position: relative;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* CONCEPT 1: Minimalist Black with Edge Detail */
+        .card-minimal {
+            background: #000000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .card-minimal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            background: linear-gradient(180deg, #c9a880 0%, #8b7355 100%);
+        }
+
+        .minimal-logo {
+            width: 350px;
+            margin-bottom: 15px;
+        }
+
+        .minimal-logo img {
+            width: 100%;
+        }
+
+        .minimal-tagline {
+            font-size: 14px;
+            color: #666;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* CONCEPT 2: White Card with Copper Accent */
+        .card-white {
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 80px;
+        }
+
+        .white-left {
+            flex: 1;
+        }
+
+        .white-logo {
+            width: 300px;
+            margin-bottom: 10px;
+        }
+
+        .white-logo img {
+            width: 100%;
+            filter: invert(1) sepia(1) saturate(3) hue-rotate(0deg) brightness(0.8);
+        }
+
+        .white-tagline {
+            font-size: 13px;
+            color: #333;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .white-divider {
+            width: 2px;
+            height: 400px;
+            background: #c9a880;
+            margin: 0 60px;
+        }
+
+        .white-right {
+            text-align: right;
+        }
+
+        .white-name {
+            font-size: 28px;
+            color: #000;
+            margin-bottom: 8px;
+            font-weight: 300;
+        }
+
+        .white-title {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .white-contact {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        /* CONCEPT 3: Vertical Split Design */
+        .card-split {
+            display: flex;
+        }
+
+        .split-left {
+            width: 40%;
+            background: #c9a880;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+        }
+
+        .split-logo {
+            width: 100%;
+        }
+
+        .split-logo img {
+            width: 100%;
+            filter: brightness(0) invert(1);
+        }
+
+        .split-right {
+            width: 60%;
+            background: #000000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px;
+        }
+
+        .split-name {
+            font-size: 36px;
+            color: #c9a880;
+            margin-bottom: 8px;
+            font-weight: 300;
+        }
+
+        .split-title {
+            font-size: 18px;
+            color: #888;
+            margin-bottom: 40px;
+        }
+
+        .split-contact {
+            font-size: 16px;
+            color: #ffffff;
+            line-height: 2;
+        }
+
+        /* CONCEPT 4: Textured Background */
+        .card-texture {
+            background: #0a0a0a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .card-texture::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(201, 168, 128, 0.02) 2px, rgba(201, 168, 128, 0.02) 4px),
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(201, 168, 128, 0.02) 2px, rgba(201, 168, 128, 0.02) 4px);
+            opacity: 0.3;
+        }
+
+        .texture-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .texture-logo {
+            width: 380px;
+            margin-bottom: 20px;
+        }
+
+        .texture-logo img {
+            width: 100%;
+        }
+
+        .texture-tagline {
+            font-size: 15px;
+            color: #c9a880;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .texture-location {
+            font-size: 13px;
+            color: #666;
+            letter-spacing: 2px;
+        }
+
+        /* CONCEPT 5: Typography Heavy */
+        .card-typo {
+            background: #000000;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 80px;
+            position: relative;
+        }
+
+        .card-typo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle at center, rgba(201, 168, 128, 0.1) 0%, transparent 70%);
+        }
+
+        .typo-brand {
+            font-size: 56px;
+            color: #c9a880;
+            font-weight: 300;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .typo-tagline {
+            font-size: 16px;
+            color: #666;
+            letter-spacing: 2px;
+            margin-bottom: 50px;
+        }
+
+        .typo-name {
+            font-size: 20px;
+            color: #c9a880;
+            margin-bottom: 5px;
+        }
+
+        .typo-contact {
+            font-size: 14px;
+            color: #888;
+            line-height: 1.8;
+        }
+
+        /* CONCEPT 6: Clean Lines */
+        .card-lines {
+            background: #ffffff;
+            padding: 60px;
+            position: relative;
+        }
+
+        .card-lines::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            right: 40px;
+            bottom: 40px;
+            border: 1px solid #c9a880;
+        }
+
+        .lines-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .lines-logo {
+            width: 360px;
+            margin-bottom: 20px;
+        }
+
+        .lines-logo img {
+            width: 100%;
+            filter: invert(1) sepia(1) saturate(3) hue-rotate(0deg) brightness(0.8);
+        }
+
+        .lines-divider {
+            width: 100px;
+            height: 1px;
+            background: #c9a880;
+            margin: 20px 0;
+        }
+
+        .lines-tagline {
+            font-size: 14px;
+            color: #333;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .notes {
+            color: #888;
+            max-width: 1050px;
+            margin: 40px auto 0;
+            padding: 40px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            line-height: 1.8;
+        }
+
+        .notes h2 {
+            color: #c9a880;
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .notes ul {
+            margin-left: 20px;
+        }
+
+        .notes li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>DORWEILER GUITARS - NEW CONCEPTS</h1>
+
+    <!-- Concept 1: Minimalist Black with Edge Detail -->
+    <div class="option-label">CONCEPT 1 - Minimalist Black with Copper Edge Strip</div>
+    <div class="card-wrapper">
+        <div class="business-card card-minimal">
+            <div class="minimal-logo">
+                <img src="images/logo.svg" alt="Dorweiler Guitars">
+            </div>
+            <div class="minimal-tagline">Handcrafted Custom Guitars</div>
+        </div>
+    </div>
+
+    <!-- Concept 2: White Card -->
+    <div class="option-label">CONCEPT 2 - Inverted White Card with Vertical Divider</div>
+    <div class="card-wrapper">
+        <div class="business-card card-white">
+            <div class="white-left">
+                <div class="white-logo">
+                    <img src="images/logo.svg" alt="Dorweiler Guitars">
+                </div>
+                <div class="white-tagline">Handcrafted Custom Guitars</div>
+            </div>
+            <div class="white-divider"></div>
+            <div class="white-right">
+                <div class="white-name">Jason Dorweiler</div>
+                <div class="white-title">Luthier</div>
+                <div class="white-contact">
+                    dorweilerguitars.com<br>
+                    jason@dorweilerguitars.com<br>
+                    @dorweiler_guitars
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Concept 3: Vertical Split -->
+    <div class="option-label">CONCEPT 3 - Bold Vertical Split (Copper/Black)</div>
+    <div class="card-wrapper">
+        <div class="business-card card-split">
+            <div class="split-left">
+                <div class="split-logo">
+                    <img src="images/logo.svg" alt="Dorweiler Guitars">
+                </div>
+            </div>
+            <div class="split-right">
+                <div class="split-name">Jason Dorweiler</div>
+                <div class="split-title">Luthier & Founder</div>
+                <div class="split-contact">
+                    dorweilerguitars.com<br>
+                    jason@dorweilerguitars.com<br>
+                    @dorweiler_guitars
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Concept 4: Textured -->
+    <div class="option-label">CONCEPT 4 - Subtle Grid Texture (Wood Grain Inspired)</div>
+    <div class="card-wrapper">
+        <div class="business-card card-texture">
+            <div class="texture-content">
+                <div class="texture-logo">
+                    <img src="images/logo.svg" alt="Dorweiler Guitars">
+                </div>
+                <div class="texture-tagline">Handcrafted Custom Guitars</div>
+                <div class="texture-location">Colorado</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Concept 5: Typography Heavy -->
+    <div class="option-label">CONCEPT 5 - Typography Focused (No Logo Image)</div>
+    <div class="card-wrapper">
+        <div class="business-card card-typo">
+            <div class="typo-brand">DORWEILER</div>
+            <div class="typo-tagline">HANDCRAFTED CUSTOM GUITARS</div>
+            <div class="typo-name">Jason Dorweiler</div>
+            <div class="typo-contact">
+                dorweilerguitars.com<br>
+                jason@dorweilerguitars.com<br>
+                @dorweiler_guitars
+            </div>
+        </div>
+    </div>
+
+    <!-- Concept 6: Clean Lines -->
+    <div class="option-label">CONCEPT 6 - White with Copper Border Frame</div>
+    <div class="card-wrapper">
+        <div class="business-card card-lines">
+            <div class="lines-content">
+                <div class="lines-logo">
+                    <img src="images/logo.svg" alt="Dorweiler Guitars">
+                </div>
+                <div class="lines-divider"></div>
+                <div class="lines-tagline">Handcrafted Custom Guitars</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="notes">
+        <h2>COMPLETELY DIFFERENT DIRECTIONS</h2>
+        <ul>
+            <li><strong>Concept 1:</strong> Ultra minimal black card with copper accent stripe on left edge - modern and sleek</li>
+            <li><strong>Concept 2:</strong> Inverted white card with info split by vertical copper line - stands out from typical black cards</li>
+            <li><strong>Concept 3:</strong> Bold 40/60 split with copper side and black side - very distinctive and memorable</li>
+            <li><strong>Concept 4:</strong> Subtle crosshatch texture suggesting wood grain without being literal</li>
+            <li><strong>Concept 5:</strong> Pure typography, no logo image - just "DORWEILER" in elegant serif font</li>
+            <li><strong>Concept 6:</strong> Clean white with simple border frame - classic and timeless</li>
+        </ul>
+
+        <h2 style="margin-top: 30px;">WHAT'S DIFFERENT?</h2>
+        <ul>
+            <li>No guitar photos - focusing on pure design and branding</li>
+            <li>Exploring white/light cards (most people do black)</li>
+            <li>Bold geometric layouts (vertical splits, edge accents)</li>
+            <li>Mix of minimal and bold approaches</li>
+            <li>Some show contact info on front, some don't</li>
+        </ul>
+
+        <h2 style="margin-top: 30px;">WHICH VIBE?</h2>
+        <p>Tell me which concept(s) feel right and I can refine those directions or combine elements from multiple concepts.</p>
+    </div>
+</body>
+</html>

@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="/guitar-site/">
     <meta charset="UTF-8">
+    <script>
+    (function () {
+        var b = document.createElement("base");
+        var h = location.hostname;
+        b.href = (h === "dorweilerguitars.com" || h === "www.dorweilerguitars.com") ? "/" : "/guitar-site/";
+        document.currentScript.insertAdjacentElement("afterend", b);
+    })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Build #5 | Curly Maple Natural | Dorweiler Guitars</title>
+    <title>Curly Maple | Dorweiler Guitars</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="detail.css">
 </head>
@@ -69,7 +76,7 @@
                 <!-- Guitar Info -->
                 <div class="detail-info">
                     <p class="detail-kicker">Dorweiler custom build</p>
-                    <h1 class="detail-title">Build #5 <span class="sold-inline">(SOLD)</span></h1>
+                    <h1 class="detail-title">Curly Maple <span class="sold-inline">(SOLD)</span></h1>
                     <p class="detail-description">
                         A carved-top double-cutaway with curly maple top over black limba body, natural satin finish,
                         ebony fretboard with bird inlays, and Schaller wrap around bridge.
@@ -125,19 +132,6 @@
                                 <span class="spec-value">Natural Satin</span>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Story Section -->
-                    <div class="story-container">
-                        <h2 class="story-title">Maker's Note</h2>
-                        <p class="story-text">
-                            I hand-picked this curly maple for its stunning three-dimensional flame patterns that shift
-                            and shimmer as light moves across the surface. Paired with a black limba body, this combination
-                            offers both visual beauty and excellent resonance. The Schaller wrap around bridge provides
-                            direct string-to-body contact for enhanced sustain and a clean, minimalist aesthetic. I kept
-                            the finish minimal (natural satin) to let the wood speak for itself, while the ebony fretboard
-                            with bird inlays adds refined contrast.
-                        </p>
                     </div>
 
                     <!-- Availability -->
