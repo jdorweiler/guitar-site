@@ -6,7 +6,9 @@
     (function () {
         var b = document.createElement("base");
         var h = location.hostname;
-        b.href = (h === "dorweilerguitars.com" || h === "www.dorweilerguitars.com") ? "/" : "/guitar-site/";
+        var p = location.pathname;
+        var isProd = h === "dorweilerguitars.com" || h === "www.dorweilerguitars.com";
+        b.href = isProd ? "/" : (p.indexOf("/guitar-site/") === 0 ? "/guitar-site/" : "/");
         document.currentScript.insertAdjacentElement("afterend", b);
     })();
     </script>
@@ -24,7 +26,7 @@
             <a href="index.html" class="logo"><img src="images/logo.svg" alt="Dorweiler Guitars" class="logo-img"></a>
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="guitars.html" class="nav-link">Portfolio</a></li>
+                <li><a href="guitars.html" class="nav-link">Latest Builds</a></li>
                 <li><a href="commissions.html" class="nav-link">Commissions</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -123,9 +125,9 @@
                         <img src="images/guitar8/display/IMG_5389.jpg" alt="Spalted maple multiscale guitar" loading="lazy" decoding="async">
                     </picture>
                 </div>
-                <h3 class="feature-title">Portfolio</h3>
+                <h3 class="feature-title">Latest Builds</h3>
                 <p class="feature-text">
-                    Explore finished builds featuring figured woods, epoxy inlay work, and traditional lutherie techniques.
+                    Explore recent builds featuring figured woods, epoxy inlay work, and traditional lutherie techniques.
                     Each guitar combines premium materials with precise, careful craftsmanship.
                 </p>
                 <a href="guitars.html" class="feature-link">View Gallery →</a>
@@ -208,7 +210,7 @@
             </a>
         </div>
         <div class="portfolio-cta">
-            <a href="guitars.html" class="btn-secondary">View Full Portfolio</a>
+            <a href="guitars.html" class="btn-secondary">View Latest Builds</a>
         </div>
     </section>
 
@@ -229,7 +231,7 @@
                     wood, and setting up the instrument to play the way it should.
                 </p>
                 <p class="workshop-text">
-                    The portfolio spans traditional designs, experimental resin work, and modern multiscale builds.
+                    The latest builds span traditional designs, experimental resin work, and modern multiscale builds.
                     Each one is built to be played, not just displayed.
                 </p>
             </div>
@@ -287,7 +289,7 @@
                     <h4 class="footer-title">Navigation</h4>
                     <nav class="footer-nav">
                         <a href="index.html">Home</a>
-                        <a href="guitars.html">Portfolio</a>
+                        <a href="guitars.html">Latest Builds</a>
                         <a href="commissions.html">Commissions</a>
                         <a href="about.html">About</a>
                         <a href="#contact">Contact</a>

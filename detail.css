@@ -432,22 +432,6 @@ body {
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
 }
 
-.availability-sold {
-    border-color: rgba(255, 255, 255, 0.14);
-    background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
-        rgba(255, 255, 255, 0.02);
-}
-
-.sold-inline {
-    color: var(--accent);
-    font-size: 0.36em;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    vertical-align: middle;
-}
-
 .availability-title {
     font-size: 1.3rem;
     margin-bottom: 0.8rem;

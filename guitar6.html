@@ -6,7 +6,9 @@
     (function () {
         var b = document.createElement("base");
         var h = location.hostname;
-        b.href = (h === "dorweilerguitars.com" || h === "www.dorweilerguitars.com") ? "/" : "/guitar-site/";
+        var p = location.pathname;
+        var isProd = h === "dorweilerguitars.com" || h === "www.dorweilerguitars.com";
+        b.href = isProd ? "/" : (p.indexOf("/guitar-site/") === 0 ? "/guitar-site/" : "/");
         document.currentScript.insertAdjacentElement("afterend", b);
     })();
     </script>
@@ -21,7 +23,7 @@
             <a href="index.html" class="logo"><img src="images/logo.svg" alt="Dorweiler Guitars" class="logo-img"></a>
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="guitars.html" class="nav-link">Portfolio</a></li>
+                <li><a href="guitars.html" class="nav-link">Latest Builds</a></li>
                 <li><a href="commissions.html" class="nav-link">Commissions</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
                 <li><a href="index.html#contact" class="nav-link">Contact</a></li>
@@ -35,11 +37,11 @@
             <nav class="breadcrumbs">
                 <a href="index.html" class="breadcrumb-link">Home</a>
                 <span class="breadcrumb-separator">/</span>
-                <a href="guitars.html" class="breadcrumb-link">Guitars</a>
+                <a href="guitars.html" class="breadcrumb-link">Latest Builds</a>
                 <span class="breadcrumb-separator">/</span>
                 <span class="breadcrumb-current">Blue Burst Flame</span>
             </nav>
-            <a href="guitars.html" class="back-link">← Back to Gallery</a>
+            <a href="guitars.html" class="back-link">← Back to Latest Builds</a>
             <div class="detail-grid">
                 <div class="gallery-container">
                     <div class="main-image">

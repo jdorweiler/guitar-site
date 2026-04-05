@@ -6,7 +6,9 @@
     (function () {
         var b = document.createElement("base");
         var h = location.hostname;
-        b.href = (h === "dorweilerguitars.com" || h === "www.dorweilerguitars.com") ? "/" : "/guitar-site/";
+        var p = location.pathname;
+        var isProd = h === "dorweilerguitars.com" || h === "www.dorweilerguitars.com";
+        b.href = isProd ? "/" : (p.indexOf("/guitar-site/") === 0 ? "/guitar-site/" : "/");
         document.currentScript.insertAdjacentElement("afterend", b);
     })();
     </script>
@@ -22,7 +24,7 @@
             <a href="index.html" class="logo"><img src="images/logo.svg" alt="Dorweiler Guitars" class="logo-img"></a>
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="guitars.html" class="nav-link">Portfolio</a></li>
+                <li><a href="guitars.html" class="nav-link">Latest Builds</a></li>
                 <li><a href="commissions.html" class="nav-link">Commissions</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
                 <li><a href="index.html#contact" class="nav-link">Contact</a></li>
@@ -38,7 +40,7 @@
     <!-- Guitar Detail Section -->
     <section class="detail-section">
         <div class="container">
-            <a href="guitars.html" class="back-link">← Back to Gallery</a>
+            <a href="guitars.html" class="back-link">← Back to Latest Builds</a>
 
             <div class="detail-grid">
                 <!-- Image Gallery -->
@@ -49,7 +51,6 @@
                                 <path d="M14.5 5.5L8 12l6.5 6.5" />
                             </svg>
                         </button>
-                        <span class="sold-badge">SOLD</span>
                         <img id="mainImg" src="images/guitar5/display/main.jpg" alt="Spalted Maple Natural" decoding="async">
                         <button class="gallery-nav gallery-nav--next" type="button" aria-label="Next image" onclick="stepImage(1)">
                             <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -76,7 +77,7 @@
                 <!-- Guitar Info -->
                 <div class="detail-info">
                     <p class="detail-kicker">Dorweiler custom build</p>
-                    <h1 class="detail-title">Curly Maple <span class="sold-inline">(SOLD)</span></h1>
+                    <h1 class="detail-title">Curly Maple</h1>
                     <p class="detail-description">
                         A carved-top double-cutaway with curly maple top over black limba body, natural satin finish,
                         ebony fretboard with bird inlays, and Schaller wrap around bridge.
@@ -135,11 +136,11 @@
                     </div>
 
                     <!-- Availability -->
-                    <div class="availability-container availability-sold">
-                        <h3 class="availability-title">Status: Sold</h3>
+                    <div class="availability-container">
+                        <h3 class="availability-title">Interested in a similar build?</h3>
                         <p class="availability-text">
-                            This guitar has found its home. Interested in commissioning a similar Dorweiler build?
-                            Get in touch to discuss creating a one-of-a-kind instrument.
+                            If you like this build, get in touch to discuss creating a one-of-a-kind
+                            Dorweiler instrument with a similar direction and your own details.
                         </p>
                         <a href="index.html#contact" class="btn-primary">Commission Similar Build</a>
                     </div>
