@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+    (function () {
+        var b = document.createElement("base");
+        var h = location.hostname;
+        var p = location.pathname;
+        var isProd = h === "dorweilerguitars.com" || h === "www.dorweilerguitars.com";
+        b.href = isProd ? "/" : (p.indexOf("/guitar-site/") === 0 ? "/guitar-site/" : "/");
+        document.currentScript.insertAdjacentElement("afterend", b);
+    })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Burst Flame Maple | Dorweiler Guitars</title>
+    <meta name="description" content="A PRS-style build featuring blue burst flame maple top, 5-piece laminated neck, and 24-fret ziricote fretboard with star and fish inlays.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Dorweiler Guitars">
+    <meta property="og:title" content="Blue Burst Flame Maple | Dorweiler Guitars">
+    <meta property="og:description" content="A PRS-style build featuring blue burst flame maple top, 5-piece laminated neck, and 24-fret ziricote fretboard with star and fish inlays.">
+    <meta property="og:url" content="https://dorweilerguitars.com/guitars/blue-burst-flame-maple.html">
+    <meta property="og:image" content="https://dorweilerguitars.com/images/guitar6/display/IMG_2770.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://dorweilerguitars.com/guitars/blue-burst-flame-maple.html">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="detail.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><span class="logo-wordmark">Dorweiler <span class="logo-accent">Guitars</span></span></a>
+            <ul id="site-nav" class="nav-menu">
+                <li><a href="guitars.html" class="nav-link">Latest Builds</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <section class="detail-section">
+        <div class="container">
+            <nav class="breadcrumbs">
+                <a href="index.html" class="breadcrumb-link">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="guitars.html" class="breadcrumb-link">Latest Builds</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-current">Blue Burst Flame</span>
+            </nav>
+            <a href="guitars.html" class="back-link">← Back to Latest Builds</a>
+            <div class="detail-grid">
+                <div class="gallery-container">
+                    <div class="main-image">
+                        <button class="gallery-nav gallery-nav--prev" type="button" aria-label="Previous image" onclick="stepImage(-1)">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M14.5 5.5L8 12l6.5 6.5" />
+                            </svg>
+                        </button>
+                        <img id="mainImg" src="images/guitar6/display/IMG_2770.jpg" alt="Blue Burst Flame" decoding="async">
+                        <button class="gallery-nav gallery-nav--next" type="button" aria-label="Next image" onclick="stepImage(1)">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M9.5 5.5L16 12l-6.5 6.5" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="thumbnail-gallery">
+                        <div class="thumbnail active" data-full-src="images/guitar6/IMG_2770.jpeg" data-display-src="images/guitar6/display/IMG_2770.jpg" onclick="changeImage(this)">
+                            <img src="images/guitar6/thumbs/IMG_2770.jpg" alt="Front View" loading="lazy" decoding="async">
+                        </div>
+                        <div class="thumbnail" data-full-src="images/guitar6/IMG_3840.jpeg" data-display-src="images/guitar6/display/IMG_3840.jpg" onclick="changeImage(this)">
+                            <img src="images/guitar6/thumbs/IMG_3840.jpg" alt="Inlay Detail" loading="lazy" decoding="async">
+                        </div>
+                        <div class="thumbnail" data-full-src="images/guitar6/IMG_3507.jpeg" data-display-src="images/guitar6/display/IMG_3507.jpg" onclick="changeImage(this)">
+                            <img src="images/guitar6/thumbs/IMG_3507.jpg" alt="Body Detail" loading="lazy" decoding="async">
+                        </div>
+                        <div class="thumbnail" data-full-src="images/guitar6/IMG_5414.jpeg" data-display-src="images/guitar6/display/IMG_5414.jpg" onclick="changeImage(this)">
+                            <img src="images/guitar6/thumbs/IMG_5414.jpg" alt="Three-quarter view" loading="lazy" decoding="async">
+                        </div>
+                        <div class="thumbnail" data-full-src="images/guitar6/IMG_5416.jpeg" data-display-src="images/guitar6/display/IMG_5416.jpg" onclick="changeImage(this)">
+                            <img src="images/guitar6/thumbs/IMG_5416.jpg" alt="Top and fretboard" loading="lazy" decoding="async">
+                        </div>
+                        <div class="thumbnail" data-full-src="images/guitar6/IMG_5417.jpeg" data-display-src="images/guitar6/display/IMG_5417.jpg" onclick="changeImage(this)">
+                            <img src="images/guitar6/thumbs/IMG_5417.jpg" alt="Control layout" loading="lazy" decoding="async">
+                        </div>
+                        <div class="thumbnail" data-full-src="images/guitar6/IMG_5423.jpeg" data-display-src="images/guitar6/display/IMG_5423.jpg" onclick="changeImage(this)">
+                            <img src="images/guitar6/thumbs/IMG_5423.jpg" alt="Full front" loading="lazy" decoding="async">
+                        </div>
+                        <div class="thumbnail" data-full-src="images/guitar6/IMG_5427.jpeg" data-display-src="images/guitar6/display/IMG_5427.jpg" onclick="changeImage(this)">
+                            <img src="images/guitar6/thumbs/IMG_5427.jpg" alt="Angle view" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-info">
+                    <p class="detail-kicker">Dorweiler build</p>
+                    <h1 class="detail-title">Blue Burst Flame Maple</h1>
+                    <p class="detail-description">
+                        A PRS-style build featuring blue burst flame maple top, 5-piece laminated neck, and 24-fret ziricote fretboard with star and fish inlays. 25.375" scale with Skywood and Seymour Duncan pickups.
+                    </p>
+
+                    <div class="detail-intro-meta">
+                        <p class="detail-status">Completed build</p>
+                        <a href="index.html#contact" class="detail-cta">Get in touch</a>
+                    </div>
+
+                    <div class="specs-container">
+                        <h2 class="specs-title">Body &amp; construction</h2>
+                        <div class="specs-grid">
+                            <div class="spec-item"><span class="spec-label">Top</span><span class="spec-value">Flame maple — blue burst finish</span></div>
+                            <div class="spec-item"><span class="spec-label">Body</span><span class="spec-value">Mahogany</span></div>
+                            <div class="spec-item"><span class="spec-label">Neck</span><span class="spec-value">5-piece laminate (mahogany, wenge, sapele)</span></div>
+                            <div class="spec-item"><span class="spec-label">Fretboard</span><span class="spec-value">Ziricote — 24 frets</span></div>
+                            <div class="spec-item"><span class="spec-label">Binding</span><span class="spec-value">Natural wood binding</span></div>
+                            <div class="spec-item"><span class="spec-label">Inlays</span><span class="spec-value">Star inlays; dyed maple bone fish at 12th fret</span></div>
+                            <div class="spec-item"><span class="spec-label">Tuners</span><span class="spec-value">Hipshot locking tuners</span></div>
+                            <div class="spec-item"><span class="spec-label">Scale length</span><span class="spec-value">25.375&quot; — Fender-like brightness with Gibson-style bendability</span></div>
+                        </div>
+                    </div>
+
+                    <div class="specs-container">
+                        <h2 class="specs-title">Electronics</h2>
+                        <div class="specs-grid">
+                            <div class="spec-item"><span class="spec-label">Bridge pickup</span><span class="spec-value">Skywood Lincoln Ave</span></div>
+                            <div class="spec-item"><span class="spec-label">Neck pickup</span><span class="spec-value">Seymour Duncan Fat Cat P-90</span></div>
+                        </div>
+                    </div>
+
+                    <div class="specs-container">
+                        <h2 class="specs-title">Special features</h2>
+                        <div class="specs-grid">
+                            <div class="spec-item"><span class="spec-label">Knobs</span><span class="spec-value">Milled from solid aluminum</span></div>
+                        </div>
+                    </div>
+
+                    <div class="availability-container">
+                        <h3 class="availability-title">Finished build</h3>
+                        <p class="availability-text">The photos and specifications above cover the materials, hardware, and details that went into this guitar.</p>
+                        <a href="index.html#contact" class="btn-primary">Send me a note →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <img id="lightboxImg" class="lightbox-content" src="" alt="Guitar Detail">
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">Dorweiler Guitars</h4>
+                    <p class="footer-text">Handcrafted guitars built one at a time with figured woods.</p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Navigation</h4>
+                    <nav class="footer-nav">
+                        <a href="index.html">Home</a>
+                        <a href="guitars.html">Latest Builds</a>
+                        <a href="about.html">About</a>
+                        <a href="index.html#contact">Contact</a>
+                    </nav>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Connect</h4>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/dorweiler_guitars" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="mailto:info@dorweilerguitars.com" aria-label="Email">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Dorweiler Guitars. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const galleryThumbnails = Array.from(document.querySelectorAll('.thumbnail[data-full-src]'));
+        const mainImg = document.getElementById('mainImg');
+        let currentImageIndex = galleryThumbnails.findIndex(thumb => thumb.classList.contains('active'));
+        let currentFullSrc = '';
+
+        if (currentImageIndex === -1) {
+            currentImageIndex = 0;
+        }
+
+        function changeImage(element) {
+            if (!element) return;
+            const displaySrc = element.dataset.displaySrc || element.dataset.fullSrc;
+            mainImg.src = displaySrc;
+            currentFullSrc = element.dataset.fullSrc || displaySrc;
+            galleryThumbnails.forEach(thumb => thumb.classList.remove('active'));
+            element.classList.add('active');
+            currentImageIndex = galleryThumbnails.indexOf(element);
+        }
+
+        function stepImage(direction) {
+            if (!galleryThumbnails.length) return;
+            currentImageIndex = (currentImageIndex + direction + galleryThumbnails.length) % galleryThumbnails.length;
+            const nextThumbnail = galleryThumbnails[currentImageIndex];
+            changeImage(nextThumbnail);
+        }
+
+        function openLightbox(imgSrc) {
+            document.getElementById('lightbox').classList.add('active');
+            document.getElementById('lightboxImg').src = imgSrc;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.querySelector('.main-image').addEventListener('click', function(e) {
+            if (e.target.closest('.gallery-nav')) {
+                return;
+            }
+            openLightbox(mainImg.src.replace('/display/', '/large/'));
+        });
+
+        // Close on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
+        if (galleryThumbnails.length) {
+            changeImage(galleryThumbnails[currentImageIndex] || galleryThumbnails[0]);
+        }
+    </script>
+</body>
+</html>

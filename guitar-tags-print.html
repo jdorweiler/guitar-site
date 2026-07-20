@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dorweiler Guitars - Hang Tags Print Sheet</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --sheet-width: 8.5in;
+            --sheet-height: 11in;
+            --tag-width: 2in;
+            --tag-height: 3.5in;
+            --tag-gap: 1mm;
+            --grid-columns: 3;
+            --grid-rows: 3;
+            --grid-width: calc((var(--tag-width) * 3) + (var(--tag-gap) * 2));
+            --grid-height: calc((var(--tag-height) * 3) + (var(--tag-gap) * 2));
+            --grid-top: calc((var(--sheet-height) - var(--grid-height)) / 2);
+            --grid-left: calc((var(--sheet-width) - var(--grid-width)) / 2);
+        }
+
+        @media print {
+            @page {
+                size: letter portrait;
+                margin: 0;
+            }
+
+            html {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            body {
+                margin: 0;
+                background: #fff;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            .preview-area {
+                margin: 0;
+                padding: 0;
+            }
+
+            .print-sheet {
+                margin: 0;
+                box-shadow: none;
+                break-after: page;
+            }
+
+            .print-sheet:last-child {
+                break-after: auto;
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #e8e8e8;
+            color: #ccc;
+        }
+
+        body.export-mode {
+            background: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        body.export-mode .controls {
+            display: none !important;
+        }
+
+        body.export-mode .preview-area {
+            margin: 0;
+            padding: 0;
+        }
+
+        body.export-mode .print-sheet {
+            margin: 0;
+            box-shadow: none;
+        }
+
+        .controls {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 18px;
+            background: #111;
+            border-bottom: 1px solid #222;
+        }
+
+        .controls button,
+        .controls select {
+            font: inherit;
+        }
+
+        .controls button {
+            background: #c9a880;
+            color: #000;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .controls button:hover {
+            background: #d6b992;
+        }
+
+        .controls select {
+            padding: 9px 12px;
+            border-radius: 4px;
+            border: 1px solid #444;
+            background: #1c1c1c;
+            color: #ddd;
+            font-size: 14px;
+        }
+
+        .controls-note {
+            width: 100%;
+            text-align: center;
+            color: #888;
+            font-size: 12px;
+            letter-spacing: 0.04em;
+        }
+
+        .preview-area {
+            padding: 24px 0 40px;
+        }
+
+        body.export-mode .preview-area {
+            padding: 0;
+        }
+
+        .print-sheet {
+            width: var(--sheet-width);
+            height: var(--sheet-height);
+            margin: 0 auto 24px;
+            background: #fff;
+            position: relative;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+            overflow: hidden;
+        }
+
+        body.export-mode .print-sheet {
+            margin: 0;
+            box-shadow: none;
+        }
+
+        .sheet-label {
+            position: absolute;
+            top: 0.1in;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 7pt;
+            color: #777;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .x-target {
+            position: absolute;
+            width: 0.18in;
+            height: 0.18in;
+        }
+
+        .x-target::before,
+        .x-target::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 0.75pt;
+            background: #000;
+            transform-origin: center;
+        }
+
+        .x-target::before {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .x-target::after {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+
+        .x-target.top-left { top: 0.12in; left: 0.12in; }
+        .x-target.top-right { top: 0.12in; right: 0.12in; }
+        .x-target.bottom-left { bottom: 0.12in; left: 0.12in; }
+        .x-target.bottom-right { bottom: 0.12in; right: 0.12in; }
+
+        .tag-grid {
+            position: absolute;
+            top: var(--grid-top);
+            left: var(--grid-left);
+            width: var(--grid-width);
+            height: var(--grid-height);
+            display: grid;
+            grid-template-columns: repeat(var(--grid-columns), var(--tag-width));
+            grid-template-rows: repeat(var(--grid-rows), var(--tag-height));
+            gap: var(--tag-gap);
+        }
+
+        .tag-cell {
+            position: relative;
+            width: var(--tag-width);
+            height: var(--tag-height);
+        }
+
+        .tag-cell--empty {
+            background: transparent;
+        }
+
+        .crop-mark {
+            position: absolute;
+            background: #000;
+        }
+
+        .crop-mark.h {
+            width: 0.14in;
+            height: 0.5pt;
+        }
+
+        .crop-mark.v {
+            width: 0.5pt;
+            height: 0.14in;
+        }
+
+        .crop-mark.tl-h { top: 0; left: 0; transform: translateX(-0.07in); }
+        .crop-mark.tl-v { top: 0; left: 0; transform: translateY(-0.07in); }
+        .crop-mark.tr-h { top: 0; right: 0; transform: translateX(0.07in); }
+        .crop-mark.tr-v { top: 0; right: 0; transform: translateY(-0.07in); }
+        .crop-mark.bl-h { bottom: 0; left: 0; transform: translateX(-0.07in); }
+        .crop-mark.bl-v { bottom: 0; left: 0; transform: translateY(0.07in); }
+        .crop-mark.br-h { bottom: 0; right: 0; transform: translateX(0.07in); }
+        .crop-mark.br-v { bottom: 0; right: 0; transform: translateY(0.07in); }
+
+        .tag {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background: #0a0a0a;
+            border: 0.5pt solid #222;
+            border-radius: 3pt;
+            overflow: hidden;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .tag-hole {
+            position: absolute;
+            top: 0.15in;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0.15in;
+            height: 0.15in;
+            border-radius: 50%;
+            z-index: 3;
+            border: 1pt solid #333;
+            background: #0a0a0a;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .tag-front {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0.42in 0.18in 0.26in;
+        }
+
+        .tag-logo {
+            width: 1.5in;
+            max-width: 90%;
+            margin-bottom: 0.06in;
+        }
+
+        .tag-logo img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .tag-brand-line {
+            font-size: 6.2pt;
+            color: #c9a880;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.14in;
+        }
+
+        .tag-accent {
+            width: 0.28in;
+            height: 1pt;
+            background: #c9a880;
+        }
+
+        .tag-footer {
+            position: absolute;
+            bottom: 0.18in;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 5.8pt;
+            color: #444;
+            letter-spacing: 0.05em;
+        }
+
+        .tag-back {
+            height: 100%;
+            padding: 0.33in 0.15in 0.16in;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tag-model {
+            font-size: 8pt;
+            color: #fff;
+            text-align: center;
+            line-height: 1.2;
+            margin-bottom: 0.08in;
+            padding: 0 0.05in;
+        }
+
+        .tag-back-title {
+            font-size: 6pt;
+            letter-spacing: 0.08em;
+            color: #c9a880;
+            text-align: center;
+            margin-bottom: 0.09in;
+        }
+
+        .tag-sec-title {
+            font-size: 5.5pt;
+            letter-spacing: 0.05em;
+            color: #555;
+            margin-bottom: 0.03in;
+            padding-bottom: 0.02in;
+            border-bottom: 0.5pt solid #1a1a1a;
+        }
+
+        .tag-spec-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 0.06in;
+            font-size: 6pt;
+            line-height: 1.35;
+            margin-bottom: 0.025in;
+        }
+
+        .tag-spec-label {
+            color: #666;
+            flex-shrink: 0;
+        }
+
+        .tag-spec-val {
+            color: #ccc;
+            text-align: right;
+            max-width: 1.05in;
+        }
+
+        .tag-qr-wrap {
+            margin-top: auto;
+            padding-top: 0.08in;
+            border-top: 0.5pt solid #1a1a1a;
+            display: flex;
+            align-items: center;
+            gap: 0.08in;
+        }
+
+        .tag-qr {
+            width: 0.58in;
+            height: 0.58in;
+            padding: 0.03in;
+            border-radius: 2pt;
+            background: #fff;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        .tag-qr-copy {
+            min-width: 0;
+        }
+
+        .tag-qr-label {
+            font-size: 5.2pt;
+            color: #666;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 0.02in;
+        }
+
+        .tag-qr-link {
+            color: #c9a880;
+            font-size: 6.1pt;
+            line-height: 1.25;
+            text-decoration: none;
+        }
+
+        .tag-back-footer {
+            margin-top: 0.07in;
+            text-align: center;
+            font-size: 5.4pt;
+            color: #333;
+            letter-spacing: 0.03em;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls no-print">
+        <select id="sheetFilter" aria-label="Choose print set">
+            <option value="all">All sheets</option>
+        </select>
+        <button type="button" onclick="showSheets('all')">Show all</button>
+        <button type="button" onclick="window.print()">Print visible sheets</button>
+        <div class="controls-note">Print duplex and use "flip on short edge". Each sheet is a 3x3 tag layout with corner X targets for laser alignment.</div>
+    </div>
+
+    <div class="preview-area" id="printArea"></div>
+
+    <script>
+        const guitars = [
+            {
+                model: "Flame Poplar Multiscale",
+                detailUrl: "https://dorweilerguitars.com/guitars/flame-poplar-multiscale.html",
+                specs: [
+                    ["Top", "Flame poplar"],
+                    ["Back", "Black limba"],
+                    ["Core", "Walnut / mahogany / oak"],
+                    ["Scale", "25.5-25 multiscale"],
+                    ["Neck", "Rosewood + carbon fiber"],
+                    ["Inlays", "Pearl"]
+                ]
+            },
+            {
+                model: "Burl Resin Laminate",
+                detailUrl: "https://dorweilerguitars.com/guitars/burl-resin-laminate.html",
+                specs: [
+                    ["Body", "Burl resin top, walnut/wenge/maple back"],
+                    ["Neck", "Walnut / maple / wenge"],
+                    ["Fretboard", "Macassar ebony with brass + burl inlays"],
+                    ["Scale", "24.75"],
+                    ["Bridge PU", "Seymour Duncan JB"],
+                    ["Neck PU", "Seymour Duncan Jazz"],
+                    ["Bridge", "Schaller wraparound"]
+                ]
+            },
+            {
+                model: "Black Limba & Malachite",
+                detailUrl: "https://dorweilerguitars.com/guitars/black-limba-malachite.html",
+                specs: [
+                    ["Body", "Black limba"],
+                    ["Neck", "Black limba / mahogany / wenge"],
+                    ["Fretboard", "Macassar ebony, 24 frets"],
+                    ["Inlays", "Malachite stars"],
+                    ["Bridge PU", "Seymour Duncan humbucker"],
+                    ["Middle", "Fender single coil"],
+                    ["Neck PU", "Skywood Baxter humbucker"]
+                ]
+            },
+            {
+                model: "Spalted Maple Multiscale",
+                detailUrl: "https://dorweilerguitars.com/guitars/spalted-maple-multiscale.html",
+                specs: [
+                    ["Top", "Spalted and flamed maple"],
+                    ["Body", "Black limba"],
+                    ["Neck", "5-pc maple / wenge / purpleheart"],
+                    ["Fretboard", "Wenge"],
+                    ["Scale", "25.5-25 multiscale"],
+                    ["Bridge PU", "Fishman Tim Henson"],
+                    ["Neck PU", "Fishman Tim Henson"]
+                ]
+            },
+            {
+                model: "Tobacco Burst Flame Maple",
+                detailUrl: "https://dorweilerguitars.com/guitars/tobacco-burst-flame-maple.html",
+                specs: [
+                    ["Body", "Flame maple and ash"],
+                    ["Neck", "13-pc roasted maple / wenge / walnut / mahogany"],
+                    ["Fretboard", "Birdseye maple"],
+                    ["Finish", "Tobacco burst"],
+                    ["Pickups", "Lollar Dirty Blond S-S-S"],
+                    ["Bridge", "Wilkinson floating trem"],
+                    ["Tuners", "Hipshot open gear locking"]
+                ]
+            },
+            {
+                model: "Blue Burst Flame Maple",
+                detailUrl: "https://dorweilerguitars.com/guitars/blue-burst-flame-maple.html",
+                specs: [
+                    ["Top", "Flame maple, blue burst"],
+                    ["Body", "Mahogany"],
+                    ["Neck", "5-pc mahogany / wenge / sapele"],
+                    ["Fretboard", "Ziricote, 24 frets"],
+                    ["Inlays", "Stars + maple fish"],
+                    ["Bridge PU", "Skywood Lincoln Ave"],
+                    ["Neck PU", "SD Fat Cat P-90"]
+                ]
+            },
+            {
+                model: "Curly Maple",
+                detailUrl: "https://dorweilerguitars.com/guitars/curly-maple.html",
+                specs: [
+                    ["Top", "Curly maple"],
+                    ["Body", "Black limba"],
+                    ["Neck", "Maple"],
+                    ["Fretboard", "Ebony with bird inlays"],
+                    ["Scale", "25"],
+                    ["Pickups", "Humbucker set"],
+                    ["Bridge", "Schaller wrap around"]
+                ]
+            },
+            {
+                model: "Walnut T-Style",
+                detailUrl: "https://dorweilerguitars.com/guitars/walnut-t-style.html",
+                specs: [
+                    ["Body", "Walnut"],
+                    ["Neck", "Maple"],
+                    ["Fretboard", "Ebony"],
+                    ["Scale", "25.5"],
+                    ["Frets", "22 medium jumbo"],
+                    ["Pickups", "Hand-wound Skywood"],
+                    ["Finish", "Nitro"]
+                ]
+            },
+            {
+                model: "Figured Walnut Tele",
+                detailUrl: "https://dorweilerguitars.com/guitars/figured-walnut-tele.html",
+                specs: [
+                    ["Body", "Figured walnut"],
+                    ["Neck", "Maple"],
+                    ["Fretboard", "Ebony"],
+                    ["Scale", "25.5"],
+                    ["Frets", "22 medium"],
+                    ["Pickups", "Single coil + humbucker"],
+                    ["Finish", "Natural satin"]
+                ]
+            },
+            {
+                model: "Quilted Maple Resin River",
+                detailUrl: "https://dorweilerguitars.com/guitars/quilted-maple-resin-river.html",
+                specs: [
+                    ["Body", "Quilted maple"],
+                    ["Feature", "Blue epoxy resin inlay"],
+                    ["Neck", "Maple"],
+                    ["Fretboard", "Maple"],
+                    ["Scale", "25.5"],
+                    ["Pickups", "Dual humbuckers"],
+                    ["Finish", "Natural / transparent blue resin"]
+                ]
+            },
+            {
+                model: "Flame Maple Burst",
+                detailUrl: "https://dorweilerguitars.com/guitars/flame-maple-burst.html",
+                specs: [
+                    ["Top", "AAA flame maple"],
+                    ["Body", "Mahogany"],
+                    ["Neck", "Mahogany"],
+                    ["Fretboard", "Rosewood"],
+                    ["Scale", "25"],
+                    ["Pickups", "Dual humbuckers"],
+                    ["Bridge", "Tune-o-matic"]
+                ]
+            }
+        ];
+
+        const TAGS_PER_SHEET = 9;
+
+        function escapeHtml(value) {
+            return String(value)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#39;");
+        }
+
+        function getQrImageUrl(detailUrl) {
+            return `https://api.qrserver.com/v1/create-qr-code/?size=140x140&margin=0&data=${encodeURIComponent(detailUrl)}`;
+        }
+
+        function renderSpecs(specs) {
+            return specs.map(([label, value]) => `
+                <div class="tag-spec-row">
+                    <span class="tag-spec-label">${escapeHtml(label)}</span>
+                    <span class="tag-spec-val">${escapeHtml(value)}</span>
+                </div>
+            `).join("");
+        }
+
+        function renderCropMarks() {
+            return `
+                <div class="crop-mark h tl-h"></div>
+                <div class="crop-mark v tl-v"></div>
+                <div class="crop-mark h tr-h"></div>
+                <div class="crop-mark v tr-v"></div>
+                <div class="crop-mark h bl-h"></div>
+                <div class="crop-mark v bl-v"></div>
+                <div class="crop-mark h br-h"></div>
+                <div class="crop-mark v br-v"></div>
+            `;
+        }
+
+        function renderFrontCell() {
+            return `
+                <div class="tag-cell">
+                    ${renderCropMarks()}
+                    <div class="tag">
+                        <div class="tag-hole"></div>
+                        <div class="tag-front">
+                            <div class="tag-logo">
+                                <img src="images/logo.svg" alt="Dorweiler Guitars">
+                            </div>
+                            <div class="tag-brand-line">Dorweiler Guitars</div>
+                            <div class="tag-accent"></div>
+                            <div class="tag-footer">dorweilerguitars.com</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderBackCell(guitar) {
+            return `
+                <div class="tag-cell">
+                    ${renderCropMarks()}
+                    <div class="tag">
+                        <div class="tag-hole"></div>
+                        <div class="tag-back">
+                            <div class="tag-model">${escapeHtml(guitar.model)}</div>
+                            <div class="tag-back-title">SPECIFICATIONS</div>
+                            <div class="tag-sec-title">DETAILS</div>
+                            ${renderSpecs(guitar.specs)}
+                            <div class="tag-qr-wrap">
+                                <img class="tag-qr" src="${getQrImageUrl(guitar.detailUrl)}" alt="QR code linking to the ${escapeHtml(guitar.model)} detail page">
+                                <div class="tag-qr-copy">
+                                    <div class="tag-qr-label">Scan for full details</div>
+                                    <div class="tag-qr-link">View build details</div>
+                                </div>
+                            </div>
+                            <div class="tag-back-footer">HANDCRAFTED IN COLORADO</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function padSheetBatch(batch) {
+            const padded = batch.slice();
+            let duplicateIndex = 0;
+
+            while (padded.length < TAGS_PER_SHEET) {
+                padded.push(guitars[duplicateIndex % guitars.length]);
+                duplicateIndex += 1;
+            }
+
+            return padded;
+        }
+
+        function renderTargets() {
+            return `
+                <div class="x-target top-left"></div>
+                <div class="x-target top-right"></div>
+                <div class="x-target bottom-left"></div>
+                <div class="x-target bottom-right"></div>
+            `;
+        }
+
+        function renderSheet(batch, side, sheetNumber) {
+            const paddedBatch = padSheetBatch(batch);
+            const cells = paddedBatch.map((guitar) => {
+                return side === "front" ? renderFrontCell() : renderBackCell(guitar);
+            }).join("");
+
+            return `
+                <section class="print-sheet" data-sheet="${sheetNumber}" data-side="${side}">
+                    ${renderTargets()}
+                    <div class="sheet-label">Sheet ${sheetNumber} ${side.toUpperCase()} | Duplex print, flip on short edge</div>
+                    <div class="tag-grid">
+                        ${cells}
+                    </div>
+                </section>
+            `;
+        }
+
+        function generateSheets() {
+            const printArea = document.getElementById("printArea");
+            const sheetFilter = document.getElementById("sheetFilter");
+            let html = "";
+            let sheetNumber = 1;
+
+            for (let index = 0; index < guitars.length; index += TAGS_PER_SHEET) {
+                const batch = guitars.slice(index, index + TAGS_PER_SHEET);
+                const sheetNames = batch.map((guitar) => guitar.model).join(", ");
+
+                html += renderSheet(batch, "front", sheetNumber);
+                html += renderSheet(batch, "back", sheetNumber);
+
+                const option = document.createElement("option");
+                option.value = String(sheetNumber);
+                option.textContent = `Sheet ${sheetNumber}: ${sheetNames}`;
+                sheetFilter.appendChild(option);
+
+                sheetNumber += 1;
+            }
+
+            printArea.innerHTML = html;
+        }
+
+        function showSheets(value) {
+            const sheets = document.querySelectorAll(".print-sheet");
+
+            sheets.forEach((sheet) => {
+                const matches = value === "all" || sheet.dataset.sheet === value;
+                sheet.style.display = matches ? "block" : "none";
+            });
+
+            document.getElementById("sheetFilter").value = value;
+        }
+
+        function applyExportMode() {
+            const params = new URLSearchParams(window.location.search);
+            const exportMode = params.get("export") === "1";
+            const sheet = params.get("sheet");
+            const side = params.get("side");
+
+            if (!exportMode) {
+                return;
+            }
+
+            document.body.classList.add("export-mode");
+
+            const sheets = document.querySelectorAll(".print-sheet");
+            sheets.forEach((element) => {
+                const sheetMatches = !sheet || element.dataset.sheet === sheet;
+                const sideMatches = !side || element.dataset.side === side;
+                element.style.display = sheetMatches && sideMatches ? "block" : "none";
+            });
+        }
+
+        document.getElementById("sheetFilter").addEventListener("change", (event) => {
+            showSheets(event.target.value);
+        });
+
+        generateSheets();
+        showSheets("all");
+        applyExportMode();
+    </script>
+</body>
+</html>

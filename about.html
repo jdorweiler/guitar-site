@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+    (function () {
+        var b = document.createElement("base");
+        var h = location.hostname;
+        var p = location.pathname;
+        var isProd = h === "dorweilerguitars.com" || h === "www.dorweilerguitars.com";
+        b.href = isProd ? "/" : (p.indexOf("/guitar-site/") === 0 ? "/guitar-site/" : "/");
+        document.currentScript.insertAdjacentElement("afterend", b);
+    })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Dorweiler Guitars</title>
+    <link rel="canonical" href="https://dorweilerguitars.com/about.html">
+    <meta name="description" content="One-off electric guitars made from figured woods — designed, carved, and finished by Jason Dorweiler.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Dorweiler Guitars">
+    <meta property="og:title" content="About | Dorweiler Guitars">
+    <meta property="og:description" content="One-off electric guitars made from figured woods — designed, carved, and finished by Jason Dorweiler.">
+    <meta property="og:url" content="https://dorweilerguitars.com/about.html">
+    <meta property="og:image" content="https://dorweilerguitars.com/images/guitar10/display/IMG_5367.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><span class="logo-wordmark">Dorweiler <span class="logo-accent">Guitars</span></span></a>
+            <ul id="site-nav" class="nav-menu">
+                <li><a href="guitars.html" class="nav-link">Latest Builds</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-header">
+                <h1 class="about-title">About Dorweiler Guitars</h1>
+                <p class="about-subtitle">Building one-off instruments with figured woods</p>
+            </div>
+
+            <div class="about-content">
+                <!-- Workshop Gallery -->
+                <div class="about-image about-image-grid">
+                    <div class="about-image-cell">
+                        <img src="images/process/body-routing.jpg" alt="Body routing during the build process" class="about-image-tile">
+                    </div>
+                    <div class="about-image-cell">
+                        <img src="images/process/resin-work.jpg" alt="Resin work in progress on a Dorweiler build" class="about-image-tile">
+                    </div>
+                    <div class="about-image-cell">
+                        <img src="images/process/figured-maple-body.jpg" alt="Raw figured maple body ready for shaping" class="about-image-tile">
+                    </div>
+                    <div class="about-image-cell">
+                        <img src="images/process/staining-process.jpg" alt="Staining and finishing process in the workshop" class="about-image-tile">
+                    </div>
+                </div>
+
+                <!-- Story Section -->
+                <div class="about-story">
+                    <h2 class="story-section-title">My Journey Into Lutherie</h2>
+                    <p class="story-paragraph">
+                        I got into lutherie through a deep appreciation for figured wood. Flame maple, spalted grain,
+                        and unusual burl patterns always felt like they were pointing toward a finished instrument.
+                        That pull toward the material is what led me from woodworking into building guitars.
+                    </p>
+                    <p class="story-paragraph">
+                        Dorweiler Guitars is focused on one-off instruments built with intention rather than volume.
+                        Each project starts with a standout piece of wood and a clear vision for how to bring out its
+                        best qualities, from resin inlay work and burst finishes to the feel of the neck and the
+                        precision of the fretwork.
+                    </p>
+                    <p class="story-paragraph">
+                        With every build, I refine the process further. The standard is simple: create guitars that
+                        are visually striking, comfortable in the hands, and rewarding to play. They should hold
+                        attention from across the room and earn it the moment you plug in.
+                    </p>
+                    <p class="story-paragraph">
+                        If you want to talk shop about figured woods, lutherie, or anything you see here, get in
+                        touch. I enjoy connecting with players and fellow builders who care about the details.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Philosophy Section -->
+            <div class="philosophy-section">
+                <h2 class="section-heading">How I Work</h2>
+                <div class="philosophy-grid philosophy-grid--four">
+                    <div class="philosophy-card">
+                        <div class="philosophy-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <circle cx="12" cy="12" r="6"></circle>
+                                <circle cx="12" cy="12" r="2"></circle>
+                            </svg>
+                        </div>
+                        <h3 class="philosophy-title">Wood First</h3>
+                        <p class="philosophy-text">
+                            I source flame maple, spalted varieties, and exotic burls for character, depth, and
+                            movement. Each build begins with wood that has a strong visual identity worth designing around.
+                        </p>
+                    </div>
+                    <div class="philosophy-card">
+                        <div class="philosophy-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </div>
+                        <h3 class="philosophy-title">Built to Be Seen</h3>
+                        <p class="philosophy-text">
+                            Figured tops, resin details, and carefully developed finishes give each instrument a
+                            distinct presence. The goal is a guitar that feels personal and unmistakable the moment you see it.
+                        </p>
+                    </div>
+                    <div class="philosophy-card">
+                        <div class="philosophy-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="4" y1="21" x2="4" y2="14"></line>
+                                <line x1="4" y1="10" x2="4" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12" y2="3"></line>
+                                <line x1="20" y1="21" x2="20" y2="16"></line>
+                                <line x1="20" y1="12" x2="20" y2="3"></line>
+                                <line x1="1" y1="14" x2="7" y2="14"></line>
+                                <line x1="9" y1="8" x2="15" y2="8"></line>
+                                <line x1="17" y1="16" x2="23" y2="16"></line>
+                            </svg>
+                        </div>
+                        <h3 class="philosophy-title">Details Matter</h3>
+                        <p class="philosophy-text">
+                            Neck carve, fretwork, finish quality, and final setup all have to be right. Those small
+                            decisions are what turn a beautiful build into an instrument players want to keep reaching for.
+                        </p>
+                    </div>
+                    <div class="philosophy-card">
+                        <div class="philosophy-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="8" r="7"></circle>
+                                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="philosophy-title">One-Off Builds</h3>
+                        <p class="philosophy-text">
+                            No two pieces of figured wood are the same, and each build responds to the material in
+                            front of it. The result is a guitar with its own identity rather than a repeated formula.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="about-cta">
+                <h2 class="cta-title">Want to connect?</h2>
+                <p class="cta-text">
+                    I'm always happy to hear from people who follow the work. Drop me a line if something
+                    here catches your eye or you have a question about the process.
+                </p>
+                <a href="index.html#contact" class="btn-primary">Get in touch →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">Dorweiler Guitars</h4>
+                    <p class="footer-text">Handcrafted guitars built one at a time with figured woods.</p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Navigation</h4>
+                    <nav class="footer-nav">
+                        <a href="index.html">Home</a>
+                        <a href="guitars.html">Latest Builds</a>
+                        <a href="about.html">About</a>
+                        <a href="index.html#contact">Contact</a>
+                    </nav>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Connect</h4>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/dorweiler_guitars" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="mailto:info@dorweilerguitars.com" aria-label="Email">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Dorweiler Guitars. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

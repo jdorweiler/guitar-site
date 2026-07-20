@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+    (function () {
+        var b = document.createElement("base");
+        var h = location.hostname;
+        var p = location.pathname;
+        var isProd = h === "dorweilerguitars.com" || h === "www.dorweilerguitars.com";
+        b.href = isProd ? "/" : (p.indexOf("/guitar-site/") === 0 ? "/guitar-site/" : "/");
+        document.currentScript.insertAdjacentElement("afterend", b);
+    })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dorweiler Guitars | Handcrafted Electric Guitars</title>
+    <link rel="canonical" href="https://dorweilerguitars.com/">
+    <meta name="description" content="Handcrafted electric guitars built one at a time with figured woods, custom electronics, and hand-shaped details.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Dorweiler Guitars">
+    <meta property="og:title" content="Dorweiler Guitars | Handcrafted Electric Guitars">
+    <meta property="og:description" content="Handcrafted electric guitars built one at a time with figured woods, custom electronics, and hand-shaped details.">
+    <meta property="og:url" content="https://dorweilerguitars.com/">
+    <meta property="og:image" content="https://dorweilerguitars.com/images/guitar11/display/IMG_5758.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preload" as="image" href="images/guitar11/display/IMG_5758.webp" type="image/webp">
+</head>
+<body>
+    <!-- Header (sticky) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><span class="logo-wordmark">Dorweiler <span class="logo-accent">Guitars</span></span></a>
+            <ul id="site-nav" class="nav-menu">
+                <li><a href="guitars.html" class="nav-link">Latest Builds</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="eyebrow hero-eyebrow">Handcrafted in the workshop · one at a time</div>
+        <div class="hero-grid">
+            <h1 class="hero-title">Handmade,<br>one at a time.</h1>
+            <div class="hero-aside">
+                <p class="hero-tagline">Figured tonewoods, hand-shaped necks, and the details behind each instrument I've built.</p>
+                <div class="hero-buttons">
+                    <a href="guitars.html" class="btn-primary">View the gallery →</a>
+                    <a href="about.html" class="btn-secondary">About the workshop</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Crossfading hero carousel -->
+        <div class="hero-frame">
+            <div class="hero-carousel">
+                <div class="hero-slide is-active">
+                    <picture>
+                        <source srcset="images/guitar11/display/IMG_5758.webp" type="image/webp">
+                        <img src="images/guitar11/display/IMG_5758.jpg" alt="Flame poplar multiscale Dorweiler build" decoding="async">
+                    </picture>
+                </div>
+                <div class="hero-slide">
+                    <picture>
+                        <source srcset="images/guitar9/display/IMG_5338.webp" type="image/webp">
+                        <img src="images/guitar9/display/IMG_5338.jpg" alt="Black limba and malachite Dorweiler build" loading="lazy" decoding="async">
+                    </picture>
+                </div>
+                <div class="hero-slide">
+                    <picture>
+                        <source srcset="images/guitar8/display/IMG_5388.webp" type="image/webp">
+                        <img src="images/guitar8/display/IMG_5388.jpg" alt="Spalted maple multiscale Dorweiler build" loading="lazy" decoding="async">
+                    </picture>
+                </div>
+                <div class="hero-caption">Figured woods, exotic tonewoods, custom electronics</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Craftsmanship (the bench) -->
+    <section class="section">
+        <div class="feature-row">
+            <div class="feature-media">
+                <picture>
+                    <source srcset="images/guitar10/display/IMG_5367.webp" type="image/webp">
+                    <img src="images/guitar10/display/IMG_5367.jpg" alt="Hands at the bench — Dorweiler build" loading="lazy" decoding="async">
+                </picture>
+            </div>
+            <div>
+                <div class="eyebrow feature-eyebrow">The bench</div>
+                <h2 class="feature-heading">Every guitar starts at the bench.</h2>
+                <p class="feature-body">I build each instrument one at a time — from selecting the wood to the final setup. Following every step myself lets me carry the same idea through the neck carve, fretwork, electronics, and finish.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest builds (reversed, alt band) -->
+    <div class="band-alt">
+        <section class="section">
+            <div class="feature-row">
+                <div>
+                    <div class="eyebrow feature-eyebrow">Latest builds</div>
+                    <h2 class="feature-heading">Figured woods, shaped into instruments.</h2>
+                    <p class="feature-body">Flame poplar, spalted maple, black limba, stabilized burl — each board is chosen for its figure and tone, then bookmatched, carved, and finished to keep the grain alive at every angle.</p>
+                    <a href="guitars.html" class="text-link">View the gallery →</a>
+                </div>
+                <div class="feature-media">
+                    <picture>
+                        <source srcset="images/guitar8/display/IMG_5388.webp" type="image/webp">
+                        <img src="images/guitar8/display/IMG_5388.jpg" alt="Spalted maple multiscale build" loading="lazy" decoding="async">
+                    </picture>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Selected work -->
+    <section id="work" class="section">
+        <div class="work-head">
+            <div>
+                <div class="eyebrow">Selected work</div>
+                <h2 class="work-title">Recent builds</h2>
+            </div>
+            <a href="guitars.html" class="text-link">View all builds →</a>
+        </div>
+        <div class="work-grid">
+            <a href="guitars/flame-poplar-multiscale.html" class="work-card">
+                <div class="work-card-media">
+                    <picture>
+                        <source srcset="images/guitar11/display/IMG_5753.webp" type="image/webp">
+                        <img src="images/guitar11/display/IMG_5753.jpg" alt="Flame Poplar Multiscale" loading="lazy" decoding="async">
+                    </picture>
+                </div>
+                <h3 class="work-card-name">Flame Poplar Multiscale</h3>
+                <div class="work-card-spec">Flame poplar · 26.5–25.5″</div>
+            </a>
+            <a href="guitars/black-limba-malachite.html" class="work-card">
+                <div class="work-card-media">
+                    <picture>
+                        <source srcset="images/guitar9/display/IMG_5340.webp" type="image/webp">
+                        <img src="images/guitar9/display/IMG_5340.jpg" alt="Black Limba &amp; Malachite" loading="lazy" decoding="async">
+                    </picture>
+                </div>
+                <h3 class="work-card-name">Black Limba &amp; Malachite</h3>
+                <div class="work-card-spec">Black limba · malachite stars</div>
+            </a>
+            <a href="guitars/tobacco-burst-flame-maple.html" class="work-card">
+                <div class="work-card-media">
+                    <picture>
+                        <source srcset="images/guitar7/display/IMG_5333.webp" type="image/webp">
+                        <img src="images/guitar7/display/IMG_5333.jpg" alt="Tobacco Burst Flame Maple" loading="lazy" decoding="async">
+                    </picture>
+                </div>
+                <h3 class="work-card-name">Tobacco Burst Flame Maple</h3>
+                <div class="work-card-spec">Flame maple &amp; ash</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Process band -->
+    <section id="commission" class="commission">
+        <div class="commission-inner">
+            <div>
+                <h2 class="commission-title">Every build has its own story.</h2>
+                <p class="commission-text">Figured woods, hand-shaped details, and the process of turning each idea into a finished instrument. <a href="about.html" class="commission-link">More about how I work →</a></p>
+            </div>
+            <a href="#contact" class="btn-cream">Get in touch →</a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <div id="about" class="band-alt about-band">
+        <section class="section">
+            <div>
+                <div class="eyebrow">About the workshop</div>
+                <h2 class="feature-heading">One builder,<br>one bench.</h2>
+            </div>
+            <div class="about-copy">
+                <p>I build one-off electric guitars from start to finish, with each instrument shaped by decisions about wood, tone, playability, and aesthetics.</p>
+                <p>The result is an instrument with continuity in every detail: the way the neck is carved, the way the frets are dressed, the way the finish is built up to keep the figure alive. Built to be played, not displayed.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+        <div class="contact-grid">
+            <div>
+                <div class="eyebrow contact-eyebrow">Get in touch</div>
+                <h2 class="contact-heading">Get in touch.</h2>
+                <p class="contact-text">Questions about a build, the workshop, or figured wood? Feel free to send me a note.</p>
+                <div class="contact-meta">
+                    <div><span class="label">EMAIL</span> <a href="mailto:info@dorweilerguitars.com">info@dorweilerguitars.com</a></div>
+                    <div><span class="label">SOCIAL</span> <a href="https://instagram.com/dorweiler_guitars" target="_blank" rel="noopener noreferrer">@dorweiler_guitars</a></div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-intro"></div>
+                <form class="contact-form" action="https://formsubmit.co/info@dorweilerguitars.com" method="POST">
+                    <input type="hidden" name="_subject" value="Website contact — dorweilerguitars.com">
+                    <input type="hidden" name="_next" value="https://dorweilerguitars.com/?thanks=1">
+                    <input type="text" name="_honey" class="contact-form-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+                    <div class="form-field">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="message">Your message</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Send message →</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4 class="footer-title">Dorweiler Guitars</h4>
+                <p class="footer-text">Handcrafted guitars built one at a time with figured woods.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Navigation</h4>
+                <nav class="footer-nav">
+                    <a href="guitars.html">Latest Builds</a>
+                    <a href="about.html">About</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Connect</h4>
+                <div class="footer-social">
+                    <a href="https://instagram.com/dorweiler_guitars" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="mailto:info@dorweilerguitars.com" aria-label="Email">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Dorweiler Guitars · Built one at a time</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
