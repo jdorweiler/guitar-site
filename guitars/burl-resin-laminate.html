@@ -69,7 +69,10 @@
                                 <path d="M14.5 5.5L8 12l6.5 6.5" />
                             </svg>
                         </button>
-                        <img id="mainImg" src="images/guitar10/display/IMG_5367.jpg" alt="Burl resin laminate build" decoding="async">
+                        <picture>
+                            <source id="mainImgWebp" srcset="images/guitar10/display/IMG_5367.webp" type="image/webp">
+                            <img id="mainImg" src="images/guitar10/display/IMG_5367.jpg" alt="Burl resin laminate build" decoding="async" fetchpriority="high">
+                        </picture>
                         <button class="gallery-nav gallery-nav--next" type="button" aria-label="Next image" onclick="stepImage(1)">
                             <svg viewBox="0 0 24 24" aria-hidden="true">
                                 <path d="M9.5 5.5L16 12l-6.5 6.5" />
@@ -262,14 +265,29 @@
             currentImageIndex = 0;
         }
 
+        const mainImgWebp = document.getElementById('mainImgWebp');
+        const toWebp = src => src.replace(/\.jpg$/, '.webp');
+
+        // Warm the browser cache so a click swaps in an already-decoded image.
+        function prefetch(index) {
+            const thumb = galleryThumbnails[(index + galleryThumbnails.length) % galleryThumbnails.length];
+            if (!thumb) return;
+            const src = thumb.dataset.displaySrc;
+            if (!src) return;
+            new Image().src = toWebp(src);
+        }
+
         function changeImage(element) {
             if (!element) return;
             const displaySrc = element.dataset.displaySrc || element.dataset.fullSrc;
+            if (mainImgWebp) mainImgWebp.srcset = toWebp(displaySrc);
             mainImg.src = displaySrc;
             currentFullSrc = element.dataset.fullSrc || displaySrc;
             galleryThumbnails.forEach(thumb => thumb.classList.remove('active'));
             element.classList.add('active');
             currentImageIndex = galleryThumbnails.indexOf(element);
+            prefetch(currentImageIndex + 1);
+            prefetch(currentImageIndex - 1);
         }
 
         function stepImage(direction) {
@@ -280,9 +298,19 @@
         }
 
         function openLightbox(imgSrc) {
+            const lightboxImg = document.getElementById('lightboxImg');
             document.getElementById('lightbox').classList.add('active');
-            document.getElementById('lightboxImg').src = imgSrc;
             document.body.style.overflow = 'hidden';
+            // Show the already-loaded display image right away, then swap in the
+            // full-size one once it has downloaded, so the box is never empty.
+            lightboxImg.src = mainImg.currentSrc || mainImg.src;
+            const full = new Image();
+            full.onload = () => {
+                if (document.getElementById('lightbox').classList.contains('active')) {
+                    lightboxImg.src = imgSrc;
+                }
+            };
+            full.src = imgSrc;
         }
 
         function closeLightbox() {
