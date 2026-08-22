@@ -7,6 +7,9 @@
         var b = document.createElement("base");
         var h = location.hostname;
         var p = location.pathname;
+        // Opened straight from disk: leave resolution relative, a base of "/"
+        // would point at the filesystem root.
+        if (location.protocol === "file:") return;
         var isProd = h === "dorweilerguitars.com" || h === "www.dorweilerguitars.com";
         b.href = isProd ? "/" : (p.indexOf("/guitar-site/") === 0 ? "/guitar-site/" : "/");
         document.currentScript.insertAdjacentElement("afterend", b);
@@ -50,13 +53,33 @@
     <!-- Catalog Header -->
     <section class="catalog-header">
         <h1 class="catalog-title">Latest builds</h1>
-        <span class="catalog-meta">10 builds</span>
+        <span class="catalog-meta">11 builds</span>
     </section>
 
     <!-- Catalog (editorial alternating rows) -->
     <div class="catalog">
 
-        <!-- 01 — Flame Poplar Multiscale -->
+        <!-- 01 — Quilted Maple P90 -->
+        <article class="catalog-row">
+            <div class="catalog-inner">
+                <div class="catalog-media">
+                    <img src="images/guitar12/display/IMG_5835.jpg" alt="Quilted Maple P90 build" loading="lazy" decoding="async">
+                </div>
+                <div class="catalog-body">
+                    <h2 class="catalog-name">Quilted Maple P90</h2>
+                    <p class="catalog-desc">Quilted maple over black limba in a tobacco burst, with Wilkinson P90s under birdseye covers cut to match the fretboard and shop-made rosewood dot inlays.</p>
+                    <div class="catalog-specs">
+                        <div><div class="catalog-spec-label">Top</div><div class="catalog-spec-value">Quilted maple</div></div>
+                        <div><div class="catalog-spec-label">Body</div><div class="catalog-spec-value">Black limba</div></div>
+                        <div><div class="catalog-spec-label">Scale</div><div class="catalog-spec-value">25.5″</div></div>
+                        <div><div class="catalog-spec-label">Finish</div><div class="catalog-spec-value">Nitro</div></div>
+                    </div>
+                    <a href="guitars/quilted-maple-p90.html" class="catalog-link">View this build →</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- 02 — Flame Poplar Multiscale -->
         <article class="catalog-row">
             <div class="catalog-inner">
                 <div class="catalog-media">
@@ -76,7 +99,7 @@
             </div>
         </article>
 
-        <!-- 02 — Burl Resin Laminate -->
+        <!-- 03 — Burl Resin Laminate -->
         <article class="catalog-row">
             <div class="catalog-inner">
                 <div class="catalog-media">
@@ -96,7 +119,7 @@
             </div>
         </article>
 
-        <!-- 03 — Black Limba & Malachite -->
+        <!-- 04 — Black Limba & Malachite -->
         <article class="catalog-row">
             <div class="catalog-inner">
                 <div class="catalog-media">
@@ -116,7 +139,7 @@
             </div>
         </article>
 
-        <!-- 04 — Spalted Maple Multiscale -->
+        <!-- 05 — Spalted Maple Multiscale -->
         <article class="catalog-row">
             <div class="catalog-inner">
                 <div class="catalog-media">
@@ -136,7 +159,7 @@
             </div>
         </article>
 
-        <!-- 05 — Tobacco Burst Flame Maple -->
+        <!-- 06 — Tobacco Burst Flame Maple -->
         <article class="catalog-row">
             <div class="catalog-inner">
                 <div class="catalog-media">
@@ -156,7 +179,7 @@
             </div>
         </article>
 
-        <!-- 06 — Blue Burst Flame Maple -->
+        <!-- 07 — Blue Burst Flame Maple -->
         <article class="catalog-row">
             <div class="catalog-inner">
                 <div class="catalog-media">
@@ -176,7 +199,7 @@
             </div>
         </article>
 
-        <!-- 07 — Walnut T-Style -->
+        <!-- 08 — Walnut T-Style -->
         <article class="catalog-row">
             <div class="catalog-inner">
                 <div class="catalog-media">
@@ -196,7 +219,7 @@
             </div>
         </article>
 
-        <!-- 08 — Figured Walnut Tele -->
+        <!-- 09 — Figured Walnut Tele -->
         <article class="catalog-row">
             <div class="catalog-inner">
                 <div class="catalog-media">
@@ -216,7 +239,7 @@
             </div>
         </article>
 
-        <!-- 09 — Quilted Maple Resin River -->
+        <!-- 10 — Quilted Maple Resin River -->
         <article class="catalog-row">
             <div class="catalog-inner">
                 <div class="catalog-media">
@@ -236,7 +259,7 @@
             </div>
         </article>
 
-        <!-- 10 — Flame Maple Burst -->
+        <!-- 11 — Flame Maple Burst -->
         <article class="catalog-row">
             <div class="catalog-inner">
                 <div class="catalog-media">

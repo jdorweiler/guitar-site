@@ -7,6 +7,13 @@
         var b = document.createElement("base");
         var h = location.hostname;
         var p = location.pathname;
+        // Opened straight from disk: assets live one directory up, and a base
+        // of "/" would point at the filesystem root.
+        if (location.protocol === "file:") {
+            b.href = p.replace(/[^/]*\/[^/]*$/, "");
+            document.currentScript.insertAdjacentElement("afterend", b);
+            return;
+        }
         var isProd = h === "dorweilerguitars.com" || h === "www.dorweilerguitars.com";
         b.href = isProd ? "/" : (p.indexOf("/guitar-site/") === 0 ? "/guitar-site/" : "/");
         document.currentScript.insertAdjacentElement("afterend", b);

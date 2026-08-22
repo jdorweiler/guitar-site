@@ -7,6 +7,9 @@
         var b = document.createElement("base");
         var h = location.hostname;
         var p = location.pathname;
+        // Opened straight from disk: leave resolution relative, a base of "/"
+        // would point at the filesystem root.
+        if (location.protocol === "file:") return;
         var isProd = h === "dorweilerguitars.com" || h === "www.dorweilerguitars.com";
         b.href = isProd ? "/" : (p.indexOf("/guitar-site/") === 0 ? "/guitar-site/" : "/");
         document.currentScript.insertAdjacentElement("afterend", b);
@@ -28,7 +31,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="preload" as="image" href="images/guitar11/display/IMG_5758.webp" type="image/webp">
+    <link rel="preload" as="image" href="images/guitar12/display/IMG_5835.webp" type="image/webp">
 </head>
 <body>
     <!-- Header (sticky) -->
@@ -67,8 +70,14 @@
             <div class="hero-carousel">
                 <div class="hero-slide is-active">
                     <picture>
+                        <source srcset="images/guitar12/display/IMG_5835.webp" type="image/webp">
+                        <img src="images/guitar12/display/IMG_5835.jpg" alt="Quilted maple P90 Dorweiler build" decoding="async">
+                    </picture>
+                </div>
+                <div class="hero-slide">
+                    <picture>
                         <source srcset="images/guitar11/display/IMG_5758.webp" type="image/webp">
-                        <img src="images/guitar11/display/IMG_5758.jpg" alt="Flame poplar multiscale Dorweiler build" decoding="async">
+                        <img src="images/guitar11/display/IMG_5758.jpg" alt="Flame poplar multiscale Dorweiler build" loading="lazy" decoding="async">
                     </picture>
                 </div>
                 <div class="hero-slide">
@@ -135,6 +144,16 @@
             <a href="guitars.html" class="text-link">View all builds →</a>
         </div>
         <div class="work-grid">
+            <a href="guitars/quilted-maple-p90.html" class="work-card">
+                <div class="work-card-media">
+                    <picture>
+                        <source srcset="images/guitar12/display/IMG_5835.webp" type="image/webp">
+                        <img src="images/guitar12/display/IMG_5835.jpg" alt="Quilted Maple P90" loading="lazy" decoding="async">
+                    </picture>
+                </div>
+                <h3 class="work-card-name">Quilted Maple P90</h3>
+                <div class="work-card-spec">Quilted maple · Wilkinson P90</div>
+            </a>
             <a href="guitars/flame-poplar-multiscale.html" class="work-card">
                 <div class="work-card-media">
                     <picture>
@@ -154,16 +173,6 @@
                 </div>
                 <h3 class="work-card-name">Black Limba &amp; Malachite</h3>
                 <div class="work-card-spec">Black limba · malachite stars</div>
-            </a>
-            <a href="guitars/tobacco-burst-flame-maple.html" class="work-card">
-                <div class="work-card-media">
-                    <picture>
-                        <source srcset="images/guitar7/display/IMG_5333.webp" type="image/webp">
-                        <img src="images/guitar7/display/IMG_5333.jpg" alt="Tobacco Burst Flame Maple" loading="lazy" decoding="async">
-                    </picture>
-                </div>
-                <h3 class="work-card-name">Tobacco Burst Flame Maple</h3>
-                <div class="work-card-spec">Flame maple &amp; ash</div>
             </a>
         </div>
     </section>

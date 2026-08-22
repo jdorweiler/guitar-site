@@ -7,6 +7,9 @@
         var b = document.createElement("base");
         var h = location.hostname;
         var p = location.pathname;
+        // Opened straight from disk: leave resolution relative, a base of "/"
+        // would point at the filesystem root.
+        if (location.protocol === "file:") return;
         var isProd = h === "dorweilerguitars.com" || h === "www.dorweilerguitars.com";
         b.href = isProd ? "/" : (p.indexOf("/guitar-site/") === 0 ? "/guitar-site/" : "/");
         document.currentScript.insertAdjacentElement("afterend", b);
